@@ -32,7 +32,9 @@ synthetic:
   train: {generator: qwen, n_specs: 1800, term_pool: train}
   val: {generator: qwen, n_specs: 180, term_pool: train}
   test_synth: {generator: qwen, n_specs: 300, term_pool: mixed}
-  test_xgen: {generator: nemotron, n_specs: 300, term_pool: mixed}
+  # Nemotron follows the long spec less reliably (~25% acceptance with 6 attempts, measured on 40 specs),
+  # so more specs and attempts are requested; accepted notes skew toward simpler specs (see report).
+  test_xgen: {generator: nemotron, n_specs: 1000, term_pool: mixed, retries: 5}
   # In "mixed" specs, each entity category draws from the held-out pool with this probability.
   mixed_heldout_prob: 0.5
 

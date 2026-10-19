@@ -157,4 +157,20 @@ confusion matrices, error analysis, REPORT.md, CUSTOMER_SUMMARY.md, README.md, m
 
 ## Amendments
 
-(none yet)
+All amendments below were made before any model was evaluated on any test split.
+
+1. **2026-10-19 — Task C gains a `diagnoses` field (11 fields).** Confirmed current diagnoses needed their own
+   field; otherwise they would be forced into `suspected_diagnosis` or dropped. Decided while writing the
+   interface contract, before data generation.
+2. **2026-10-19 — test_xgen volume.** The Nemotron generator follows long specs less reliably than the Qwen
+   generator: 10% acceptance at 3 attempts (10 specs) and 25% at 6 attempts (40 specs), mostly from omitted
+   required terms. The validator was NOT relaxed (that would create wrong gold labels). Instead test_xgen
+   requests 1,000 specs with up to 6 attempts each. Consequence: accepted test_xgen notes skew toward simpler
+   specs, so absolute scores on test_xgen and test_synth are not comparable; only within-set comparisons
+   between conditions are interpreted.
+3. **2026-10-19 — Real-text training data is small.** After the pre-registered leakage rule (containment
+   ≥ 0.2 vs any JMED-LLM eval document), 40 MedTxt-CR case reports and 7 MedTxt-RR test reports remain
+   (≈ 50 NER items). External transfer to JMED-LLM therefore depends mainly on the synthetic tasks.
+4. **2026-10-19 — E2t (Swallow with reasoning) is run on the medical test sets only** (test_synth, test_xgen,
+   test_ext), not on the 3,726 test_general items, because thinking-mode decoding of up to 4,096 tokens per
+   item is ~20× more expensive and H3 concerns E3 vs E1 only.
