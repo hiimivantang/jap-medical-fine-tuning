@@ -268,6 +268,22 @@ docker stop jmedft-xgen
 reused only if its request fingerprint (model, decoding, prompt) matches, so an interrupted run can be restarted
 with the same command.
 
+## License
+
+The code in this repository is licensed under the [Apache License 2.0](LICENSE). See [`NOTICE`](NOTICE) for
+attributions.
+
+The Apache License covers the code only:
+
+- **Third-party datasets** keep their own licences and are not redistributed here; `fetch_external_data.sh`
+  downloads them.
+  - JMED-LLM disease/medicine/CRADE/RRTNM, MedTxt and RR-TNM are CC BY 4.0, and any use requires attribution.
+  - JGLUE and JMMLU-Med are CC BY-SA 4.0 and are used for evaluation only.
+  - Details and excluded datasets are in [`docs/DATASETS.md`](docs/DATASETS.md).
+- **The LoRA adapter** is a derivative of Qwen3-8B (Apache-2.0) and is provided under Apache-2.0.
+- **Synthetic notes** were generated with Qwen3.8-27B (Apache-2.0) and Nemotron-3.5-Lightning (OpenMDW-1.1); neither
+  licence restricts use of outputs. No OpenAI output was used for training.
+
 ## Safety and scope
 
 All synthetic notes describe fictional patients; a validator rejects dates, phone numbers and postcodes. No real

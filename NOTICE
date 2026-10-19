@@ -1,0 +1,57 @@
+Japanese medical LoRA fine-tuning on NVIDIA DGX Spark — Experiment 01
+Copyright 2026 Ivan Tang
+
+This product's source code is licensed under the Apache License, Version 2.0 (see LICENSE).
+The Apache License covers the code in this repository only. Third-party data, models and generated
+artefacts listed below are distributed or used under their own terms.
+
+-------------------------------------------------------------------------------------------------
+Third-party datasets (not redistributed in this repository; fetched by
+experiments/01_finetuning/scripts/fetch_external_data.sh)
+-------------------------------------------------------------------------------------------------
+
+JMED-LLM (sociocom, NAIST), commit 3774a34e4a26a7b8a7851f421ecad91a04c2f59b
+  https://github.com/sociocom/JMED-LLM
+  Subsets used: MRNER-disease, MRNER-medicine, CRADE, RRTNM (CC BY 4.0); JMMLU-Med (CC BY-SA 4.0).
+  Used for evaluation only.
+
+NTCIR-16 Real-MedNLP test collection (MedTxt-CR-JA, MedTxt-RR-JA), CC BY 4.0
+  https://sociocom.naist.jp/download/real-mednlp-test-collection/
+  S. Yada, Y. Nakamura, S. Wakamiya, E. Aramaki. Real-MedNLP: Overview of REAL document-based
+  MEDical Natural Language Processing Task. NTCIR-16, 2022.
+  A subset of documents (those not overlapping JMED-LLM evaluation items) was converted into
+  training examples.
+
+NTCIR-17 MedNLP-SC RR-TNM, CC BY 4.0
+  https://sociocom.naist.jp/download/mednlp-sc-rr-tnm/
+  Y. Nakamura, S. Hanaoka, S. Yada, S. Wakamiya, E. Aramaki. NTCIR-17 MedNLP-SC Radiology Report
+  Subtask Overview: Dataset and Solutions for Automated Lung Cancer Staging. NTCIR-17, 2023.
+  Referenced for leakage analysis only (via JMED-LLM RRTNM).
+
+JGLUE v1.3 (Yahoo Japan), commit 6f071c09316baae89c3d083a90985b4b1cb9968c, CC BY-SA 4.0
+  https://github.com/yahoojapan/JGLUE
+  K. Kurihara, D. Kawahara, T. Shibata. JGLUE: Japanese General Language Understanding Evaluation.
+  LREC 2022.
+  JCommonsenseQA and JNLI test splits, used for evaluation only.
+
+JMMLU (Waseda University), CC BY-SA 4.0 (medical subjects, via JMED-LLM)
+  https://github.com/nlp-waseda/JMMLU
+  Used for evaluation only.
+
+-------------------------------------------------------------------------------------------------
+Models
+-------------------------------------------------------------------------------------------------
+
+Qwen3-8B (Alibaba Cloud), Apache License 2.0, revision b968826d9c46dd6066d109eabc6255188de91218
+  https://huggingface.co/Qwen/Qwen3-8B
+  Base model of the LoRA adapter in experiments/01_finetuning/results/adapters/. The adapter is a
+  derivative of Qwen3-8B and is provided under the Apache License 2.0.
+
+Qwen3.8-27B-FP8 (Alibaba Cloud), Apache License 2.0 — used to generate synthetic training/test notes.
+NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4 (NVIDIA), OpenMDW License 1.1 — used to generate the
+  cross-generator test notes. The OpenMDW License places no restrictions on generated outputs.
+Qwen3-Swallow-8B-RL-v0.2 and Medical-Qwen3-Swallow-8B (Swallow LLM Team), Apache License 2.0 —
+  evaluated as comparison models; not redistributed.
+
+No OpenAI model output was used to create training data. OpenAI models were queried for evaluation
+only.
