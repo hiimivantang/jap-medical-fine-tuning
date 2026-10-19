@@ -1,0 +1,12 @@
+{
+  "file": "data/synthetic/train.raw.jsonl",
+  "accepted_before": 1609,
+  "accepted_after": 1367,
+  "violation_counts": {
+    "cc_stated_but_unspecified": 179,
+    "cc_multiple_symptoms": 30,
+    "past_history_not_marked": 12,
+    "dx_as_past_history": 36,
+    "cc_missing": 9
+  }
+}

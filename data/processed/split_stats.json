@@ -1,0 +1,56 @@
+{
+  "seed": 20261019,
+  "sft": {
+    "train": 4151,
+    "val": 405,
+    "train_by_task": {
+      "A_entities": 1367,
+      "C_structured": 1367,
+      "B_doctype": 1367,
+      "ext_mrner_disease": 47,
+      "ext_mrner_medicine": 3
+    },
+    "train_by_source": {
+      "synthetic:qwen3.8-27b": 4101,
+      "MedTxt-CR-JA": 43,
+      "MedTxt-RR-JA": 7
+    }
+  },
+  "eval": {
+    "val": {
+      "A_entities": 135,
+      "B_doctype": 135,
+      "C_structured": 135
+    },
+    "test_synth": {
+      "A_entities": 223,
+      "B_doctype": 223,
+      "C_structured": 223
+    },
+    "test_xgen": {
+      "A_entities": 215,
+      "B_doctype": 215,
+      "C_structured": 215
+    },
+    "test_ext": {
+      "ext_mrner_disease": 100,
+      "ext_mrner_medicine": 100,
+      "ext_crade": 100,
+      "ext_rrtnm": 100
+    },
+    "test_general": {
+      "gen_jcqa": 1118,
+      "gen_jnli": 2508,
+      "gen_jmmlu_med": 100
+    }
+  },
+  "near_dup_dropped": {
+    "test_synth": 0,
+    "test_xgen": 0
+  },
+  "medtxt_removed_for_overlap": {
+    "CR": 107,
+    "RR": 56
+  },
+  "train_eval_prompt_overlap": 0
+}

@@ -1,0 +1,101 @@
+{
+  "best_global_step": 30,
+  "best_metric": 0.06758742034435272,
+  "best_model_checkpoint": "/home/ivantang-dgxspark/repos/jap-medical-fine-tuning/experiments/01_finetuning/results/training/smoke/checkpoint-30",
+  "epoch": 0.6,
+  "eval_steps": 15,
+  "global_step": 30,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 0.1,
+      "grad_norm": 0.002287714509293437,
+      "learning_rate": 9.738265855914013e-05,
+      "loss": 0.40258374214172366,
+      "step": 5
+    },
+    {
+      "epoch": 0.2,
+      "grad_norm": 0.5435301661491394,
+      "learning_rate": 8.236931423909138e-05,
+      "loss": 0.11245958805084229,
+      "step": 10
+    },
+    {
+      "epoch": 0.3,
+      "grad_norm": 0.0018209416884928942,
+      "learning_rate": 5.808909982763825e-05,
+      "loss": 0.1183575987815857,
+      "step": 15
+    },
+    {
+      "epoch": 0.3,
+      "eval_loss": 0.0904417559504509,
+      "eval_runtime": 21.0237,
+      "eval_samples_per_second": 1.903,
+      "eval_steps_per_second": 1.903,
+      "step": 15
+    },
+    {
+      "epoch": 0.4,
+      "grad_norm": 0.3407895565032959,
+      "learning_rate": 3.149309223300428e-05,
+      "loss": 0.03828394711017609,
+      "step": 20
+    },
+    {
+      "epoch": 0.5,
+      "grad_norm": 0.6696667075157166,
+      "learning_rate": 1.0195346714717813e-05,
+      "loss": 0.036711123585700986,
+      "step": 25
+    },
+    {
+      "epoch": 0.6,
+      "grad_norm": 0.0011695604771375656,
+      "learning_rate": 2.9310214228202013e-07,
+      "loss": 0.03333331644535065,
+      "step": 30
+    },
+    {
+      "epoch": 0.6,
+      "eval_loss": 0.06758742034435272,
+      "eval_runtime": 20.1323,
+      "eval_samples_per_second": 1.987,
+      "eval_steps_per_second": 1.987,
+      "step": 30
+    },
+    {
+      "epoch": 0.6,
+      "step": 30,
+      "total_flos": 2912156516352000.0,
+      "train_loss": 0.12362155268589656,
+      "train_runtime": 258.8573,
+      "train_samples_per_second": 0.464,
+      "train_steps_per_second": 0.116
+    }
+  ],
+  "logging_steps": 5,
+  "max_steps": 30,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 1,
+  "save_steps": 15,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": true
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 2912156516352000.0,
+  "train_batch_size": 1,
+  "trial_name": null,
+  "trial_params": null
+}

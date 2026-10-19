@@ -4,11 +4,30 @@ Can a small open-weight model (Qwen3-8B) fine-tuned with LoRA on Japanese medica
 tasks match or beat (a) the untuned model, (b) a Japanese-specialised model of the same size
 (Qwen3-Swallow-8B) and (c) an OpenAI reference — without losing general Japanese ability?
 
-- Report: `REPORT.md` · customer summary: `CUSTOMER_SUMMARY.md` (written by the final reporting step; not yet generated)
+- Report: [`REPORT.md`](REPORT.md) · customer summary: [`CUSTOMER_SUMMARY.md`](CUSTOMER_SUMMARY.md)
 - Pre-registered design: [`docs/PREREGISTRATION.md`](docs/PREREGISTRATION.md) · data licences & leakage controls:
   [`docs/DATASETS.md`](docs/DATASETS.md) · data quality review: [`docs/DATA_QUALITY.md`](docs/DATA_QUALITY.md)
-- Machine-readable results: `experiments/01_finetuning/results/metrics/` · manifest:
-  `experiments/01_finetuning/results/manifest.json` (written by `jmedft report`)
+- Machine-readable results: [`experiments/01_finetuning/results/metrics/`](experiments/01_finetuning/results/metrics/)
+  · manifest: [`experiments/01_finetuning/results/manifest.json`](experiments/01_finetuning/results/manifest.json)
+  · charts: [`experiments/01_finetuning/results/figures/`](experiments/01_finetuning/results/figures/)
+
+## Results at a glance
+
+Primary metric on held-out data (95% bootstrap CIs and all other metrics in `REPORT.md`):
+
+| | Qwen3-8B | Swallow-8B | **Qwen3-8B + LoRA** | GPT-4.1 |
+|---|---|---|---|---|
+| A entity F1 (synthetic test) | 0.951 | 0.870 | **0.997** | 0.962 |
+| B doc-type macro-F1 (synthetic test) | 0.622 | 0.404 | **0.988** | 0.711 |
+| C field accuracy (synthetic test) | 0.906 | 0.876 | **0.993** | 0.902 |
+| B doc-type macro-F1 (other-generator test) | 0.335 | 0.213 | **0.789** | 0.556 |
+| JMED-LLM MRNER-disease F1 (real reports) | 0.265 | 0.171 | **0.473** | 0.110 |
+| JMED-LLM RRTNM accuracy (real reports, untrained task) | 0.770 | 0.680 | 0.690 | **0.910** |
+| JCommonsenseQA accuracy (general Japanese) | 0.903 | 0.926 | 0.897 | **0.970** |
+
+H1 (LoRA improves the trained tasks), H2 (beyond Japanese-specialised Swallow) and H3 (no general-Japanese
+degradation, 2-point margin) are all **supported** under the pre-registered rules. On untrained real-world medical
+tasks the adapter did not help and OpenAI models stay clearly ahead; see `REPORT.md` §4 and §8.
 
 ## Tasks
 

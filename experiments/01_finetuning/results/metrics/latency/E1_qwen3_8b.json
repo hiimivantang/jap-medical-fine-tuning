@@ -1,0 +1,39 @@
+{
+ "condition": "E1_qwen3_8b",
+ "model": "qwen3-8b",
+ "split": "test_synth",
+ "warmup_discarded": 3,
+ "single_stream": {
+  "n": 30,
+  "n_errors": 0,
+  "wall_s": 153.474,
+  "latency_s": {
+   "p50": 4.3265,
+   "p90": 9.995750000000001,
+   "p95": 10.374614999999999,
+   "mean": 5.115709999999999
+  },
+  "output_tokens_mean": 68.4,
+  "prompt_tokens_mean": 470.06666666666666,
+  "requests_per_s": 0.19547325314610547,
+  "output_tokens_per_s": 13.370370515193613,
+  "input_tokens_per_s": 91.8854605288793
+ },
+ "batched": {
+  "n": 150,
+  "n_errors": 0,
+  "wall_s": 36.414,
+  "latency_s": {
+   "p50": 5.326700000000001,
+   "p90": 12.49235,
+   "p95": 12.90968,
+   "mean": 6.229648
+  },
+  "output_tokens_mean": 68.46666666666667,
+  "prompt_tokens_mean": 485.62666666666667,
+  "requests_per_s": 4.119339278467708,
+  "output_tokens_per_s": 282.0374292657557,
+  "input_tokens_per_s": 2000.4610026713447,
+  "concurrency": 32
+ }
+}

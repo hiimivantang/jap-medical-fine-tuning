@@ -1,0 +1,39 @@
+{
+ "condition": "E4b_gpt54mini",
+ "model": "gpt-5.4-mini-2026-03-17",
+ "split": "test_synth",
+ "warmup_discarded": 3,
+ "single_stream": {
+  "n": 30,
+  "n_errors": 0,
+  "wall_s": 43.396,
+  "latency_s": {
+   "p50": 1.45635,
+   "p90": 1.8246000000000002,
+   "p95": 2.0356449999999993,
+   "mean": 1.4464633333333337
+  },
+  "output_tokens_mean": 160.96666666666667,
+  "prompt_tokens_mean": 494.3333333333333,
+  "requests_per_s": 0.6913036319652106,
+  "output_tokens_per_s": 111.27684129200007,
+  "input_tokens_per_s": 341.73442873480246
+ },
+ "batched": {
+  "n": 150,
+  "n_errors": 0,
+  "wall_s": 15.826,
+  "latency_s": {
+   "p50": 1.5021499999999999,
+   "p90": 2.0475899999999996,
+   "p95": 2.18465,
+   "mean": 1.490392666666667
+  },
+  "output_tokens_mean": 163.80666666666667,
+  "prompt_tokens_mean": 509.49333333333334,
+  "requests_per_s": 9.477971391897217,
+  "output_tokens_per_s": 1552.5549004687102,
+  "input_tokens_per_s": 4828.963237695686,
+  "concurrency": 16
+ }
+}

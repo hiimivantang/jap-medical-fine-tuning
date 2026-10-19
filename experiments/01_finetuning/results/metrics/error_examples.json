@@ -1,0 +1,4011 @@
+{
+ "E1_qwen3_8b/test_synth/A_entities": [
+  {
+   "id": "test_synth-00005-A_entities",
+   "source_excerpt": "男性\n主訴：不安感\n\n現病歴：\n不安感、腹痛、腰痛、全身倦怠感を主訴に受診した。記憶障害は認めない。\n\n既往歴：\n尿路結石、パーキンソン病、胃癌\n\n内服薬：\nロサルタン\n\n検査・画像所見：\n脳波検査：てんかん性放電を認める。\n腰椎MRI：腰部脊柱管狭窄症を認める。\n\n印象：\nてんかん\n腰部脊柱管狭窄症",
+   "gold": {
+    "symptoms": [
+     "不安感",
+     "腹痛",
+     "腰痛",
+     "全身倦怠感"
+    ],
+    "diseases": [
+     "尿路結石",
+     "パーキンソン病",
+     "胃癌",
+     "てんかん",
+     "腰部脊柱管狭窄症"
+    ],
+    "medications": [
+     "ロサルタン"
+    ]
+   },
+   "output": "{\"symptoms\": [\"不安感\", \"腹痛\", \"腰痛\", \"全身倦怠感\"], \"diseases\": [\"尿路結石\", \"パーキンソン病\", \"胃癌\", \"腰部脊柱管狭窄症\"], \"medications\": [\"ロサルタン\"]}",
+   "score_record": {
+    "id": "test_synth-00005-A_entities",
+    "tp": 9,
+    "fp": 0,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 1,
+      "fp_values": [],
+      "fn_values": [
+       "てんかん"
+      ]
+     },
+     "medications": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00015-A_entities",
+   "source_excerpt": "47歳女性。意識障害を主訴に受診。\nバイタルサイン測定時、血圧、脈拍、体温、酸素飽和度を記録。患者は構音障害を認め、コミュニケーションに支障がある状態。全身倦怠感が強く、ベッド上での体位変換や身辺世話が必要。寝汗がみられ、衣類の湿潤がある。\n悪寒は認めない。呼吸困難なし。\n既往歴として、子宮筋腫、脳梗塞、胆石症の診断歴あり。\n家族歴については、祖母が胃癌、母がうつ病と記載。\n現在、ランソプラゾール、フェブキソスタット、クエン酸第一鉄、フルチカゾンを内服中。\nNSAIDsに対す",
+   "gold": {
+    "symptoms": [
+     "意識障害",
+     "寝汗",
+     "構音障害",
+     "全身倦怠感"
+    ],
+    "diseases": [
+     "子宮筋腫",
+     "脳梗塞",
+     "胆石症"
+    ],
+    "medications": [
+     "ランソプラゾール",
+     "フェブキソスタット",
+     "クエン酸第一鉄",
+     "フルチカゾン"
+    ]
+   },
+   "output": "{\"symptoms\": [\"意識障害\", \"構音障害\", \"全身倦怠感\", \"寝汗\", \"衣類の湿潤\"], \"diseases\": [\"子宮筋腫\", \"脳梗塞\", \"胆石症\"], \"medications\": [\"ランソプラゾール\", \"フェブキソスタット\", \"クエン酸第一鉄\", \"フルチカゾン\"]}",
+   "score_record": {
+    "id": "test_synth-00015-A_entities",
+    "tp": 11,
+    "fp": 1,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "衣類の湿潤"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00016-A_entities",
+   "source_excerpt": "○○先生\n\nいつもお世話になっております。\n当院を受診した患者について、貴院にてご高診のほどよろしくお願い申し上げます。\n\n【患者情報】\n男性\nアレルギー：甲殻類\n\n【主訴】\n肩こり\n\n【現病歴】\n肩こりを主訴に当院を受診しました。\n診察上、肩こりは認めましたが、のどの痛みや鼻汁は認めない。\n既往歴にててんかんがあり、現在、クエン酸第一鉄、フェブキソスタット、クラリスロマイシンを内服中である。\n\n【所見・検査】\n今回の受診にて大腸癌と診断された。\nまた、胆石症の可能性も考慮し",
+   "gold": {
+    "symptoms": [
+     "肩こり"
+    ],
+    "diseases": [
+     "てんかん",
+     "大腸癌"
+    ],
+    "medications": [
+     "クエン酸第一鉄",
+     "フェブキソスタット",
+     "クラリスロマイシン"
+    ]
+   },
+   "output": "{\"symptoms\": [\"肩こり\"], \"diseases\": [\"大腸癌\", \"胆石症\"], \"medications\": [\"クエン酸第一鉄\", \"フェブキソスタット\", \"クラリスロマイシン\"]}",
+   "score_record": {
+    "id": "test_synth-00016-A_entities",
+    "tp": 5,
+    "fp": 1,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 1,
+      "fp_values": [
+       "胆石症"
+      ],
+      "fn_values": [
+       "てんかん"
+      ]
+     },
+     "medications": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00017-A_entities",
+   "source_excerpt": "45歳 女性\n主訴：不安感\n\n【検査・画像所見】\n心電図：ST低下を認める。\n血液検査：ヘモグロビン値低下、フェリチン値低下を認める。\n腹部CT：胃壁の厚み増大、粘膜の潰瘍性変化を認める。\n頭部MRI：急性期および亜急性期の脳梗塞病巣を認める。\n心臓エコー：左室壁運動異常を認める。\n\n【臨床経過・所見】\n患者は不安感を主訴に受診。現症として不安感、腰痛を認める。\n検査所見より、冠動脈疾患による虚血性心疾患（狭心症）および脳循環障害（脳梗塞）が確定した。\nまた、貧血所見から鉄欠",
+   "gold": {
+    "symptoms": [
+     "不安感",
+     "腰痛"
+    ],
+    "diseases": [
+     "急性心筋梗塞",
+     "狭心症",
+     "脳梗塞"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\": [\"不安感\", \"腰痛\"], \"diseases\": [\"冠動脈疾患による虚血性心疾患（狭心症）\", \"脳循環障害（脳梗塞）\", \"急性心筋梗塞\"], \"medications\": []}",
+   "score_record": {
+    "id": "test_synth-00017-A_entities",
+    "tp": 3,
+    "fp": 2,
+    "fn": 2,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 2,
+      "fn": 2,
+      "fp_values": [
+       "冠動脈疾患による虚血性心疾患(狭心症)",
+       "脳循環障害(脳梗塞)"
+      ],
+      "fn_values": [
+       "狭心症",
+       "脳梗塞"
+      ]
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00018-A_entities",
+   "source_excerpt": "23歳。鼻出血を主訴として受診。\nバイタルサイン測定を実施した。発熱を認め、体温は上昇している。のどの痛みを訴えている。悪寒は認めない。喘鳴なし。\n既往歴として胃潰瘍、心不全の診断がある。家族歴として叔父が2型糖尿病と診断されている。\n現在の内服薬はフルチカゾン、ランソプラゾールである。\nアレルギー歴として局所麻酔薬、牛乳がある。\n問診および身体所見より、関節リウマチの疑い、急性上気道炎の可能性が考えられる。\n患部を観察し、出血状態を確認した。患者に安静を保つよう指導し、反応",
+   "gold": {
+    "symptoms": [
+     "鼻出血",
+     "のどの痛み",
+     "発熱"
+    ],
+    "diseases": [
+     "胃潰瘍",
+     "心不全"
+    ],
+    "medications": [
+     "フルチカゾン",
+     "ランソプラゾール"
+    ]
+   },
+   "output": "{\"symptoms\": [\"発熱\", \"のどの痛み\"], \"diseases\": [\"胃潰瘍\", \"心不全\"], \"medications\": [\"フルチカゾン\", \"ランソプラゾール\"]}",
+   "score_record": {
+    "id": "test_synth-00018-A_entities",
+    "tp": 6,
+    "fp": 0,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 1,
+      "fp_values": [],
+      "fn_values": [
+       "鼻出血"
+      ]
+     },
+     "diseases": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E1_qwen3_8b/test_synth/C_structured": [
+  {
+   "id": "test_synth-00005-C_structured",
+   "source_excerpt": "男性\n主訴：不安感\n\n現病歴：\n不安感、腹痛、腰痛、全身倦怠感を主訴に受診した。記憶障害は認めない。\n\n既往歴：\n尿路結石、パーキンソン病、胃癌\n\n内服薬：\nロサルタン\n\n検査・画像所見：\n脳波検査：てんかん性放電を認める。\n腰椎MRI：腰部脊柱管狭窄症を認める。\n\n印象：\nてんかん\n腰部脊柱管狭窄症",
+   "gold": {
+    "age": null,
+    "sex": "男性",
+    "chief_complaint": "不安感",
+    "symptoms": [
+     "不安感",
+     "腹痛",
+     "腰痛",
+     "全身倦怠感"
+    ],
+    "negated_symptoms": [
+     "記憶障害"
+    ],
+    "past_history": [
+     "尿路結石",
+     "パーキンソン病",
+     "胃癌"
+    ],
+    "family_history": [],
+    "medications": [
+     "ロサルタン"
+    ],
+    "allergies": [],
+    "diagnoses": [
+     "てんかん",
+     "腰部脊柱管狭窄症"
+    ],
+    "suspected_diagnosis": []
+   },
+   "output": "{\"age\": null, \"sex\": \"男性\", \"chief_complaint\": \"不安感\", \"symptoms\": [\"不安感\", \"腹痛\", \"腰痛\", \"全身倦怠感\"], \"negated_symptoms\": [\"記憶障害\"], \"past_history\": [\"尿路結石\", \"パーキンソン病\", \"胃癌\"], \"family_history\": [], \"medications\": [\"ロサルタン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"てんかん\", \"腰部脊柱管狭窄症\"]}",
+   "score_record": {
+    "id": "test_synth-00005-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": false,
+     "suspected_diagnosis": false
+    },
+    "list_tp": 9,
+    "list_fp": 2,
+    "list_fn": 2,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00006-C_structured",
+   "source_excerpt": "67歳 男性\n\n主訴：記憶障害\n\n現病歴：記憶障害を主訴に受診した。\n\n既往歴：慢性腎臓病、腰部脊柱管狭窄症\n\n家族歴：父 急性心筋梗塞\n\n内服薬：ファモチジン、アレンドロン酸、クエン酸第一鉄\n\nアレルギー歴：ペニシリン、NSAIDs\n\n検査所見\n脳MRI：海馬萎縮を伴う大脳萎縮所見を認める。\n\n印象\n記憶障害\n肩こりは認めない",
+   "gold": {
+    "age": 67,
+    "sex": "男性",
+    "chief_complaint": "記憶障害",
+    "symptoms": [
+     "記憶障害"
+    ],
+    "negated_symptoms": [
+     "肩こり"
+    ],
+    "past_history": [
+     "慢性腎臓病",
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [
+     "急性心筋梗塞"
+    ],
+    "medications": [
+     "ファモチジン",
+     "アレンドロン酸",
+     "クエン酸第一鉄"
+    ],
+    "allergies": [
+     "ペニシリン",
+     "NSAIDs"
+    ],
+    "diagnoses": [],
+    "suspected_diagnosis": []
+   },
+   "output": "{\"age\": 67, \"sex\": \"男性\", \"chief_complaint\": \"記憶障害\", \"symptoms\": [\"記憶障害\"], \"negated_symptoms\": [\"肩こりは認めない\"], \"past_history\": [\"慢性腎臓病\", \"腰部脊柱管狭窄症\"], \"family_history\": [\"急性心筋梗塞\"], \"medications\": [\"ファモチジン\", \"アレンドロン酸\", \"クエン酸第一鉄\"], \"allergies\": [\"ペニシリン\", \"NSAIDs\"], \"diagnoses\": [\"記憶障害\"], \"suspected_diagnosis\": []}",
+   "score_record": {
+    "id": "test_synth-00006-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": false,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 9,
+    "list_fp": 2,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00007-C_structured",
+   "source_excerpt": "86歳 男性\n\n【現病歴】\n悪寒を主訴に受診。関節痛、しびれも認められる。\n\n【既往歴】\n気管支喘息\n\n【家族歴】\n妹：大腸癌\n母：睡眠時無呼吸症候群\n\n【内服薬】\nオセルタミビル\nアモキシシリン\n\n【検査・画像所見】\n腹部超音波検査\n右側腹部に圧痛を認める。虫垂の肥大、周囲の脂肪組織の混濁を認める。\n\n【診断】\n虫垂炎の疑い",
+   "gold": {
+    "age": 86,
+    "sex": "男性",
+    "chief_complaint": "悪寒",
+    "symptoms": [
+     "悪寒",
+     "関節痛",
+     "しびれ"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "気管支喘息"
+    ],
+    "family_history": [
+     "大腸癌",
+     "睡眠時無呼吸症候群"
+    ],
+    "medications": [
+     "オセルタミビル",
+     "アモキシシリン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "虫垂炎"
+    ]
+   },
+   "output": "{\"age\": 86, \"sex\": \"男性\", \"chief_complaint\": \"悪寒\", \"symptoms\": [\"関節痛\", \"しびれ\"], \"negated_symptoms\": [], \"past_history\": [\"気管支喘息\"], \"family_history\": [\"大腸癌\", \"睡眠時無呼吸症候群\"], \"medications\": [\"オセルタミビル\", \"アモキシシリン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"虫垂炎の疑い\"]}",
+   "score_record": {
+    "id": "test_synth-00007-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": false
+    },
+    "list_tp": 7,
+    "list_fp": 1,
+    "list_fn": 2,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 9,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00009-C_structured",
+   "source_excerpt": "S.\n44歳。主訴は歩行困難。腰痛を伴う。冷汗は認めない。既往歴として逆流性食道炎、鉄欠乏性貧血あり。家族歴として父にうつ病あり。内服薬はミロガバリン、リバーロキサバン、フロセミドを使用している。\n\nO.\n診察所見。\n\nA.\n腰部脊柱管狭窄症、白内障と診断。心不全の可能性を考慮。\n\nP.\n経過観察。",
+   "gold": {
+    "age": 44,
+    "sex": null,
+    "chief_complaint": "歩行困難",
+    "symptoms": [
+     "歩行困難",
+     "腰痛"
+    ],
+    "negated_symptoms": [
+     "冷汗"
+    ],
+    "past_history": [
+     "逆流性食道炎",
+     "鉄欠乏性貧血"
+    ],
+    "family_history": [
+     "うつ病"
+    ],
+    "medications": [
+     "ミロガバリン",
+     "リバーロキサバン",
+     "フロセミド"
+    ],
+    "allergies": [],
+    "diagnoses": [
+     "腰部脊柱管狭窄症",
+     "白内障"
+    ],
+    "suspected_diagnosis": [
+     "心不全"
+    ]
+   },
+   "output": "{\"age\": 44, \"sex\": null, \"chief_complaint\": \"歩行困難\", \"symptoms\": [\"腰痛\"], \"negated_symptoms\": [\"冷汗は認めない\"], \"past_history\": [\"逆流性食道炎\", \"鉄欠乏性貧血\"], \"family_history\": [\"うつ病\"], \"medications\": [\"ミロガバリン\", \"リバーロキサバン\", \"フロセミド\"], \"allergies\": [], \"diagnoses\": [\"腰部脊柱管狭窄症\", \"白内障\"], \"suspected_diagnosis\": [\"心不全\"]}",
+   "score_record": {
+    "id": "test_synth-00009-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 10,
+    "list_fp": 1,
+    "list_fn": 2,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00010-C_structured",
+   "source_excerpt": "49歳男性。主訴は鼻汁。\n\nバイタルサイン測定時に、患者より鼻汁が出ると訴えあり。診察室にて身体所見を確認したところ、浮腫は認めない。呼吸困難なし。\n\n既往歴として、てんかん、腰部脊柱管狭窄症の診断歴がある。現在、メトホルミンを内服中。\n\n本日実施された検査結果および臨床所見に基づき、逆流性食道炎の疑い、大腸ポリープの可能性が示唆されている。\n\n患者は落ち着いており、説明に対し首肯していた。経過観察を指示された。",
+   "gold": {
+    "age": 49,
+    "sex": "男性",
+    "chief_complaint": "鼻汁",
+    "symptoms": [
+     "鼻汁"
+    ],
+    "negated_symptoms": [
+     "浮腫",
+     "呼吸困難"
+    ],
+    "past_history": [
+     "てんかん",
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [],
+    "medications": [
+     "メトホルミン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "逆流性食道炎",
+     "大腸ポリープ"
+    ]
+   },
+   "output": "{\"age\": 49, \"sex\": \"男性\", \"chief_complaint\": \"鼻汁\", \"symptoms\": [\"鼻汁\"], \"negated_symptoms\": [\"浮腫は認めない\", \"呼吸困難なし\"], \"past_history\": [\"てんかん\", \"腰部脊柱管狭窄症\"], \"family_history\": [], \"medications\": [\"メトホルミン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"逆流性食道炎\", \"大腸ポリープ\"]}",
+   "score_record": {
+    "id": "test_synth-00010-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 6,
+    "list_fp": 2,
+    "list_fn": 2,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 9,
+    "exact": false
+   }
+  }
+ ],
+ "E1_qwen3_8b/test_xgen/B_doctype": [
+  {
+   "id": "test_xgen-00018-B_doctype",
+   "source_excerpt": "87歳の男性が、冷汗と肩こりを主訴に来院した。現在、冷汗と肩こりが認められる。寝汗は認めない。過去に虫垂炎、てんかん、心不全の診断がある。妹に気管支喘息、祖父に慢性胃炎がある。現在、レボフロキサシン、クラリスロマイシン、ファモチジンを内服中。小麦に対するアレルギーがある。インフルエンザの疑いと慢性閉塞性肺疾患の可能性がある。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00018-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00026-B_doctype",
+   "source_excerpt": "ご高診のほどよろしくお願い申し上げます。\n\n患者は76歳の男性です。主訴は片麻痺です。現在、片麻痺と便秘が認められています。冷汗、不安感は認めないとのことです。過去に腰部脊柱管狭窄症と診断されております。母は緑内障です。現在、レバミピド、アスピリンを内服中でございます。カニ、ペニシリンに対してアレルギー反応があるとのことです。今回の診断としては大腸ポリープ、慢性腎臓病が判明しております。心不全の可能性は否定できない状況でございます。",
+   "gold": {
+    "label": "紹介状"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00026-B_doctype",
+    "gold": "紹介状",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00031-B_doctype",
+   "source_excerpt": "ご高診のほどよろしくお願い申し上げます。\n\n患者は68歳の男性で、主訴として構音障害を訴えて来院されました。診察の結果、現在、構音障害と血尿を認めています。腹痛は認めないとのことです。\n\n過去の病歴として、バセドウ病の既往があります。家族に関しては、父がバセドウ病、弟が睡眠時無呼吸症候群と診断されています。現在、フェブキソスタットを内服中です。ヨードおよびサルファ剤に対するアレルギーの既往があります。\n\n以上のことで、ご高診のほど何卒よろしくお願い申し上げます。",
+   "gold": {
+    "label": "紹介状"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00031-B_doctype",
+    "gold": "紹介状",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00033-B_doctype",
+   "source_excerpt": "患者は56歳の女性で、主訴として悪寒を訴えている。入院当初より悪寒を認める。身体診察の結果、頸部痛を訴える。食欲不振も認める。\n\n既往歴として子宮筋腫を認める。家族歴は、叔父が鉄欠乏性貧血、兄がてんかんである。現在、モンテルカストを内服中である。ヨードに対するアレルギー歴を認める。\n\n現在の診察所見として、大腸ポリープと白内障の所見を認める。膀胱炎の疑いあり。血圧120/80mmHg、脈拍72回/分、体温36.5度、酸素飽和度98% Room Air。以上の通り。",
+   "gold": {
+    "label": "看護記録"
+   },
+   "output": "{\"label\": \"入院時記録\"}",
+   "score_record": {
+    "id": "test_xgen-00033-B_doctype",
+    "gold": "看護記録",
+    "pred": "入院時記録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00035-B_doctype",
+   "source_excerpt": "ご高診のほどよろしくお願い申し上げます。\n\n患者は73歳の男性で、口渇を主訴に来院されました。現在、口渇、呼吸困難、息切れ、片麻痺の症状を認めています。鼻出血は認めないとのことです。\n\n過去の病歴として前立腺肥大症があります。家族歴としては、叔母がうつ病、祖父が肺炎とのことです。\n\n現在の主な診断はインフルエンザとします。その他、白内障の疑い、てんかんの可能性があります。\n\n現在使用中の内服薬はインスリングラルギン、メトホルミンです。ラテックスに対するアレルギーがあります。",
+   "gold": {
+    "label": "紹介状"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00035-B_doctype",
+    "gold": "紹介状",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  }
+ ],
+ "E1_qwen3_8b/test_ext/ext_mrner_disease": [
+  {
+   "id": "ext_mrner_disease-000",
+   "source_excerpt": "肝動脈には走行異常が２５から４５％と高頻度に認められる。\n今回我々は、腹腔動脈から通常分枝した総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常を有する胃癌患者を経験したので報告する。\n症例は７６歳男性。\n既往に開腹胆摘、上行結腸早期癌ＥＭＲがある。\n胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）　にて胃全摘、脾摘、Ｄ２郭清、Ｒｏｕｘ－Ｙ再建を施行した。\nこの時に総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを",
+   "gold": {
+    "entities": [
+     "Ｎ．Ｏ．８ａリンパ節",
+     "胃癌",
+     "走行異常"
+    ]
+   },
+   "output": "{\"entities\": [\"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-000",
+    "tp": 1,
+    "fp": 0,
+    "fn": 2,
+    "per_key": {
+     "entities": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "fp_values": [],
+      "fn_values": [
+       "N.O.8aリンパ節",
+       "胃癌"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-001",
+   "source_excerpt": "症例は６０歳女性。\n昭和６３年頃より高血圧症にて加療中。\n平成１年７月頃より下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着出現し，平成２年１月初診。\n臨床症状及び前腕伸側皮膚生検組織像より汎発性強皮症と診断。\n血液検査では血沈亢進。\n抗核抗体×３２０の他は異常なし。\n左頸部に超大豆大リンパ節腫脹を認めたが，消化管，肝，腎，肺の精査では，特に異常は認められなかった。\nステロイド剤外用，Ｖｉｔ．Ｅ内服で手指の腫脹は軽減したが，６月末より発熱，嚥下障害を認めるようになり，７月２日心",
+   "gold": {
+    "entities": [
+     "両側腋窩リンパ節",
+     "発熱，嚥下障害",
+     "汎発性強皮症",
+     "下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着",
+     "高血圧症",
+     "腫脹",
+     "心嚢液",
+     "リンパ節腫脹",
+     "血沈亢進",
+     "腺癌の転移像"
+    ]
+   },
+   "output": "{\"entities\": [\"高血圧症\", \"下腿浮腫\", \"手指腫脹\", \"皮膚硬化\", \"びまん性色素沈着\", \"汎発性強皮症\", \"血沈亢進\", \"抗核抗体×３２０\", \"左頸部に超大豆大リンパ節腫脹\", \"発熱\", \"嚥下障害\", \"心外膜炎疑い\", \"心嚢液穿刺\", \"心嚢液は次第に血性になった\", \"リンパ節生検\", \"腺癌の転移像\", \"縦隔の異所性甲状腺組織\", \"唾液腺組織の悪性腫瘍\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-001",
+    "tp": 4,
+    "fp": 14,
+    "fn": 6,
+    "per_key": {
+     "entities": {
+      "tp": 4,
+      "fp": 14,
+      "fn": 6,
+      "fp_values": [
+       "びまん性色素沈着",
+       "リンパ節生検",
+       "下腿浮腫",
+       "唾液腺組織の悪性腫瘍",
+       "嚥下障害",
+       "左頸部に超大豆大リンパ節腫脹",
+       "心嚢液は次第に血性になった",
+       "心嚢液穿刺",
+       "心外膜炎疑い",
+       "手指腫脹",
+       "抗核抗体×320",
+       "発熱",
+       "皮膚硬化",
+       "縦隔の異所性甲状腺組織"
+      ],
+      "fn_values": [
+       "リンパ節腫脹",
+       "下腿浮腫,手指腫脹,皮膚硬化,びまん性色素沈着",
+       "両側腋窩リンパ節",
+       "心嚢液",
+       "発熱,嚥下障害",
+       "腫脹"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-002",
+   "source_excerpt": "【はじめに】我々は若年女性の小腸異常血管に伴う消化管出血に対してＩＶＲを施行後，小開腹下での小腸部分切除術を施行した症例を経験したので報告する。\n【症例】２７歳女性．\n既往歴はなし．\n２０１２年１２月激しい腹痛と下血を認め，当院救急外来に搬送された．\n腹部造影ＣＴで小腸出血と診断．\n来院時出血性ショック状態であり，濃厚赤血球８単位を輸血した．\n出血源検索ならびに止血コントロール目的に緊急でＩＶＲを施行．\n破綻血管ならびに周囲空腸（約１０ｃｍ）の領域を含め，マイクロコイルとシア",
+   "gold": {
+    "entities": [
+     "破綻血管",
+     "小腸出血",
+     "腹痛",
+     "異常血管",
+     "消化管出血",
+     "出血性ショック状態",
+     "下血",
+     "小腸異常血管"
+    ]
+   },
+   "output": "{\"entities\": [\"小腸異常血管\", \"消化管出血\", \"小腸出血\", \"出血性ショック状態\", \"破綻血管\", \"周囲空腸\", \"マイクロコイル\", \"シアノアクリレイト\", \"リピオドール\", \"動脈塞栓\", \"小腸部分切除術\", \"小開腹\", \"責任病変\", \"小腸のわずかな異常血管\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-002",
+    "tp": 5,
+    "fp": 9,
+    "fn": 3,
+    "per_key": {
+     "entities": {
+      "tp": 5,
+      "fp": 9,
+      "fn": 3,
+      "fp_values": [
+       "シアノアクリレイト",
+       "マイクロコイル",
+       "リピオドール",
+       "動脈塞栓",
+       "周囲空腸",
+       "小腸のわずかな異常血管",
+       "小腸部分切除術",
+       "小開腹",
+       "責任病変"
+      ],
+      "fn_values": [
+       "下血",
+       "異常血管",
+       "腹痛"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-003",
+   "source_excerpt": "【目的】２０１９年初めにＣ型非代償性肝硬変に対し本邦で初めてソホスブビル／ベルパスタビル（ＳＯＦ／ＶＥＬ）が使用可能となり，更に多くの症例にウイルス排除の機会が得られる一方で，肝硬変合併症を多く有することから，治療中の有害事象の発現にも今まで以上の注意が必要となるものと考えられる．\nそこで今回，当院におけるＳＯＦ／ＶＥＬを導入した症例に対する治療効果と安全性を検証することを目的とした，\n【方法】当院におけるＣ型非代償性肝硬変患者に対してＳＯＦ／ＶＥＬを導入した６例の臨床背景と",
+   "gold": {
+    "entities": [
+     "食道静脈瘤",
+     "肝癌",
+     "肝不全",
+     "心不全",
+     "死亡",
+     "Ｃ型非代償性肝硬変",
+     "有害事象",
+     "洞停止",
+     "体液貯留傾向",
+     "脳症",
+     "Ｉ度房室ブロック",
+     "蜂窩織炎による敗血症",
+     "肝性脳症",
+     "慢性腎不全",
+     "腹水",
+     "心房細動"
+    ]
+   },
+   "output": "{\"entities\": [\"非代償性肝硬変\", \"ソホスブビル／ベルパスタビル（ＳＯＦ／ＶＥＬ）\", \"肝硬変合併症\", \"有害事象\", \"男性\", \"女性\", \"年齢中央値\", \"Ｇｅｎｏｔｙｐｅ１ｂ\", \"ＤＡＡ治療歴\", \"Ｃｈｉｌｄ－Ｐｕｇｈ分類（ＣＰＳ）\", \"肝癌治療歴\", \"食道静脈瘤\", \"脳症\", \"腹水\", \"入院管理\", \"重篤な有害事象\", \"食道静脈瘤の破裂\", \"止血処置\", \"治療中止\", \"ＨＣＶ　ＲＮＡ\", \"陰性化\", \"再燃\", \"Ｉ度房室ブロック\", \"心臓超音波検査\", \"異常\", \"蜂窩織炎\", \"敗血症\", \"ｅＧＦＲ\", \"洞停止\", \"軽快\", \"肝性脳症\", \"慢性腎不全\", \"ｓｔａｇｅ　３ｂ相当\", \"ＩＶ度の肝性脳症\", \"補液投与\", \"改善傾向\", \"体液貯留傾向\", \"心房細動\", \"心不全\", \"利尿剤使用\", \"経過中\"",
+   "score_record": {
+    "id": "ext_mrner_disease-003",
+    "tp": 13,
+    "fp": 32,
+    "fn": 3,
+    "per_key": {
+     "entities": {
+      "tp": 13,
+      "fp": 32,
+      "fn": 3,
+      "fp_values": [
+       "Child-Pugh分類(CPS)",
+       "DAA治療歴",
+       "Genotype1b",
+       "HCVRNA",
+       "IV度の肝性脳症",
+       "SVR4",
+       "eGFR",
+       "eGFRの低下",
+       "stage3b相当",
+       "ソホスブビル/ベルパスタビル(SOF/VEL)",
+       "入院管理",
+       "再燃",
+       "利尿剤使用",
+       "女性",
+       "年齢中央値",
+       "心臓超音波検査",
+       "改善傾向",
+       "敗血症",
+       "止血処置",
+       "治療中止",
+       "男性",
+       "異常",
+       "経過中",
+       "肝癌治療歴",
+       "肝硬変合併症",
+       "蜂窩織炎",
+       "補液投与",
+       "軽快",
+       "重篤な有害事象",
+       "陰性化",
+       "非代償性肝硬変",
+       "食道静脈瘤の破裂"
+      ],
+      "fn_values": [
+       "C型非代償性肝硬変",
+       "肝癌",
+       "蜂窩織炎による敗血症"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-004",
+   "source_excerpt": "Ｂｅｖａｃｉｚｕｍａｂの有害事象として血管新生抑制による創傷治癒遅延が報告されているが、今回、ｂｅｖａｃｉｚｕｍａｂ投与中に緊急手術として腸管切除および吻合を行い、縫合不全等の合併症なく良好に経過した１例を経験したので、若干の文献的考察を加えて報告する。\n症例は６８歳男性。\n２０１１年１１月、多発肝・肺転移を伴う上行結腸癌に対し結腸右半切除術およびＤ２郭清を施行した。\n術後診断は、ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，ｔｕｂ２，ｐＳＩ，Ｎ３，Ｈ３，Ｐ０，Ｍ１（ＬＭ３），ｆＳ",
+   "gold": {
+    "entities": [
+     "肛門周囲膿瘍",
+     "小腸拡張と壁の造影不良、ｃｌｏｓｅｄ　ｌｏｏｐ",
+     "絞扼",
+     "イレウス",
+     "腹痛と嘔吐",
+     "多発肝・肺転移を伴う上行結腸癌",
+     "壊死",
+     "絞扼性イレウス"
+    ]
+   },
+   "output": "{\"entities\": [\"創傷治癒遅延\", \"腹痛\", \"嘔吐\", \"イレウス\", \"限局性の小腸拡張\", \"壁の造影不良\", \"ｃｌｏｓｅｄ　ｌｏｏｐ\", \"絞扼性イレウス\", \"索状物による絞扼\", \"壊死\", \"回腸が壊死していた\", \"肛門周囲膿瘍\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-004",
+    "tp": 4,
+    "fp": 8,
+    "fn": 4,
+    "per_key": {
+     "entities": {
+      "tp": 4,
+      "fp": 8,
+      "fn": 4,
+      "fp_values": [
+       "closedloop",
+       "創傷治癒遅延",
+       "嘔吐",
+       "回腸が壊死していた",
+       "壁の造影不良",
+       "索状物による絞扼",
+       "腹痛",
+       "限局性の小腸拡張"
+      ],
+      "fn_values": [
+       "多発肝・肺転移を伴う上行結腸癌",
+       "小腸拡張と壁の造影不良、closedloop",
+       "絞扼",
+       "腹痛と嘔吐"
+      ]
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E1_qwen3_8b/test_ext/ext_crade": [
+  {
+   "id": "ext_crade-000",
+   "source_excerpt": "膿萢，結痂，ビラン状局面」がADE（有害事象）である可能性は？\n「７１歳女。\n初診６０年７月９日。\n５５年頃，両手掌，足底に膿疱出現。\n数ケ月後に消褪。\n５９年，頭部，両耳介に鱗屑性紅斑を生じ，脂漏性皮膚炎の診断で加療。\n次第に浸出傾向を示し増悪したため，当科受診。\n増悪時には，頭部に膿萢，結痂，ビラン状局面を認め，脱毛し，脱毛斑は一見瘢痕様。同時に，腰部に尋常性乾癬様の皮疹を生じる。\n手掌，足底に皮疹なく，爪甲変形もない。\n軽快すると，頭髪は再生し，軽度の紅斑，鱗屑を認め，",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-000",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-002",
+   "source_excerpt": "アルコール性肝硬変とそれに合併するＳｐｕｒ　ｃｅｌｌ　ａｎｅｍｉａ」がADE（有害事象）である可能性は？\n「【症例】２６歳，男性．\n【主訴】歩行困難，黄疸，下腿浮腫．\n【現病歴】肝炎の原因となる輸血歴，手術歴，獣肉等の食事摂取歴，家族歴はない．\n２０歳よりビール，日本酒，ウイスキー等，一日純アルコール２００ｇ－３００ｇ相当の飲酒を継続していた．\nＸ年３月胆嚢炎疑いで入院し，その際にアルコール性肝硬変を指摘された．\nＸ年８月頃から下腿浮腫，尿の黄染を自覚していた．\nその後徐々に",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"D\"}",
+   "score_record": {
+    "id": "ext_crade-002",
+    "gold": "A",
+    "pred": "D",
+    "strict_pred": "D",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-012",
+   "source_excerpt": "狭窄所見」がADE（有害事象）である可能性は？\n「症例：６６歳女性\n現病歴：胃癌にて胃全摘術（Ｄ２）＋両側卵巣腫瘍（ｄｅｒｍｏｉｄ　ｃｙｓｔ）摘出術を受けた。\n病理結果は５５ｘ５０ｍｍ，Ｔｙｐｅ３低分化腺癌，ｓｉ（ｐａｎｃ．被膜），ｌｙ２，ｖ２，ｎ２（１２／７６），ｓｔａｇｅ３ｂ．術中の腹水細胞診はＣｌａｓｓ１であった。\n［術前ＣＥＡ（３．５ｎｇ／ｍｌ），ＣＡ１９－９（６Ｕ／ｍｌ以下）］術後の画像検査では再発所見を認めなかったが、腫瘍マーカー（ＣＥＡ）が緩徐に上昇傾向であった",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"A\"}",
+   "score_record": {
+    "id": "ext_crade-012",
+    "gold": "B",
+    "pred": "A",
+    "strict_pred": "A",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-013",
+   "source_excerpt": "ＩＬ－２レセプター値高値」がADE（有害事象）である可能性は？\n「症例：４８歳女性，\n主訴：多発性皮膚腫瘍，\n家族歴：母；悪性リンパ腫，長男：自閉症。\n現病歴：昭和４０年頃発症。昭和５９年頃より腫瘍期。\n順天堂医院にてＰＵＶＡ療法，ＡＣＮＵローション外用，ＩＦＮ－α局注，コバルト照射等を受けていた。\nその後電子線照射目的で当院に転院。\n昭和６３年よりＶＥＰＡ療法，電子線照射，ＩＦＮ一α全身投与等で加療。\n経過中，ＡＴＬ抗体価の上昇が認められた為，ＨＴＬＶ－１　ｐｒｏｖｉｒａｌ",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"A\"}",
+   "score_record": {
+    "id": "ext_crade-013",
+    "gold": "B",
+    "pred": "A",
+    "strict_pred": "A",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-014",
+   "source_excerpt": "絞扼性イレウス」がADE（有害事象）である可能性は？\n「Ｂｅｖａｃｉｚｕｍａｂの有害事象として血管新生抑制による創傷治癒遅延が報告されているが、今回、ｂｅｖａｃｉｚｕｍａｂ投与中に緊急手術として腸管切除および吻合を行い、縫合不全等の合併症なく良好に経過した１例を経験したので、若干の文献的考察を加えて報告する。\n症例は６８歳男性。\n２０１１年１１月、多発肝・肺転移を伴う上行結腸癌に対し結腸右半切除術およびＤ２郭清を施行した。\n術後診断は、ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-014",
+    "gold": "B",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  }
+ ],
+ "E2_swallow_8b/test_synth/A_entities": [
+  {
+   "id": "test_synth-00000-A_entities",
+   "source_excerpt": "30歳 女性\n\n【検査・画像所見】\n腹部CT：特記すべき異常所見は認めない。\n胸部X線：両側下肺野に斑状陰影を認める。\n咽頭部内視鏡：咽頭粘膜に著明な発赤・腫脹を認める。\n\n【印象】\nインフルエンザの可能性を否定できない。\n\n【臨床経過・所見】\n主訴は下痢。\n現在の症状として下痢、発熱、吐血、のどの痛みを認める。\n既往歴として慢性腎臓病、逆流性食道炎、心房細動がある。\n家族歴として、弟が骨粗鬆症、兄が胃癌と診断されている。\nNSAIDs、カニに対するアレルギー歴がある。",
+   "gold": {
+    "symptoms": [
+     "下痢",
+     "発熱",
+     "吐血",
+     "のどの痛み"
+    ],
+    "diseases": [
+     "慢性腎臓病",
+     "逆流性食道炎",
+     "心房細動"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\":[\"下痢\",\"発熱\",\"吐血\",\"のどの痛み\"]},{\"diseases\":[\"慢性腎臓病\",\"逆流性食道炎\",\"心房細動\"]},{\"medications\":[]}}",
+   "score_record": {
+    "id": "test_synth-00000-A_entities",
+    "tp": 4,
+    "fp": 0,
+    "fn": 3,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "fp_values": [],
+      "fn_values": [
+       "心房細動",
+       "慢性腎臓病",
+       "逆流性食道炎"
+      ]
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00001-A_entities",
+   "source_excerpt": "55歳男性。体重減少を主訴に当院へ入院した。\n\n入院時および入院中の経過において、体重減少、口渇、便秘、しびれが認められた。既往歴として高血圧症、帯状疱疹、肺癌の診断歴を有する。家族歴として祖母に白内障の既往がある。\n\n入院後の検査および評価により、心不全が確定した。また、心房細動の疑いがあり、経過観察中である。\n\n入院中は、心不全に対する適切な管理を施行し、症状の改善を確認した。\n\n退院時の状態は、体重減少、口渇、便秘、しびれがみられるが、生命予後に関わる重大な変動はなく、",
+   "gold": {
+    "symptoms": [
+     "体重減少",
+     "口渇",
+     "便秘",
+     "しびれ"
+    ],
+    "diseases": [
+     "高血圧症",
+     "帯状疱疹",
+     "肺癌",
+     "心不全"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\":[\"体重減少\",\"口渇\",\"便秘\",\"しびれ\"]},{\"diseases\":[\"高血圧症\",\"帯状疱疹\",\"肺癌\",\"心不全\"]},{\"medications\":[]}}",
+   "score_record": {
+    "id": "test_synth-00001-A_entities",
+    "tp": 4,
+    "fp": 0,
+    "fn": 4,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 4,
+      "fp_values": [],
+      "fn_values": [
+       "帯状疱疹",
+       "心不全",
+       "肺癌",
+       "高血圧症"
+      ]
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00004-A_entities",
+   "source_excerpt": "27歳、男性。主訴は下痢。現在、下痢、嘔気、筋肉痛、結膜充血が認められる。バイタルサインは安定しており、特記すべき異常なし。既往歴として心房細動、鉄欠乏性貧血、膀胱炎がある。アレルギーとしてサルファ剤、エビを認める。今回の評価にて白内障が確定した。また、心不全の可能性が示唆されている。内服薬は記載なし。家族歴は記載なし。",
+   "gold": {
+    "symptoms": [
+     "下痢",
+     "嘔気",
+     "筋肉痛",
+     "結膜充血"
+    ],
+    "diseases": [
+     "心房細動",
+     "鉄欠乏性貧血",
+     "膀胱炎",
+     "白内障"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\":[\"下痢\",\"嘔気\",\"筋肉痛\",\"結膜充血\"],\"diseases\":[\"心房細動\",\"鉄欠乏性貧血\",\"膀胱炎\",\"白内障\",\"心不全\"],\"medications\":[]}",
+   "score_record": {
+    "id": "test_synth-00004-A_entities",
+    "tp": 8,
+    "fp": 1,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 4,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "心不全"
+      ],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00006-A_entities",
+   "source_excerpt": "67歳 男性\n\n主訴：記憶障害\n\n現病歴：記憶障害を主訴に受診した。\n\n既往歴：慢性腎臓病、腰部脊柱管狭窄症\n\n家族歴：父 急性心筋梗塞\n\n内服薬：ファモチジン、アレンドロン酸、クエン酸第一鉄\n\nアレルギー歴：ペニシリン、NSAIDs\n\n検査所見\n脳MRI：海馬萎縮を伴う大脳萎縮所見を認める。\n\n印象\n記憶障害\n肩こりは認めない",
+   "gold": {
+    "symptoms": [
+     "記憶障害"
+    ],
+    "diseases": [
+     "慢性腎臓病",
+     "腰部脊柱管狭窄症"
+    ],
+    "medications": [
+     "ファモチジン",
+     "アレンドロン酸",
+     "クエン酸第一鉄"
+    ]
+   },
+   "output": "{\"symptoms\":[\"記憶障害\",\"肩こりは認めない\"],\"diseases\":[\"慢性腎臓病\",\"腰部脊柱管狭窄症\",\"記憶障害\"],\"medications\":[\"ファモチジン\",\"アレンドロン酸\",\"クエン酸第一鉄\"]}",
+   "score_record": {
+    "id": "test_synth-00006-A_entities",
+    "tp": 6,
+    "fp": 2,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "肩こりは認めない"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "記憶障害"
+      ],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00007-A_entities",
+   "source_excerpt": "86歳 男性\n\n【現病歴】\n悪寒を主訴に受診。関節痛、しびれも認められる。\n\n【既往歴】\n気管支喘息\n\n【家族歴】\n妹：大腸癌\n母：睡眠時無呼吸症候群\n\n【内服薬】\nオセルタミビル\nアモキシシリン\n\n【検査・画像所見】\n腹部超音波検査\n右側腹部に圧痛を認める。虫垂の肥大、周囲の脂肪組織の混濁を認める。\n\n【診断】\n虫垂炎の疑い",
+   "gold": {
+    "symptoms": [
+     "悪寒",
+     "関節痛",
+     "しびれ"
+    ],
+    "diseases": [
+     "気管支喘息"
+    ],
+    "medications": [
+     "オセルタミビル",
+     "アモキシシリン"
+    ]
+   },
+   "output": "{\"symptoms\":[\"悪寒\",\"関節痛\",\"しびれ\",\"右側腹部に圧痛\",\"虫垂の肥大\",\"周囲の脂肪組織の混濁\"],\"diseases\":[\"気管支喘息\",\"虫垂炎の疑い\"],\"medications\":[\"オセルタミビル\",\"アモキシシリン\"]}",
+   "score_record": {
+    "id": "test_synth-00007-A_entities",
+    "tp": 6,
+    "fp": 4,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 3,
+      "fp": 3,
+      "fn": 0,
+      "fp_values": [
+       "右側腹部に圧痛",
+       "周囲の脂肪組織の混濁",
+       "虫垂の肥大"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "虫垂炎の疑い"
+      ],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E2_swallow_8b/test_synth/C_structured": [
+  {
+   "id": "test_synth-00006-C_structured",
+   "source_excerpt": "67歳 男性\n\n主訴：記憶障害\n\n現病歴：記憶障害を主訴に受診した。\n\n既往歴：慢性腎臓病、腰部脊柱管狭窄症\n\n家族歴：父 急性心筋梗塞\n\n内服薬：ファモチジン、アレンドロン酸、クエン酸第一鉄\n\nアレルギー歴：ペニシリン、NSAIDs\n\n検査所見\n脳MRI：海馬萎縮を伴う大脳萎縮所見を認める。\n\n印象\n記憶障害\n肩こりは認めない",
+   "gold": {
+    "age": 67,
+    "sex": "男性",
+    "chief_complaint": "記憶障害",
+    "symptoms": [
+     "記憶障害"
+    ],
+    "negated_symptoms": [
+     "肩こり"
+    ],
+    "past_history": [
+     "慢性腎臓病",
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [
+     "急性心筋梗塞"
+    ],
+    "medications": [
+     "ファモチジン",
+     "アレンドロン酸",
+     "クエン酸第一鉄"
+    ],
+    "allergies": [
+     "ペニシリン",
+     "NSAIDs"
+    ],
+    "diagnoses": [],
+    "suspected_diagnosis": []
+   },
+   "output": "{\"age\": 67, \"sex\": \"男性\", \"chief_complaint\": \"記憶障害\", \"symptoms\": [\"記憶障害\"], \"negated_symptoms\": [\"肩こりは認めない\"], \"past_history\": [\"慢性腎臓病\", \"腰部脊柱管狭窄症\"], \"family_history\": [\"急性心筋梗塞\"], \"medications\": [\"ファモチジン\", \"アレンドロン酸\", \"クエン酸第一鉄\"], \"allergies\": [\"ペニシリン\", \"NSAIDs\"], \"diagnoses\": [\"記憶障害\"], \"suspected_diagnosis\": []}",
+   "score_record": {
+    "id": "test_synth-00006-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": false,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 9,
+    "list_fp": 2,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00007-C_structured",
+   "source_excerpt": "86歳 男性\n\n【現病歴】\n悪寒を主訴に受診。関節痛、しびれも認められる。\n\n【既往歴】\n気管支喘息\n\n【家族歴】\n妹：大腸癌\n母：睡眠時無呼吸症候群\n\n【内服薬】\nオセルタミビル\nアモキシシリン\n\n【検査・画像所見】\n腹部超音波検査\n右側腹部に圧痛を認める。虫垂の肥大、周囲の脂肪組織の混濁を認める。\n\n【診断】\n虫垂炎の疑い",
+   "gold": {
+    "age": 86,
+    "sex": "男性",
+    "chief_complaint": "悪寒",
+    "symptoms": [
+     "悪寒",
+     "関節痛",
+     "しびれ"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "気管支喘息"
+    ],
+    "family_history": [
+     "大腸癌",
+     "睡眠時無呼吸症候群"
+    ],
+    "medications": [
+     "オセルタミビル",
+     "アモキシシリン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "虫垂炎"
+    ]
+   },
+   "output": "{\"age\": 86, \"sex\": \"男性\", \"chief_complaint\": \"悪寒\", \"symptoms\": [\"悪寒\", \"関節痛\", \"しびれ\"], \"negated_symptoms\": [], \"past_history\": [\"気管支喘息\"], \"family_history\": [\"大腸癌\", \"睡眠時無呼吸症候群\"], \"medications\": [\"オセルタミビル\", \"アモキシシリン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"虫垂炎の疑い\"]}",
+   "score_record": {
+    "id": "test_synth-00007-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": false
+    },
+    "list_tp": 8,
+    "list_fp": 1,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 10,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00009-C_structured",
+   "source_excerpt": "S.\n44歳。主訴は歩行困難。腰痛を伴う。冷汗は認めない。既往歴として逆流性食道炎、鉄欠乏性貧血あり。家族歴として父にうつ病あり。内服薬はミロガバリン、リバーロキサバン、フロセミドを使用している。\n\nO.\n診察所見。\n\nA.\n腰部脊柱管狭窄症、白内障と診断。心不全の可能性を考慮。\n\nP.\n経過観察。",
+   "gold": {
+    "age": 44,
+    "sex": null,
+    "chief_complaint": "歩行困難",
+    "symptoms": [
+     "歩行困難",
+     "腰痛"
+    ],
+    "negated_symptoms": [
+     "冷汗"
+    ],
+    "past_history": [
+     "逆流性食道炎",
+     "鉄欠乏性貧血"
+    ],
+    "family_history": [
+     "うつ病"
+    ],
+    "medications": [
+     "ミロガバリン",
+     "リバーロキサバン",
+     "フロセミド"
+    ],
+    "allergies": [],
+    "diagnoses": [
+     "腰部脊柱管狭窄症",
+     "白内障"
+    ],
+    "suspected_diagnosis": [
+     "心不全"
+    ]
+   },
+   "output": "{\"age\": 44, \"sex\": null, \"chief_complaint\": \"歩行困難\", \"symptoms\": [\"腰痛\"], \"negated_symptoms\": [\"冷汗は認めない\"], \"past_history\": [\"逆流性食道炎\", \"鉄欠乏性貧血\"], \"family_history\": [\"うつ病\"], \"medications\": [\"ミロガバリン\", \"リバーロキサバン\", \"フロセミド\"], \"allergies\": null, \"diagnoses\": [\"腰部脊柱管狭窄症\", \"白内障\"], \"suspected_diagnosis\": [\"心不全\"]}",
+   "score_record": {
+    "id": "test_synth-00009-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 10,
+    "list_fp": 1,
+    "list_fn": 2,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00010-C_structured",
+   "source_excerpt": "49歳男性。主訴は鼻汁。\n\nバイタルサイン測定時に、患者より鼻汁が出ると訴えあり。診察室にて身体所見を確認したところ、浮腫は認めない。呼吸困難なし。\n\n既往歴として、てんかん、腰部脊柱管狭窄症の診断歴がある。現在、メトホルミンを内服中。\n\n本日実施された検査結果および臨床所見に基づき、逆流性食道炎の疑い、大腸ポリープの可能性が示唆されている。\n\n患者は落ち着いており、説明に対し首肯していた。経過観察を指示された。",
+   "gold": {
+    "age": 49,
+    "sex": "男性",
+    "chief_complaint": "鼻汁",
+    "symptoms": [
+     "鼻汁"
+    ],
+    "negated_symptoms": [
+     "浮腫",
+     "呼吸困難"
+    ],
+    "past_history": [
+     "てんかん",
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [],
+    "medications": [
+     "メトホルミン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "逆流性食道炎",
+     "大腸ポリープ"
+    ]
+   },
+   "output": "{\"age\": 49, \"sex\": \"男性\", \"chief_complaint\": \"鼻汁\", \"symptoms\": [\"鼻汁\"], \"negated_symptoms\": [\"浮腫なし\", \"呼吸困難なし\"], \"past_history\": [\"てんかん\", \"腰部脊柱管狭窄症\"], \"family_history\": [], \"medications\": [\"メトホルミン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"逆流性食道炎\", \"大腸ポリープ\"]}",
+   "score_record": {
+    "id": "test_synth-00010-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 6,
+    "list_fp": 2,
+    "list_fn": 2,
+    "missing_fields": [],
+    "unsupported_values": [
+     "浮腫なし"
+    ],
+    "n_predicted_values": 9,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00012-C_structured",
+   "source_excerpt": "ご高診のほどよろしくお願い申し上げます。\n\n患者より構音障害および動悸を主訴に受診し、精査加療の目的で紹介させていただきます。\n\n現症では構音障害および動悸が認められる。\n\n既往歴として甲状腺機能低下症の診断がある。\n家族歴については、父に胃癌の病歴がある。\n\n現在、レボフロキサシン、アレンドロン酸、フェブキソスタットを内服中である。\nセフェム系抗菌薬に対するアレルギーを認める。\n\n今回、心房細動の可能性、逆流性食道炎の疑いを考え、ご受診のほどよろしくお願い申し上げます。",
+   "gold": {
+    "age": null,
+    "sex": null,
+    "chief_complaint": "構音障害",
+    "symptoms": [
+     "構音障害",
+     "動悸"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "甲状腺機能低下症"
+    ],
+    "family_history": [
+     "胃癌"
+    ],
+    "medications": [
+     "レボフロキサシン",
+     "アレンドロン酸",
+     "フェブキソスタット"
+    ],
+    "allergies": [
+     "セフェム系抗菌薬"
+    ],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "心房細動",
+     "逆流性食道炎"
+    ]
+   },
+   "output": "{\"age\": null, \"sex\": null, \"chief_complaint\": \"構音障害および動悸\", \"symptoms\": [\"構音障害\", \"動悸\"], \"negated_symptoms\": [], \"past_history\": [\"甲状腺機能低下症\"], \"family_history\": [\"胃癌\"], \"medications\": [\"レボフロキサシン\", \"アレンドロン酸\", \"フェブキソスタット\"], \"allergies\": [\"セフェム系抗菌薬\"], \"diagnoses\": [], \"suspected_diagnosis\": [\"心房細動\", \"逆流性食道炎\"]}",
+   "score_record": {
+    "id": "test_synth-00012-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": false,
+     "symptoms": true,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 10,
+    "list_fp": 0,
+    "list_fn": 0,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 11,
+    "exact": false
+   }
+  }
+ ],
+ "E2_swallow_8b/test_xgen/B_doctype": [
+  {
+   "id": "test_xgen-00002-B_doctype",
+   "source_excerpt": "62歳、男性。\n主訴は吐血である。\n症状として、吐血、のどの痛み、発熱、咳嗽を認める。\n既往歴として、乳癌を有する。\n家族歴として、祖母に胃潰瘍を認める。\n現在使用中の内服薬として、エルデカルシトール、プレガバリン、アトルバスタチンを認める。\nアレルギーは特になし。\n今回の検査・画像所見の結果、痛風との所見を得る。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00002-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00018-B_doctype",
+   "source_excerpt": "87歳の男性が、冷汗と肩こりを主訴に来院した。現在、冷汗と肩こりが認められる。寝汗は認めない。過去に虫垂炎、てんかん、心不全の診断がある。妹に気管支喘息、祖父に慢性胃炎がある。現在、レボフロキサシン、クラリスロマイシン、ファモチジンを内服中。小麦に対するアレルギーがある。インフルエンザの疑いと慢性閉塞性肺疾患の可能性がある。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00018-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00026-B_doctype",
+   "source_excerpt": "ご高診のほどよろしくお願い申し上げます。\n\n患者は76歳の男性です。主訴は片麻痺です。現在、片麻痺と便秘が認められています。冷汗、不安感は認めないとのことです。過去に腰部脊柱管狭窄症と診断されております。母は緑内障です。現在、レバミピド、アスピリンを内服中でございます。カニ、ペニシリンに対してアレルギー反応があるとのことです。今回の診断としては大腸ポリープ、慢性腎臓病が判明しております。心不全の可能性は否定できない状況でございます。",
+   "gold": {
+    "label": "紹介状"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00026-B_doctype",
+    "gold": "紹介状",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00031-B_doctype",
+   "source_excerpt": "ご高診のほどよろしくお願い申し上げます。\n\n患者は68歳の男性で、主訴として構音障害を訴えて来院されました。診察の結果、現在、構音障害と血尿を認めています。腹痛は認めないとのことです。\n\n過去の病歴として、バセドウ病の既往があります。家族に関しては、父がバセドウ病、弟が睡眠時無呼吸症候群と診断されています。現在、フェブキソスタットを内服中です。ヨードおよびサルファ剤に対するアレルギーの既往があります。\n\n以上のことで、ご高診のほど何卒よろしくお願い申し上げます。",
+   "gold": {
+    "label": "紹介状"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00031-B_doctype",
+    "gold": "紹介状",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00033-B_doctype",
+   "source_excerpt": "患者は56歳の女性で、主訴として悪寒を訴えている。入院当初より悪寒を認める。身体診察の結果、頸部痛を訴える。食欲不振も認める。\n\n既往歴として子宮筋腫を認める。家族歴は、叔父が鉄欠乏性貧血、兄がてんかんである。現在、モンテルカストを内服中である。ヨードに対するアレルギー歴を認める。\n\n現在の診察所見として、大腸ポリープと白内障の所見を認める。膀胱炎の疑いあり。血圧120/80mmHg、脈拍72回/分、体温36.5度、酸素飽和度98% Room Air。以上の通り。",
+   "gold": {
+    "label": "看護記録"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00033-B_doctype",
+    "gold": "看護記録",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  }
+ ],
+ "E2_swallow_8b/test_ext/ext_mrner_disease": [
+  {
+   "id": "ext_mrner_disease-000",
+   "source_excerpt": "肝動脈には走行異常が２５から４５％と高頻度に認められる。\n今回我々は、腹腔動脈から通常分枝した総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常を有する胃癌患者を経験したので報告する。\n症例は７６歳男性。\n既往に開腹胆摘、上行結腸早期癌ＥＭＲがある。\n胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）　にて胃全摘、脾摘、Ｄ２郭清、Ｒｏｕｘ－Ｙ再建を施行した。\nこの時に総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを",
+   "gold": {
+    "entities": [
+     "Ｎ．Ｏ．８ａリンパ節",
+     "胃癌",
+     "走行異常"
+    ]
+   },
+   "output": "{\"entities\": [\"走行異常が２５から４５％と高頻度に認められる\", \"総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常\", \"胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）\", \"総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを確認した\", \"造影ＣＴ検査において同様の所見が確認された\", \"総肝動脈に先んじて門脈が出現したため、Ｎ．Ｏ．８ａと８ｐの区別がつかず、両者を一塊として切除を行った\", \"背側へのアプローチをどこまで行って良いかの判断に迷うこととなり、同部位の郭清が不十分となった可能性は否定できない\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-000",
+    "tp": 0,
+    "fp": 7,
+    "fn": 3,
+    "per_key": {
+     "entities": {
+      "tp": 0,
+      "fp": 7,
+      "fn": 3,
+      "fp_values": [
+       "総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常",
+       "総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを確認した",
+       "総肝動脈に先んじて門脈が出現したため、N.O.8aと8pの区別がつかず、両者を一塊として切除を行った",
+       "胃体上部小彎の胃癌(5型、T3、N1、P0、H0、CY0、M0、StageIIB)",
+       "背側へのアプローチをどこまで行って良いかの判断に迷うこととなり、同部位の郭清が不十分となった可能性は否定できない",
+       "走行異常が25から45%と高頻度に認められる",
+       "造影CT検査において同様の所見が確認された"
+      ],
+      "fn_values": [
+       "N.O.8aリンパ節",
+       "胃癌",
+       "走行異常"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-001",
+   "source_excerpt": "症例は６０歳女性。\n昭和６３年頃より高血圧症にて加療中。\n平成１年７月頃より下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着出現し，平成２年１月初診。\n臨床症状及び前腕伸側皮膚生検組織像より汎発性強皮症と診断。\n血液検査では血沈亢進。\n抗核抗体×３２０の他は異常なし。\n左頸部に超大豆大リンパ節腫脹を認めたが，消化管，肝，腎，肺の精査では，特に異常は認められなかった。\nステロイド剤外用，Ｖｉｔ．Ｅ内服で手指の腫脹は軽減したが，６月末より発熱，嚥下障害を認めるようになり，７月２日心",
+   "gold": {
+    "entities": [
+     "両側腋窩リンパ節",
+     "発熱，嚥下障害",
+     "汎発性強皮症",
+     "下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着",
+     "高血圧症",
+     "腫脹",
+     "心嚢液",
+     "リンパ節腫脹",
+     "血沈亢進",
+     "腺癌の転移像"
+    ]
+   },
+   "output": "{\"entities\": [\"高血圧症\", \"下腿浮腫\", \"手指腫脹\", \"皮膚硬化\", \"びまん性色素沈着\", \"汎発性強皮症\", \"血沈亢進\", \"抗核抗体×３２０\", \"左頸部に超大豆大リンパ節腫脹\", \"発熱\", \"嚥下障害\", \"心外膜炎疑い\", \"心嚢液穿刺\", \"心嚢液\", \"ステロイド剤外用\", \"Ｖｉｔ．Ｅ内服\", \"パルス療法\", \"両側腋窩リンパ節\", \"血性\", \"腺癌の転移像\", \"縦隔の異所性甲状腺組織\", \"唾液腺組織の悪性腫瘍\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-001",
+    "tp": 6,
+    "fp": 16,
+    "fn": 4,
+    "per_key": {
+     "entities": {
+      "tp": 6,
+      "fp": 16,
+      "fn": 4,
+      "fp_values": [
+       "Vit.E内服",
+       "びまん性色素沈着",
+       "ステロイド剤外用",
+       "パルス療法",
+       "下腿浮腫",
+       "唾液腺組織の悪性腫瘍",
+       "嚥下障害",
+       "左頸部に超大豆大リンパ節腫脹",
+       "心嚢液穿刺",
+       "心外膜炎疑い",
+       "手指腫脹",
+       "抗核抗体×320",
+       "発熱",
+       "皮膚硬化",
+       "縦隔の異所性甲状腺組織",
+       "血性"
+      ],
+      "fn_values": [
+       "リンパ節腫脹",
+       "下腿浮腫,手指腫脹,皮膚硬化,びまん性色素沈着",
+       "発熱,嚥下障害",
+       "腫脹"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-002",
+   "source_excerpt": "【はじめに】我々は若年女性の小腸異常血管に伴う消化管出血に対してＩＶＲを施行後，小開腹下での小腸部分切除術を施行した症例を経験したので報告する。\n【症例】２７歳女性．\n既往歴はなし．\n２０１２年１２月激しい腹痛と下血を認め，当院救急外来に搬送された．\n腹部造影ＣＴで小腸出血と診断．\n来院時出血性ショック状態であり，濃厚赤血球８単位を輸血した．\n出血源検索ならびに止血コントロール目的に緊急でＩＶＲを施行．\n破綻血管ならびに周囲空腸（約１０ｃｍ）の領域を含め，マイクロコイルとシア",
+   "gold": {
+    "entities": [
+     "破綻血管",
+     "小腸出血",
+     "腹痛",
+     "異常血管",
+     "消化管出血",
+     "出血性ショック状態",
+     "下血",
+     "小腸異常血管"
+    ]
+   },
+   "output": "{\"entities\": [\"小腸異常血管\", \"消化管出血\", \"小腸出血\", \"破綻血管\", \"空腸（約１０ｃｍ）\", \"マイクロコイル\", \"シアノアクリレイト\", \"リピオドール\", \"動脈塞栓\", \"小腸部分切除術\", \"小開腹\", \"責任病変\", \"Tréitz靱帯から１５０ｃｍ\", \"回腸末端から４４０ｃｍ\", \"空腸部分切除\", \"小腸のわずかな異常血管\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-002",
+    "tp": 4,
+    "fp": 12,
+    "fn": 4,
+    "per_key": {
+     "entities": {
+      "tp": 4,
+      "fp": 12,
+      "fn": 4,
+      "fp_values": [
+       "Tréitz靱帯から150cm",
+       "シアノアクリレイト",
+       "マイクロコイル",
+       "リピオドール",
+       "動脈塞栓",
+       "回腸末端から440cm",
+       "小腸のわずかな異常血管",
+       "小腸部分切除術",
+       "小開腹",
+       "空腸(約10cm)",
+       "空腸部分切除",
+       "責任病変"
+      ],
+      "fn_values": [
+       "下血",
+       "出血性ショック状態",
+       "異常血管",
+       "腹痛"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-003",
+   "source_excerpt": "【目的】２０１９年初めにＣ型非代償性肝硬変に対し本邦で初めてソホスブビル／ベルパスタビル（ＳＯＦ／ＶＥＬ）が使用可能となり，更に多くの症例にウイルス排除の機会が得られる一方で，肝硬変合併症を多く有することから，治療中の有害事象の発現にも今まで以上の注意が必要となるものと考えられる．\nそこで今回，当院におけるＳＯＦ／ＶＥＬを導入した症例に対する治療効果と安全性を検証することを目的とした，\n【方法】当院におけるＣ型非代償性肝硬変患者に対してＳＯＦ／ＶＥＬを導入した６例の臨床背景と",
+   "gold": {
+    "entities": [
+     "食道静脈瘤",
+     "肝癌",
+     "肝不全",
+     "心不全",
+     "死亡",
+     "Ｃ型非代償性肝硬変",
+     "有害事象",
+     "洞停止",
+     "体液貯留傾向",
+     "脳症",
+     "Ｉ度房室ブロック",
+     "蜂窩織炎による敗血症",
+     "肝性脳症",
+     "慢性腎不全",
+     "腹水",
+     "心房細動"
+    ]
+   },
+   "output": "{\n  \"entities\": [\n    \"食道静脈瘤\",\n    \"食道静脈瘤の破裂\",\n    \"蜂窩織炎\",\n    \"敗血症\",\n    \"eGFR29.0\",\n    \"洞停止\",\n    \"肝性脳症\",\n    \"IV度の肝性脳症\",\n    \"心房細動\",\n    \"心不全\",\n    \"eGFR19.3\",\n    \"肝不全\",\n    \"死亡\"\n  ]\n}",
+   "score_record": {
+    "id": "ext_mrner_disease-003",
+    "tp": 7,
+    "fp": 6,
+    "fn": 9,
+    "per_key": {
+     "entities": {
+      "tp": 7,
+      "fp": 6,
+      "fn": 9,
+      "fp_values": [
+       "IV度の肝性脳症",
+       "eGFR19.3",
+       "eGFR29.0",
+       "敗血症",
+       "蜂窩織炎",
+       "食道静脈瘤の破裂"
+      ],
+      "fn_values": [
+       "C型非代償性肝硬変",
+       "I度房室ブロック",
+       "体液貯留傾向",
+       "慢性腎不全",
+       "有害事象",
+       "肝癌",
+       "脳症",
+       "腹水",
+       "蜂窩織炎による敗血症"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-004",
+   "source_excerpt": "Ｂｅｖａｃｉｚｕｍａｂの有害事象として血管新生抑制による創傷治癒遅延が報告されているが、今回、ｂｅｖａｃｉｚｕｍａｂ投与中に緊急手術として腸管切除および吻合を行い、縫合不全等の合併症なく良好に経過した１例を経験したので、若干の文献的考察を加えて報告する。\n症例は６８歳男性。\n２０１１年１１月、多発肝・肺転移を伴う上行結腸癌に対し結腸右半切除術およびＤ２郭清を施行した。\n術後診断は、ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，ｔｕｂ２，ｐＳＩ，Ｎ３，Ｈ３，Ｐ０，Ｍ１（ＬＭ３），ｆＳ",
+   "gold": {
+    "entities": [
+     "肛門周囲膿瘍",
+     "小腸拡張と壁の造影不良、ｃｌｏｓｅｄ　ｌｏｏｐ",
+     "絞扼",
+     "イレウス",
+     "腹痛と嘔吐",
+     "多発肝・肺転移を伴う上行結腸癌",
+     "壊死",
+     "絞扼性イレウス"
+    ]
+   },
+   "output": "{\n  \"entities\": [\n    \"血管新生抑制による創傷治癒遅延\",\n    \"腸管切除\",\n    \"吻合\",\n    \"縫合不全等の合併症なく\",\n    \"良好に経過\",\n    \"68歳男性\",\n    \"多発肝・肺転移\",\n    \"上行結腸癌\",\n    \"結腸右半切除術\",\n    \"D2郭清\",\n    \"CK(A)\",\n    \"Type2\",\n    \"55×40mm\",\n    \"tub2\",\n    \"pSI\",\n    \"N3\",\n    \"H3\",\n    \"P0\",\n    \"M1(LM3)\",\n    \"fStageIV\",\n    \"XELOX＋bevacizumab\",\n    \"第13コース\",\n    \"10コース目よりoxaliplatinは休薬\",\n    \"bevacizumabは12回投与\",\n    \"腹痛\",\n    \"嘔吐\"",
+   "score_record": {
+    "id": "ext_mrner_disease-004",
+    "tp": 3,
+    "fp": 40,
+    "fn": 5,
+    "per_key": {
+     "entities": {
+      "tp": 3,
+      "fp": 40,
+      "fn": 5,
+      "fp_values": [
+       "10コース目よりoxaliplatinは休薬",
+       "55×40mm",
+       "68歳男性",
+       "CK(A)",
+       "D2郭清",
+       "H3",
+       "M1(LM3)",
+       "N3",
+       "P0",
+       "Type2",
+       "XELOX+bevacizumab",
+       "Xeloda内服",
+       "bevacizumabは12回投与",
+       "closedloop",
+       "fStageIV",
+       "pSI",
+       "tub2",
+       "上行結腸癌",
+       "吻合",
+       "嘔吐",
+       "壁の造影不良",
+       "壊死腸管を切除",
+       "多発肝・肺転移",
+       "盲端は自動縫合器で閉鎖",
+       "端側吻合",
+       "第13コース",
+       "約60cmにわたり回腸が壊死",
+       "索状物による絞扼",
+       "結腸右半切除術",
+       "緊急手術",
+       "縫合不全等の合併症なく",
+       "腸管切除",
+       "腹痛",
+       "腹部造影CT",
+       "自動吻合器(28mm)",
+       "良好に経過",
+       "血管新生抑制による創傷治癒遅延",
+       "軽快退院",
+       "限局性の小腸拡張",
+       "食事開始"
+      ],
+      "fn_values": [
+       "壊死",
+       "多発肝・肺転移を伴う上行結腸癌",
+       "小腸拡張と壁の造影不良、closedloop",
+       "絞扼",
+       "腹痛と嘔吐"
+      ]
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E2_swallow_8b/test_ext/ext_crade": [
+  {
+   "id": "ext_crade-000",
+   "source_excerpt": "膿萢，結痂，ビラン状局面」がADE（有害事象）である可能性は？\n「７１歳女。\n初診６０年７月９日。\n５５年頃，両手掌，足底に膿疱出現。\n数ケ月後に消褪。\n５９年，頭部，両耳介に鱗屑性紅斑を生じ，脂漏性皮膚炎の診断で加療。\n次第に浸出傾向を示し増悪したため，当科受診。\n増悪時には，頭部に膿萢，結痂，ビラン状局面を認め，脱毛し，脱毛斑は一見瘢痕様。同時に，腰部に尋常性乾癬様の皮疹を生じる。\n手掌，足底に皮疹なく，爪甲変形もない。\n軽快すると，頭髪は再生し，軽度の紅斑，鱗屑を認め，",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-000",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-001",
+   "source_excerpt": "筋緊張」がADE（有害事象）である可能性は？\n「はじめに\n短期入所の超重症児（者）は、病院へと生活環境が変化することによるストレスから筋緊張やてんかん発作などの身体的変化が現れる児も多い。\n今回、筋緊張により呼吸状態の悪化を認める人工呼吸器装着中の重症心身障害児（者）に緊張を緩和と排痰援助を実施し、呼吸状態の改善につながった事例を報告する。\n事例紹介\nＡ氏２０代男性疾患名：脳性麻痺　精神発達遅滞人工呼吸器（トリロジー１００）２４時間装着中。\n倫理的配慮\nプライバシーを保護する",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-001",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-002",
+   "source_excerpt": "アルコール性肝硬変とそれに合併するＳｐｕｒ　ｃｅｌｌ　ａｎｅｍｉａ」がADE（有害事象）である可能性は？\n「【症例】２６歳，男性．\n【主訴】歩行困難，黄疸，下腿浮腫．\n【現病歴】肝炎の原因となる輸血歴，手術歴，獣肉等の食事摂取歴，家族歴はない．\n２０歳よりビール，日本酒，ウイスキー等，一日純アルコール２００ｇ－３００ｇ相当の飲酒を継続していた．\nＸ年３月胆嚢炎疑いで入院し，その際にアルコール性肝硬変を指摘された．\nＸ年８月頃から下腿浮腫，尿の黄染を自覚していた．\nその後徐々に",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-002",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-004",
+   "source_excerpt": "類上皮細胞結節」がADE（有害事象）である可能性は？\n「３才，男児。\n初診昭和５９年１１月９日。\n昭和５８年８月，２才４ケ月時に水痘に罹患。\n同年１２月，母親が全身の瘢痕部に一致して浸潤性暗紅色斑に気付き，手足関節痛も出現したという。\n某病院を受診し，皮疹の生検を行ったが確定診断に至らなかった。\n半年後には大半の皮疹は，色調はうすれ，浸潤も消退したが，昭和５９年１１月，精査の為当院小児科に入院し，皮膚科を受診した。\n現症：ほぼ全身に径７～８ｍｍまでの褐色調瘢痕が播種状に多発し",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-004",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-005",
+   "source_excerpt": "腹膜播種巣」がADE（有害事象）である可能性は？\n「症例は１５歳・女児．\n９歳時に右卵巣未熟奇形腫切除と化学療法が施行された．\nその後腹膜播種巣が増大し１０歳時に切除術を施行した．\n１１歳時にイレウスを発症し下血を伴うイレウス症状が遷延したため開腹手術を施行した．\n部分的に小腸の著しい浮腫を認め癒着性イレウスではなかった．\n術後著しい低蛋白血症を呈し，蛋白漏出性腸症と診断された．\nアルブミン製剤とステロイド投与を開始した．\nその後，症状は軽快したがイレウス症状を繰り返した．\n",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-005",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  }
+ ],
+ "E3_qwen3_8b_lora/test_synth/A_entities": [
+  {
+   "id": "test_synth-00017-A_entities",
+   "source_excerpt": "45歳 女性\n主訴：不安感\n\n【検査・画像所見】\n心電図：ST低下を認める。\n血液検査：ヘモグロビン値低下、フェリチン値低下を認める。\n腹部CT：胃壁の厚み増大、粘膜の潰瘍性変化を認める。\n頭部MRI：急性期および亜急性期の脳梗塞病巣を認める。\n心臓エコー：左室壁運動異常を認める。\n\n【臨床経過・所見】\n患者は不安感を主訴に受診。現症として不安感、腰痛を認める。\n検査所見より、冠動脈疾患による虚血性心疾患（狭心症）および脳循環障害（脳梗塞）が確定した。\nまた、貧血所見から鉄欠",
+   "gold": {
+    "symptoms": [
+     "不安感",
+     "腰痛"
+    ],
+    "diseases": [
+     "急性心筋梗塞",
+     "狭心症",
+     "脳梗塞"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\": [\"不安感\", \"腰痛\"], \"diseases\": [\"急性心筋梗塞\", \"虚血性心疾患\", \"脳梗塞\"], \"medications\": []}",
+   "score_record": {
+    "id": "test_synth-00017-A_entities",
+    "tp": 4,
+    "fp": 1,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 1,
+      "fp_values": [
+       "虚血性心疾患"
+      ],
+      "fn_values": [
+       "狭心症"
+      ]
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00037-A_entities",
+   "source_excerpt": "68歳 女性\n\n主訴：動悸\n\n現病歴および経過\n近頃、動悸が出現し、失神をきたす事案があったため受診された。また、腰痛を訴えている。\n既往には心房細動の病歴を有する。\n家族歴については、弟に心不全、てんかんの既往がある。\n現在はランソプラゾール、メトホルミン、アレンドロン酸を内服している。\n本症の診断としては、大腸ポリープの疑い、腰部脊柱管狭窄症の可能性を考慮している。\n\nご高診のほどよろしくお願い申し上げます。",
+   "gold": {
+    "symptoms": [
+     "動悸",
+     "失神",
+     "腰痛"
+    ],
+    "diseases": [
+     "心房細動"
+    ],
+    "medications": [
+     "ランソプラゾール",
+     "メトホルミン",
+     "アレンドロン酸"
+    ]
+   },
+   "output": "{\"symptoms\": [\"動悸\", \"腰痛\"], \"diseases\": [\"心房細動\"], \"medications\": [\"ランソプラゾール\", \"メトホルミン\", \"アレンドロン酸\"]}",
+   "score_record": {
+    "id": "test_synth-00037-A_entities",
+    "tp": 6,
+    "fp": 0,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 1,
+      "fp_values": [],
+      "fn_values": [
+       "失神"
+      ]
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00081-A_entities",
+   "source_excerpt": "S. 主訴は嚥下困難である。全身浮腫および喀痰を認め、これらを訴える。\nO. 聴診上異常所見なし。\nA. 睡眠時無呼吸症候群の可能性を考慮する。\nP. 詳細な検査を計画する。\n\n年齢：45歳\n性別：男性\n\n既往歴：子宮筋腫\n内服薬：アレンドロン酸、ロサルタン",
+   "gold": {
+    "symptoms": [
+     "嚥下困難",
+     "浮腫",
+     "喀痰"
+    ],
+    "diseases": [
+     "子宮筋腫"
+    ],
+    "medications": [
+     "アレンドロン酸",
+     "ロサルタン"
+    ]
+   },
+   "output": "{\"symptoms\": [\"嚥下困難\", \"全身浮腫\", \"喀痰\"], \"diseases\": [\"子宮筋腫\"], \"medications\": [\"アレンドロン酸\", \"ロサルタン\"]}",
+   "score_record": {
+    "id": "test_synth-00081-A_entities",
+    "tp": 5,
+    "fp": 1,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 1,
+      "fp_values": [
+       "全身浮腫"
+      ],
+      "fn_values": [
+       "浮腫"
+      ]
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00102-A_entities",
+   "source_excerpt": "90歳、男性。主訴は頸部痛。\n\nバイタルサイン：体温36.5℃、血圧128/76mmHg、心拍数88回/分、SpO2 96%。\n\n患者は頸部の痛みを訴え、触診にて圧痛を認めた。皮膚診察では、四肢に発疹を認め、瘙痒を伴うとの事。問診にて、以前に肺炎と診断された既往があることを確認した。家族歴については、祖母が膀胱炎を患っているとのこと。現在、バラシクロビルを内服中。\n\n診察の結果、心房細動および心不全と診断された。また、アトピー性皮膚炎の疑いがあるため、経過観察を指示された。膝",
+   "gold": {
+    "symptoms": [
+     "頸部痛",
+     "発疹"
+    ],
+    "diseases": [
+     "肺炎",
+     "心房細動",
+     "心不全"
+    ],
+    "medications": [
+     "バラシクロビル"
+    ]
+   },
+   "output": "{\"symptoms\": [\"頸部痛\", \"発疹\", \"瘙痒\"], \"diseases\": [\"肺炎\", \"心房細動\", \"心不全\"], \"medications\": [\"バラシクロビル\"]}",
+   "score_record": {
+    "id": "test_synth-00102-A_entities",
+    "tp": 6,
+    "fp": 1,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "瘙痒"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00188-A_entities",
+   "source_excerpt": "83歳の患者について観察記録を行う。バイタルサインは安定しているが、患者より「立ちくらみがひどい」というめまいの訴えがあり、転倒リスクに注意を払った。食事摂取については、喉に違和感を覚え食物が通りにくいという嚥下困難の訴えがあり、食形態の調整と安全な食事摂取を支援した。また、軟便から水様便へと移行する下痢を認め、皮膚の清潔保持と脱水状態のモニタリングを強化した。\n\n既往歴として脂質異常症、脳梗塞、緑内障を有している。今回の評価により白内障、鉄欠乏性貧血が確定診断された。加えて",
+   "gold": {
+    "symptoms": [
+     "めまい",
+     "嚥下困難",
+     "下痢"
+    ],
+    "diseases": [
+     "脂質異常症",
+     "脳梗塞",
+     "緑内障",
+     "白内障",
+     "鉄欠乏性貧血"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\": [\"立ちくらみ\", \"嚥下困難\", \"下痢\"], \"diseases\": [\"脂質異常症\", \"脳梗塞\", \"緑内障\", \"白内障\", \"鉄欠乏性貧血\"], \"medications\": []}",
+   "score_record": {
+    "id": "test_synth-00188-A_entities",
+    "tp": 7,
+    "fp": 1,
+    "fn": 1,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 1,
+      "fp_values": [
+       "立ちくらみ"
+      ],
+      "fn_values": [
+       "めまい"
+      ]
+     },
+     "diseases": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E3_qwen3_8b_lora/test_synth/C_structured": [
+  {
+   "id": "test_synth-00017-C_structured",
+   "source_excerpt": "45歳 女性\n主訴：不安感\n\n【検査・画像所見】\n心電図：ST低下を認める。\n血液検査：ヘモグロビン値低下、フェリチン値低下を認める。\n腹部CT：胃壁の厚み増大、粘膜の潰瘍性変化を認める。\n頭部MRI：急性期および亜急性期の脳梗塞病巣を認める。\n心臓エコー：左室壁運動異常を認める。\n\n【臨床経過・所見】\n患者は不安感を主訴に受診。現症として不安感、腰痛を認める。\n検査所見より、冠動脈疾患による虚血性心疾患（狭心症）および脳循環障害（脳梗塞）が確定した。\nまた、貧血所見から鉄欠",
+   "gold": {
+    "age": 45,
+    "sex": "女性",
+    "chief_complaint": "不安感",
+    "symptoms": [
+     "不安感",
+     "腰痛"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "急性心筋梗塞"
+    ],
+    "family_history": [],
+    "medications": [],
+    "allergies": [],
+    "diagnoses": [
+     "狭心症",
+     "脳梗塞"
+    ],
+    "suspected_diagnosis": [
+     "鉄欠乏性貧血",
+     "胃潰瘍"
+    ]
+   },
+   "output": "{\"age\": 45, \"sex\": \"女性\", \"chief_complaint\": \"不安感\", \"symptoms\": [\"不安感\", \"腰痛\"], \"negated_symptoms\": [], \"past_history\": [\"急性心筋梗塞\"], \"family_history\": [], \"medications\": [], \"allergies\": [], \"diagnoses\": [\"虚血性心疾患（狭心症）\", \"脳梗塞\"], \"suspected_diagnosis\": [\"鉄欠乏性貧血\", \"胃潰瘍\"]}",
+   "score_record": {
+    "id": "test_synth-00017-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": false,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 6,
+    "list_fp": 1,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 8,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00037-C_structured",
+   "source_excerpt": "68歳 女性\n\n主訴：動悸\n\n現病歴および経過\n近頃、動悸が出現し、失神をきたす事案があったため受診された。また、腰痛を訴えている。\n既往には心房細動の病歴を有する。\n家族歴については、弟に心不全、てんかんの既往がある。\n現在はランソプラゾール、メトホルミン、アレンドロン酸を内服している。\n本症の診断としては、大腸ポリープの疑い、腰部脊柱管狭窄症の可能性を考慮している。\n\nご高診のほどよろしくお願い申し上げます。",
+   "gold": {
+    "age": 68,
+    "sex": "女性",
+    "chief_complaint": "動悸",
+    "symptoms": [
+     "動悸",
+     "失神",
+     "腰痛"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "心房細動"
+    ],
+    "family_history": [
+     "心不全",
+     "てんかん"
+    ],
+    "medications": [
+     "ランソプラゾール",
+     "メトホルミン",
+     "アレンドロン酸"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "大腸ポリープ",
+     "腰部脊柱管狭窄症"
+    ]
+   },
+   "output": "{\"age\": 68, \"sex\": \"女性\", \"chief_complaint\": \"動悸\", \"symptoms\": [\"動悸\", \"腰痛\"], \"negated_symptoms\": [], \"past_history\": [\"心房細動\"], \"family_history\": [\"心不全\", \"てんかん\"], \"medications\": [\"ランソプラゾール\", \"メトホルミン\", \"アレンドロン酸\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"大腸ポリープ\", \"腰部脊柱管狭窄症\"]}",
+   "score_record": {
+    "id": "test_synth-00037-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 10,
+    "list_fp": 0,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 11,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00071-C_structured",
+   "source_excerpt": "30歳男性。主訴は不安感。\n\n入院経過および治療経過の概要\n入院時および在院中に不安感、意識障害を認めた。既往歴として腰部脊柱管狭窄症を有し、アピキサバンを内服中である。家族歴としては、叔母に逆流性食道炎の病歴がある。入院中はこれらの症状に対して適切な治療・観察を行い、状態の安定を図った。\n\n退院時の状態\n退院時の身体所見において、小麦に対するアレルギー反応は認めない。また、入院中に評価された病態について、てんかんの疑い、てんかんの可能性が残存している。\n\n退院時処方\nアピキ",
+   "gold": {
+    "age": 30,
+    "sex": "男性",
+    "chief_complaint": "不安感",
+    "symptoms": [
+     "不安感",
+     "意識障害"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [
+     "逆流性食道炎"
+    ],
+    "medications": [
+     "アピキサバン"
+    ],
+    "allergies": [
+     "小麦"
+    ],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "てんかん"
+    ]
+   },
+   "output": "{\"age\": 30, \"sex\": \"男性\", \"chief_complaint\": \"不安感\", \"symptoms\": [\"不安感\", \"意識障害\"], \"negated_symptoms\": [], \"past_history\": [\"腰部脊柱管狭窄症\"], \"family_history\": [\"逆流性食道炎\"], \"medications\": [\"アピキサバン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"てんかん\"]}",
+   "score_record": {
+    "id": "test_synth-00071-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": false,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 6,
+    "list_fp": 0,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 7,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00081-C_structured",
+   "source_excerpt": "S. 主訴は嚥下困難である。全身浮腫および喀痰を認め、これらを訴える。\nO. 聴診上異常所見なし。\nA. 睡眠時無呼吸症候群の可能性を考慮する。\nP. 詳細な検査を計画する。\n\n年齢：45歳\n性別：男性\n\n既往歴：子宮筋腫\n内服薬：アレンドロン酸、ロサルタン",
+   "gold": {
+    "age": 45,
+    "sex": "男性",
+    "chief_complaint": "嚥下困難",
+    "symptoms": [
+     "嚥下困難",
+     "浮腫",
+     "喀痰"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "子宮筋腫"
+    ],
+    "family_history": [],
+    "medications": [
+     "アレンドロン酸",
+     "ロサルタン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "睡眠時無呼吸症候群"
+    ]
+   },
+   "output": "{\"age\": 45, \"sex\": \"男性\", \"chief_complaint\": \"嚥下困難\", \"symptoms\": [\"嚥下困難\", \"全身浮腫\", \"喀痰\"], \"negated_symptoms\": [], \"past_history\": [\"子宮筋腫\"], \"family_history\": [], \"medications\": [\"アレンドロン酸\", \"ロサルタン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"睡眠時無呼吸症候群\"]}",
+   "score_record": {
+    "id": "test_synth-00081-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 6,
+    "list_fp": 1,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 8,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00102-C_structured",
+   "source_excerpt": "90歳、男性。主訴は頸部痛。\n\nバイタルサイン：体温36.5℃、血圧128/76mmHg、心拍数88回/分、SpO2 96%。\n\n患者は頸部の痛みを訴え、触診にて圧痛を認めた。皮膚診察では、四肢に発疹を認め、瘙痒を伴うとの事。問診にて、以前に肺炎と診断された既往があることを確認した。家族歴については、祖母が膀胱炎を患っているとのこと。現在、バラシクロビルを内服中。\n\n診察の結果、心房細動および心不全と診断された。また、アトピー性皮膚炎の疑いがあるため、経過観察を指示された。膝",
+   "gold": {
+    "age": 90,
+    "sex": "男性",
+    "chief_complaint": "頸部痛",
+    "symptoms": [
+     "頸部痛",
+     "発疹"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "肺炎"
+    ],
+    "family_history": [
+     "膀胱炎"
+    ],
+    "medications": [
+     "バラシクロビル"
+    ],
+    "allergies": [],
+    "diagnoses": [
+     "心房細動",
+     "心不全"
+    ],
+    "suspected_diagnosis": [
+     "アトピー性皮膚炎",
+     "変形性膝関節症"
+    ]
+   },
+   "output": "{\"age\": 90, \"sex\": \"男性\", \"chief_complaint\": \"頸部痛\", \"symptoms\": [\"頸部痛\", \"発疹\", \"瘙痒\"], \"negated_symptoms\": [], \"past_history\": [\"肺炎\"], \"family_history\": [\"膀胱炎\"], \"medications\": [\"バラシクロビル\"], \"allergies\": [], \"diagnoses\": [\"心房細動\", \"心不全\"], \"suspected_diagnosis\": [\"アトピー性皮膚炎\", \"変形性膝関節症\"]}",
+   "score_record": {
+    "id": "test_synth-00102-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 9,
+    "list_fp": 1,
+    "list_fn": 0,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 11,
+    "exact": false
+   }
+  }
+ ],
+ "E3_qwen3_8b_lora/test_xgen/B_doctype": [
+  {
+   "id": "test_xgen-00033-B_doctype",
+   "source_excerpt": "患者は56歳の女性で、主訴として悪寒を訴えている。入院当初より悪寒を認める。身体診察の結果、頸部痛を訴える。食欲不振も認める。\n\n既往歴として子宮筋腫を認める。家族歴は、叔父が鉄欠乏性貧血、兄がてんかんである。現在、モンテルカストを内服中である。ヨードに対するアレルギー歴を認める。\n\n現在の診察所見として、大腸ポリープと白内障の所見を認める。膀胱炎の疑いあり。血圧120/80mmHg、脈拍72回/分、体温36.5度、酸素飽和度98% Room Air。以上の通り。",
+   "gold": {
+    "label": "看護記録"
+   },
+   "output": "{\"label\": \"入院時記録\"}",
+   "score_record": {
+    "id": "test_xgen-00033-B_doctype",
+    "gold": "看護記録",
+    "pred": "入院時記録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00053-B_doctype",
+   "source_excerpt": "患者は71歳の女性で、のどの痛みを主訴に来院された。入院時の状態ではのどの痛み、記憶障害、嚥下困難、しびれを認める。特に関節痛は認めない。既往歴として胃癌、乳癌の既往があり、父に腰部脊柱管狭窄症、兄に膀胱炎がある。現在の主治医の評価では、のどの炎症が主な所見であり、嚥下困難に伴う栄養状態の確認が必要と判断された。リバーロキサバンを内服中。ヨードに対するアレルギー歴あり。",
+   "gold": {
+    "label": "退院時サマリー"
+   },
+   "output": "{\"label\": \"入院時記録\"}",
+   "score_record": {
+    "id": "test_xgen-00053-B_doctype",
+    "gold": "退院時サマリー",
+    "pred": "入院時記録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00057-B_doctype",
+   "source_excerpt": "患者は20歳の女性で、主訴として意識障害を訴えて来院された。意識障害に加え、不安感や冷汗を認める。耳鳴りについては否定されている。既往歴として虫垂炎の既往がある。家族歴では祖母が膀胱炎を患っていたことが確認できる。現在葉酸を内服中である。局所麻酔薬および造影剤に対するアレルギーがある。画像検査の結果、心房細動の疑いがある。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"看護記録\"}",
+   "score_record": {
+    "id": "test_xgen-00057-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "看護記録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00085-B_doctype",
+   "source_excerpt": "患者は84歳の男性。主訴は意識障害で入院した。\n\n意識障害、全身倦怠感、黄疸、構音障害を認める。動悸は認めない。腹痛は認めない。\n\n過去に診断された疾患はない。家族に続柄とともに病気がある。兄に膀胱炎がある。\n\n現在使用中の薬剤はアレンドロン酸、クエン酸第一鉄、インスリングラルギン、ファモチジンである。\n\nアレルギーの原因は小麦、エビである。\n\n今回の評価では胆石症の疑いがある。",
+   "gold": {
+    "label": "入院時記録"
+   },
+   "output": "{\"label\": \"看護記録\"}",
+   "score_record": {
+    "id": "test_xgen-00085-B_doctype",
+    "gold": "入院時記録",
+    "pred": "看護記録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00098-B_doctype",
+   "source_excerpt": "18歳の男性が胸痛を主訴に入院し、胸痛、眼痛、鼻出血を認める。過去に慢性閉塞性肺疾患、狭心症と診断されている。父親が鉄欠乏性貧血であった。オセルタミビル、プレドニゾロン、クロピドグレル、アムロジピンを内服中。セフェム系抗菌薬、ハウスダストにアレルギーがある。入院中の経過に伴い、アトピー性皮膚炎の疑い、大腸癌の可能性があると考えられる。しびれは認めない。",
+   "gold": {
+    "label": "退院時サマリー"
+   },
+   "output": "{\"label\": \"入院時記録\"}",
+   "score_record": {
+    "id": "test_xgen-00098-B_doctype",
+    "gold": "退院時サマリー",
+    "pred": "入院時記録",
+    "correct": false
+   }
+  }
+ ],
+ "E3_qwen3_8b_lora/test_ext/ext_mrner_disease": [
+  {
+   "id": "ext_mrner_disease-000",
+   "source_excerpt": "肝動脈には走行異常が２５から４５％と高頻度に認められる。\n今回我々は、腹腔動脈から通常分枝した総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常を有する胃癌患者を経験したので報告する。\n症例は７６歳男性。\n既往に開腹胆摘、上行結腸早期癌ＥＭＲがある。\n胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）　にて胃全摘、脾摘、Ｄ２郭清、Ｒｏｕｘ－Ｙ再建を施行した。\nこの時に総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを",
+   "gold": {
+    "entities": [
+     "Ｎ．Ｏ．８ａリンパ節",
+     "胃癌",
+     "走行異常"
+    ]
+   },
+   "output": "{\"entities\": [\"走行異常\", \"胃癌\", \"上行結腸早期癌ＥＭＲ\", \"胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）\", \"総肝動脈\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"走行異常\", \"",
+   "score_record": {
+    "id": "ext_mrner_disease-000",
+    "tp": 0,
+    "fp": 0,
+    "fn": 3,
+    "per_key": {
+     "entities": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "fp_values": [],
+      "fn_values": [
+       "N.O.8aリンパ節",
+       "胃癌",
+       "走行異常"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-001",
+   "source_excerpt": "症例は６０歳女性。\n昭和６３年頃より高血圧症にて加療中。\n平成１年７月頃より下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着出現し，平成２年１月初診。\n臨床症状及び前腕伸側皮膚生検組織像より汎発性強皮症と診断。\n血液検査では血沈亢進。\n抗核抗体×３２０の他は異常なし。\n左頸部に超大豆大リンパ節腫脹を認めたが，消化管，肝，腎，肺の精査では，特に異常は認められなかった。\nステロイド剤外用，Ｖｉｔ．Ｅ内服で手指の腫脹は軽減したが，６月末より発熱，嚥下障害を認めるようになり，７月２日心",
+   "gold": {
+    "entities": [
+     "両側腋窩リンパ節",
+     "発熱，嚥下障害",
+     "汎発性強皮症",
+     "下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着",
+     "高血圧症",
+     "腫脹",
+     "心嚢液",
+     "リンパ節腫脹",
+     "血沈亢進",
+     "腺癌の転移像"
+    ]
+   },
+   "output": "{\"entities\": [\"高血圧症\", \"下腿浮腫\", \"手指腫脹\", \"皮膚硬化\", \"びまん性色素沈着\", \"汎発性強皮症\", \"血沈亢進\", \"リンパ節腫脹\", \"発熱\", \"嚥下障害\", \"心外膜炎疑い\", \"リンパ節生検\", \"腺癌\", \"縦隔の異所性甲状腺組織\", \"唾液腺組織\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-001",
+    "tp": 4,
+    "fp": 11,
+    "fn": 6,
+    "per_key": {
+     "entities": {
+      "tp": 4,
+      "fp": 11,
+      "fn": 6,
+      "fp_values": [
+       "びまん性色素沈着",
+       "リンパ節生検",
+       "下腿浮腫",
+       "唾液腺組織",
+       "嚥下障害",
+       "心外膜炎疑い",
+       "手指腫脹",
+       "発熱",
+       "皮膚硬化",
+       "縦隔の異所性甲状腺組織",
+       "腺癌"
+      ],
+      "fn_values": [
+       "下腿浮腫,手指腫脹,皮膚硬化,びまん性色素沈着",
+       "両側腋窩リンパ節",
+       "心嚢液",
+       "発熱,嚥下障害",
+       "腫脹",
+       "腺癌の転移像"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-002",
+   "source_excerpt": "【はじめに】我々は若年女性の小腸異常血管に伴う消化管出血に対してＩＶＲを施行後，小開腹下での小腸部分切除術を施行した症例を経験したので報告する。\n【症例】２７歳女性．\n既往歴はなし．\n２０１２年１２月激しい腹痛と下血を認め，当院救急外来に搬送された．\n腹部造影ＣＴで小腸出血と診断．\n来院時出血性ショック状態であり，濃厚赤血球８単位を輸血した．\n出血源検索ならびに止血コントロール目的に緊急でＩＶＲを施行．\n破綻血管ならびに周囲空腸（約１０ｃｍ）の領域を含め，マイクロコイルとシア",
+   "gold": {
+    "entities": [
+     "破綻血管",
+     "小腸出血",
+     "腹痛",
+     "異常血管",
+     "消化管出血",
+     "出血性ショック状態",
+     "下血",
+     "小腸異常血管"
+    ]
+   },
+   "output": "{\"entities\": [\"小腸異常血管\", \"消化管出血\", \"激しい腹痛\", \"下血\", \"小腸出血\", \"出血性ショック状態\", \"破綻血管\", \"空腸\", \"小腸部分切除術\", \"小腸のわずかな異常血管\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-002",
+    "tp": 6,
+    "fp": 4,
+    "fn": 2,
+    "per_key": {
+     "entities": {
+      "tp": 6,
+      "fp": 4,
+      "fn": 2,
+      "fp_values": [
+       "小腸のわずかな異常血管",
+       "小腸部分切除術",
+       "激しい腹痛",
+       "空腸"
+      ],
+      "fn_values": [
+       "異常血管",
+       "腹痛"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-003",
+   "source_excerpt": "【目的】２０１９年初めにＣ型非代償性肝硬変に対し本邦で初めてソホスブビル／ベルパスタビル（ＳＯＦ／ＶＥＬ）が使用可能となり，更に多くの症例にウイルス排除の機会が得られる一方で，肝硬変合併症を多く有することから，治療中の有害事象の発現にも今まで以上の注意が必要となるものと考えられる．\nそこで今回，当院におけるＳＯＦ／ＶＥＬを導入した症例に対する治療効果と安全性を検証することを目的とした，\n【方法】当院におけるＣ型非代償性肝硬変患者に対してＳＯＦ／ＶＥＬを導入した６例の臨床背景と",
+   "gold": {
+    "entities": [
+     "食道静脈瘤",
+     "肝癌",
+     "肝不全",
+     "心不全",
+     "死亡",
+     "Ｃ型非代償性肝硬変",
+     "有害事象",
+     "洞停止",
+     "体液貯留傾向",
+     "脳症",
+     "Ｉ度房室ブロック",
+     "蜂窩織炎による敗血症",
+     "肝性脳症",
+     "慢性腎不全",
+     "腹水",
+     "心房細動"
+    ]
+   },
+   "output": "{\"entities\": [\"非代償性肝硬変\", \"肝癌治療歴\", \"食道静脈瘤\", \"脳症\", \"腹水\", \"有害事象\", \"食道静脈瘤\", \"破裂\", \"蜂窩織炎による敗血症\", \"洞停止\", \"慢性腎不全\", \"肝性脳症\", \"体液貯留傾向\", \"心房細動\", \"心不全\", \"ｅＧＦＲ低下\", \"肝不全\", \"死亡\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-003",
+    "tp": 13,
+    "fp": 4,
+    "fn": 3,
+    "per_key": {
+     "entities": {
+      "tp": 13,
+      "fp": 4,
+      "fn": 3,
+      "fp_values": [
+       "eGFR低下",
+       "破裂",
+       "肝癌治療歴",
+       "非代償性肝硬変"
+      ],
+      "fn_values": [
+       "C型非代償性肝硬変",
+       "I度房室ブロック",
+       "肝癌"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-004",
+   "source_excerpt": "Ｂｅｖａｃｉｚｕｍａｂの有害事象として血管新生抑制による創傷治癒遅延が報告されているが、今回、ｂｅｖａｃｉｚｕｍａｂ投与中に緊急手術として腸管切除および吻合を行い、縫合不全等の合併症なく良好に経過した１例を経験したので、若干の文献的考察を加えて報告する。\n症例は６８歳男性。\n２０１１年１１月、多発肝・肺転移を伴う上行結腸癌に対し結腸右半切除術およびＤ２郭清を施行した。\n術後診断は、ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，ｔｕｂ２，ｐＳＩ，Ｎ３，Ｈ３，Ｐ０，Ｍ１（ＬＭ３），ｆＳ",
+   "gold": {
+    "entities": [
+     "肛門周囲膿瘍",
+     "小腸拡張と壁の造影不良、ｃｌｏｓｅｄ　ｌｏｏｐ",
+     "絞扼",
+     "イレウス",
+     "腹痛と嘔吐",
+     "多発肝・肺転移を伴う上行結腸癌",
+     "壊死",
+     "絞扼性イレウス"
+    ]
+   },
+   "output": "{\"entities\": [\"多発肝・肺転移\", \"上行結腸癌\", \"ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，ｔｕｂ２，ｐＳＩ，Ｎ３，Ｈ３，Ｐ０，Ｍ１（ＬＭ３），ｆＳｔａｇｅｌＶ\", \"腹痛と嘔吐\", \"イレウス\", \"索状物による絞扼\", \"壊死腸管\", \"肛門周囲膿瘍\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-004",
+    "tp": 3,
+    "fp": 5,
+    "fn": 5,
+    "per_key": {
+     "entities": {
+      "tp": 3,
+      "fp": 5,
+      "fn": 5,
+      "fp_values": [
+       "CK(A),Type2,55×40mm,tub2,pSI,N3,H3,P0,M1(LM3),fStagelV",
+       "上行結腸癌",
+       "壊死腸管",
+       "多発肝・肺転移",
+       "索状物による絞扼"
+      ],
+      "fn_values": [
+       "壊死",
+       "多発肝・肺転移を伴う上行結腸癌",
+       "小腸拡張と壁の造影不良、closedloop",
+       "絞扼",
+       "絞扼性イレウス"
+      ]
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E3_qwen3_8b_lora/test_ext/ext_crade": [
+  {
+   "id": "ext_crade-000",
+   "source_excerpt": "膿萢，結痂，ビラン状局面」がADE（有害事象）である可能性は？\n「７１歳女。\n初診６０年７月９日。\n５５年頃，両手掌，足底に膿疱出現。\n数ケ月後に消褪。\n５９年，頭部，両耳介に鱗屑性紅斑を生じ，脂漏性皮膚炎の診断で加療。\n次第に浸出傾向を示し増悪したため，当科受診。\n増悪時には，頭部に膿萢，結痂，ビラン状局面を認め，脱毛し，脱毛斑は一見瘢痕様。同時に，腰部に尋常性乾癬様の皮疹を生じる。\n手掌，足底に皮疹なく，爪甲変形もない。\n軽快すると，頭髪は再生し，軽度の紅斑，鱗屑を認め，",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-000",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-001",
+   "source_excerpt": "筋緊張」がADE（有害事象）である可能性は？\n「はじめに\n短期入所の超重症児（者）は、病院へと生活環境が変化することによるストレスから筋緊張やてんかん発作などの身体的変化が現れる児も多い。\n今回、筋緊張により呼吸状態の悪化を認める人工呼吸器装着中の重症心身障害児（者）に緊張を緩和と排痰援助を実施し、呼吸状態の改善につながった事例を報告する。\n事例紹介\nＡ氏２０代男性疾患名：脳性麻痺　精神発達遅滞人工呼吸器（トリロジー１００）２４時間装着中。\n倫理的配慮\nプライバシーを保護する",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"D\"}",
+   "score_record": {
+    "id": "ext_crade-001",
+    "gold": "A",
+    "pred": "D",
+    "strict_pred": "D",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-002",
+   "source_excerpt": "アルコール性肝硬変とそれに合併するＳｐｕｒ　ｃｅｌｌ　ａｎｅｍｉａ」がADE（有害事象）である可能性は？\n「【症例】２６歳，男性．\n【主訴】歩行困難，黄疸，下腿浮腫．\n【現病歴】肝炎の原因となる輸血歴，手術歴，獣肉等の食事摂取歴，家族歴はない．\n２０歳よりビール，日本酒，ウイスキー等，一日純アルコール２００ｇ－３００ｇ相当の飲酒を継続していた．\nＸ年３月胆嚢炎疑いで入院し，その際にアルコール性肝硬変を指摘された．\nＸ年８月頃から下腿浮腫，尿の黄染を自覚していた．\nその後徐々に",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"D\"}",
+   "score_record": {
+    "id": "ext_crade-002",
+    "gold": "A",
+    "pred": "D",
+    "strict_pred": "D",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-004",
+   "source_excerpt": "類上皮細胞結節」がADE（有害事象）である可能性は？\n「３才，男児。\n初診昭和５９年１１月９日。\n昭和５８年８月，２才４ケ月時に水痘に罹患。\n同年１２月，母親が全身の瘢痕部に一致して浸潤性暗紅色斑に気付き，手足関節痛も出現したという。\n某病院を受診し，皮疹の生検を行ったが確定診断に至らなかった。\n半年後には大半の皮疹は，色調はうすれ，浸潤も消退したが，昭和５９年１１月，精査の為当院小児科に入院し，皮膚科を受診した。\n現症：ほぼ全身に径７～８ｍｍまでの褐色調瘢痕が播種状に多発し",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-004",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-008",
+   "source_excerpt": "Ｍａｌｌｏｒｙ様物質」がADE（有害事象）である可能性は？\n「最近われわれはＰＢＣ様の組織所見を呈した壊死後性肝硬変の１例を経験したので報告する。\n症例：４２才，男性。\n現病歴：１３年来肝機能異常を指摘されていたが黄疽，皮膚蜜痒感，薬物の服用はなかった。\n入院時現症：黄疸はなく，著明な肝脾腫大を認めた。\n検査成績：赤沈　４９／ｈ，総ビリルビン　１．２ｍｇ／ｄｌ，ＧＯＴ　６４，ＧＰＴ　３０，Ａｌ－Ｐ１９．８Ｂ．Ｌ．，γＧＴＰ　３９１，ＢＳＰ　１９％，ＩＣＧ　１３％，γＧ　１２．",
+   "gold": {
+    "answer": "A",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-008",
+    "gold": "A",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  }
+ ],
+ "E4_gpt41/test_synth/A_entities": [
+  {
+   "id": "test_synth-00000-A_entities",
+   "source_excerpt": "30歳 女性\n\n【検査・画像所見】\n腹部CT：特記すべき異常所見は認めない。\n胸部X線：両側下肺野に斑状陰影を認める。\n咽頭部内視鏡：咽頭粘膜に著明な発赤・腫脹を認める。\n\n【印象】\nインフルエンザの可能性を否定できない。\n\n【臨床経過・所見】\n主訴は下痢。\n現在の症状として下痢、発熱、吐血、のどの痛みを認める。\n既往歴として慢性腎臓病、逆流性食道炎、心房細動がある。\n家族歴として、弟が骨粗鬆症、兄が胃癌と診断されている。\nNSAIDs、カニに対するアレルギー歴がある。",
+   "gold": {
+    "symptoms": [
+     "下痢",
+     "発熱",
+     "吐血",
+     "のどの痛み"
+    ],
+    "diseases": [
+     "慢性腎臓病",
+     "逆流性食道炎",
+     "心房細動"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\": [\"下痢\", \"発熱\", \"吐血\", \"のどの痛み\", \"両側下肺野に斑状陰影\", \"咽頭粘膜に著明な発赤・腫脹\"], \"diseases\": [\"慢性腎臓病\", \"逆流性食道炎\", \"心房細動\"], \"medications\": []}",
+   "score_record": {
+    "id": "test_synth-00000-A_entities",
+    "tp": 7,
+    "fp": 2,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 0,
+      "fp_values": [
+       "両側下肺野に斑状陰影",
+       "咽頭粘膜に著明な発赤・腫脹"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00006-A_entities",
+   "source_excerpt": "67歳 男性\n\n主訴：記憶障害\n\n現病歴：記憶障害を主訴に受診した。\n\n既往歴：慢性腎臓病、腰部脊柱管狭窄症\n\n家族歴：父 急性心筋梗塞\n\n内服薬：ファモチジン、アレンドロン酸、クエン酸第一鉄\n\nアレルギー歴：ペニシリン、NSAIDs\n\n検査所見\n脳MRI：海馬萎縮を伴う大脳萎縮所見を認める。\n\n印象\n記憶障害\n肩こりは認めない",
+   "gold": {
+    "symptoms": [
+     "記憶障害"
+    ],
+    "diseases": [
+     "慢性腎臓病",
+     "腰部脊柱管狭窄症"
+    ],
+    "medications": [
+     "ファモチジン",
+     "アレンドロン酸",
+     "クエン酸第一鉄"
+    ]
+   },
+   "output": "{\"symptoms\": [\"記憶障害\", \"海馬萎縮を伴う大脳萎縮所見\"], \"diseases\": [\"慢性腎臓病\", \"腰部脊柱管狭窄症\"], \"medications\": [\"ファモチジン\", \"アレンドロン酸\", \"クエン酸第一鉄\"]}",
+   "score_record": {
+    "id": "test_synth-00006-A_entities",
+    "tp": 6,
+    "fp": 1,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 1,
+      "fp": 1,
+      "fn": 0,
+      "fp_values": [
+       "海馬萎縮を伴う大脳萎縮所見"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00007-A_entities",
+   "source_excerpt": "86歳 男性\n\n【現病歴】\n悪寒を主訴に受診。関節痛、しびれも認められる。\n\n【既往歴】\n気管支喘息\n\n【家族歴】\n妹：大腸癌\n母：睡眠時無呼吸症候群\n\n【内服薬】\nオセルタミビル\nアモキシシリン\n\n【検査・画像所見】\n腹部超音波検査\n右側腹部に圧痛を認める。虫垂の肥大、周囲の脂肪組織の混濁を認める。\n\n【診断】\n虫垂炎の疑い",
+   "gold": {
+    "symptoms": [
+     "悪寒",
+     "関節痛",
+     "しびれ"
+    ],
+    "diseases": [
+     "気管支喘息"
+    ],
+    "medications": [
+     "オセルタミビル",
+     "アモキシシリン"
+    ]
+   },
+   "output": "{\"symptoms\": [\"悪寒\", \"関節痛\", \"しびれ\", \"右側腹部に圧痛\", \"虫垂の肥大\", \"周囲の脂肪組織の混濁\"], \"diseases\": [\"気管支喘息\"], \"medications\": [\"オセルタミビル\", \"アモキシシリン\"]}",
+   "score_record": {
+    "id": "test_synth-00007-A_entities",
+    "tp": 6,
+    "fp": 3,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 3,
+      "fp": 3,
+      "fn": 0,
+      "fp_values": [
+       "右側腹部に圧痛",
+       "周囲の脂肪組織の混濁",
+       "虫垂の肥大"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00015-A_entities",
+   "source_excerpt": "47歳女性。意識障害を主訴に受診。\nバイタルサイン測定時、血圧、脈拍、体温、酸素飽和度を記録。患者は構音障害を認め、コミュニケーションに支障がある状態。全身倦怠感が強く、ベッド上での体位変換や身辺世話が必要。寝汗がみられ、衣類の湿潤がある。\n悪寒は認めない。呼吸困難なし。\n既往歴として、子宮筋腫、脳梗塞、胆石症の診断歴あり。\n家族歴については、祖母が胃癌、母がうつ病と記載。\n現在、ランソプラゾール、フェブキソスタット、クエン酸第一鉄、フルチカゾンを内服中。\nNSAIDsに対す",
+   "gold": {
+    "symptoms": [
+     "意識障害",
+     "寝汗",
+     "構音障害",
+     "全身倦怠感"
+    ],
+    "diseases": [
+     "子宮筋腫",
+     "脳梗塞",
+     "胆石症"
+    ],
+    "medications": [
+     "ランソプラゾール",
+     "フェブキソスタット",
+     "クエン酸第一鉄",
+     "フルチカゾン"
+    ]
+   },
+   "output": "{\"symptoms\": [\"意識障害\", \"構音障害\", \"コミュニケーションに支障がある状態\", \"全身倦怠感\", \"寝汗\", \"衣類の湿潤\"], \"diseases\": [\"子宮筋腫\", \"脳梗塞\", \"胆石症\"], \"medications\": [\"ランソプラゾール\", \"フェブキソスタット\", \"クエン酸第一鉄\", \"フルチカゾン\"]}",
+   "score_record": {
+    "id": "test_synth-00015-A_entities",
+    "tp": 11,
+    "fp": 2,
+    "fn": 0,
+    "per_key": {
+     "symptoms": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 0,
+      "fp_values": [
+       "コミュニケーションに支障がある状態",
+       "衣類の湿潤"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     },
+     "medications": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00017-A_entities",
+   "source_excerpt": "45歳 女性\n主訴：不安感\n\n【検査・画像所見】\n心電図：ST低下を認める。\n血液検査：ヘモグロビン値低下、フェリチン値低下を認める。\n腹部CT：胃壁の厚み増大、粘膜の潰瘍性変化を認める。\n頭部MRI：急性期および亜急性期の脳梗塞病巣を認める。\n心臓エコー：左室壁運動異常を認める。\n\n【臨床経過・所見】\n患者は不安感を主訴に受診。現症として不安感、腰痛を認める。\n検査所見より、冠動脈疾患による虚血性心疾患（狭心症）および脳循環障害（脳梗塞）が確定した。\nまた、貧血所見から鉄欠",
+   "gold": {
+    "symptoms": [
+     "不安感",
+     "腰痛"
+    ],
+    "diseases": [
+     "急性心筋梗塞",
+     "狭心症",
+     "脳梗塞"
+    ],
+    "medications": []
+   },
+   "output": "{\"symptoms\": [\"不安感\", \"腰痛\", \"ST低下\", \"ヘモグロビン値低下\", \"フェリチン値低下\", \"胃壁の厚み増大\", \"粘膜の潰瘍性変化\", \"急性期および亜急性期の脳梗塞病巣\", \"左室壁運動異常\"], \"diseases\": [\"虚血性心疾患（狭心症）\", \"脳循環障害（脳梗塞）\", \"急性心筋梗塞\"], \"medications\": []}",
+   "score_record": {
+    "id": "test_synth-00017-A_entities",
+    "tp": 3,
+    "fp": 9,
+    "fn": 2,
+    "per_key": {
+     "symptoms": {
+      "tp": 2,
+      "fp": 7,
+      "fn": 0,
+      "fp_values": [
+       "ST低下",
+       "フェリチン値低下",
+       "ヘモグロビン値低下",
+       "左室壁運動異常",
+       "急性期および亜急性期の脳梗塞病巣",
+       "粘膜の潰瘍性変化",
+       "胃壁の厚み増大"
+      ],
+      "fn_values": []
+     },
+     "diseases": {
+      "tp": 1,
+      "fp": 2,
+      "fn": 2,
+      "fp_values": [
+       "脳循環障害(脳梗塞)",
+       "虚血性心疾患(狭心症)"
+      ],
+      "fn_values": [
+       "狭心症",
+       "脳梗塞"
+      ]
+     },
+     "medications": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "fp_values": [],
+      "fn_values": []
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E4_gpt41/test_synth/C_structured": [
+  {
+   "id": "test_synth-00005-C_structured",
+   "source_excerpt": "男性\n主訴：不安感\n\n現病歴：\n不安感、腹痛、腰痛、全身倦怠感を主訴に受診した。記憶障害は認めない。\n\n既往歴：\n尿路結石、パーキンソン病、胃癌\n\n内服薬：\nロサルタン\n\n検査・画像所見：\n脳波検査：てんかん性放電を認める。\n腰椎MRI：腰部脊柱管狭窄症を認める。\n\n印象：\nてんかん\n腰部脊柱管狭窄症",
+   "gold": {
+    "age": null,
+    "sex": "男性",
+    "chief_complaint": "不安感",
+    "symptoms": [
+     "不安感",
+     "腹痛",
+     "腰痛",
+     "全身倦怠感"
+    ],
+    "negated_symptoms": [
+     "記憶障害"
+    ],
+    "past_history": [
+     "尿路結石",
+     "パーキンソン病",
+     "胃癌"
+    ],
+    "family_history": [],
+    "medications": [
+     "ロサルタン"
+    ],
+    "allergies": [],
+    "diagnoses": [
+     "てんかん",
+     "腰部脊柱管狭窄症"
+    ],
+    "suspected_diagnosis": []
+   },
+   "output": "{\n  \"age\": null,\n  \"sex\": \"男性\",\n  \"chief_complaint\": \"不安感\",\n  \"symptoms\": [\"不安感\", \"腹痛\", \"腰痛\", \"全身倦怠感\"],\n  \"negated_symptoms\": [\"記憶障害は認めない\"],\n  \"past_history\": [\"尿路結石\", \"パーキンソン病\", \"胃癌\"],\n  \"family_history\": [],\n  \"medications\": [\"ロサルタン\"],\n  \"allergies\": [],\n  \"diagnoses\": [\"てんかん\", \"腰部脊柱管狭窄症\"],\n  \"suspected_diagnosis\": []\n}",
+   "score_record": {
+    "id": "test_synth-00005-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 10,
+    "list_fp": 1,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00006-C_structured",
+   "source_excerpt": "67歳 男性\n\n主訴：記憶障害\n\n現病歴：記憶障害を主訴に受診した。\n\n既往歴：慢性腎臓病、腰部脊柱管狭窄症\n\n家族歴：父 急性心筋梗塞\n\n内服薬：ファモチジン、アレンドロン酸、クエン酸第一鉄\n\nアレルギー歴：ペニシリン、NSAIDs\n\n検査所見\n脳MRI：海馬萎縮を伴う大脳萎縮所見を認める。\n\n印象\n記憶障害\n肩こりは認めない",
+   "gold": {
+    "age": 67,
+    "sex": "男性",
+    "chief_complaint": "記憶障害",
+    "symptoms": [
+     "記憶障害"
+    ],
+    "negated_symptoms": [
+     "肩こり"
+    ],
+    "past_history": [
+     "慢性腎臓病",
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [
+     "急性心筋梗塞"
+    ],
+    "medications": [
+     "ファモチジン",
+     "アレンドロン酸",
+     "クエン酸第一鉄"
+    ],
+    "allergies": [
+     "ペニシリン",
+     "NSAIDs"
+    ],
+    "diagnoses": [],
+    "suspected_diagnosis": []
+   },
+   "output": "{\"age\": 67, \"sex\": \"男性\", \"chief_complaint\": \"記憶障害\", \"symptoms\": [\"記憶障害\"], \"negated_symptoms\": [\"肩こりは認めない\"], \"past_history\": [\"慢性腎臓病\", \"腰部脊柱管狭窄症\"], \"family_history\": [\"急性心筋梗塞\"], \"medications\": [\"ファモチジン\", \"アレンドロン酸\", \"クエン酸第一鉄\"], \"allergies\": [\"ペニシリン\", \"NSAIDs\"], \"diagnoses\": [\"記憶障害\"], \"suspected_diagnosis\": []}",
+   "score_record": {
+    "id": "test_synth-00006-C_structured",
+    "fields_correct": 9,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": false,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 9,
+    "list_fp": 2,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 12,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00007-C_structured",
+   "source_excerpt": "86歳 男性\n\n【現病歴】\n悪寒を主訴に受診。関節痛、しびれも認められる。\n\n【既往歴】\n気管支喘息\n\n【家族歴】\n妹：大腸癌\n母：睡眠時無呼吸症候群\n\n【内服薬】\nオセルタミビル\nアモキシシリン\n\n【検査・画像所見】\n腹部超音波検査\n右側腹部に圧痛を認める。虫垂の肥大、周囲の脂肪組織の混濁を認める。\n\n【診断】\n虫垂炎の疑い",
+   "gold": {
+    "age": 86,
+    "sex": "男性",
+    "chief_complaint": "悪寒",
+    "symptoms": [
+     "悪寒",
+     "関節痛",
+     "しびれ"
+    ],
+    "negated_symptoms": [],
+    "past_history": [
+     "気管支喘息"
+    ],
+    "family_history": [
+     "大腸癌",
+     "睡眠時無呼吸症候群"
+    ],
+    "medications": [
+     "オセルタミビル",
+     "アモキシシリン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "虫垂炎"
+    ]
+   },
+   "output": "{\"age\": 86, \"sex\": \"男性\", \"chief_complaint\": \"悪寒を主訴に受診\", \"symptoms\": [\"悪寒\", \"関節痛\", \"しびれ\", \"右側腹部に圧痛\"], \"negated_symptoms\": [], \"past_history\": [\"気管支喘息\"], \"family_history\": [\"大腸癌\", \"睡眠時無呼吸症候群\"], \"medications\": [\"オセルタミビル\", \"アモキシシリン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"虫垂炎の疑い\"]}",
+   "score_record": {
+    "id": "test_synth-00007-C_structured",
+    "fields_correct": 8,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": false,
+     "symptoms": false,
+     "negated_symptoms": true,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": false
+    },
+    "list_tp": 8,
+    "list_fp": 2,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 11,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00009-C_structured",
+   "source_excerpt": "S.\n44歳。主訴は歩行困難。腰痛を伴う。冷汗は認めない。既往歴として逆流性食道炎、鉄欠乏性貧血あり。家族歴として父にうつ病あり。内服薬はミロガバリン、リバーロキサバン、フロセミドを使用している。\n\nO.\n診察所見。\n\nA.\n腰部脊柱管狭窄症、白内障と診断。心不全の可能性を考慮。\n\nP.\n経過観察。",
+   "gold": {
+    "age": 44,
+    "sex": null,
+    "chief_complaint": "歩行困難",
+    "symptoms": [
+     "歩行困難",
+     "腰痛"
+    ],
+    "negated_symptoms": [
+     "冷汗"
+    ],
+    "past_history": [
+     "逆流性食道炎",
+     "鉄欠乏性貧血"
+    ],
+    "family_history": [
+     "うつ病"
+    ],
+    "medications": [
+     "ミロガバリン",
+     "リバーロキサバン",
+     "フロセミド"
+    ],
+    "allergies": [],
+    "diagnoses": [
+     "腰部脊柱管狭窄症",
+     "白内障"
+    ],
+    "suspected_diagnosis": [
+     "心不全"
+    ]
+   },
+   "output": "{\"age\": 44, \"sex\": null, \"chief_complaint\": \"歩行困難\", \"symptoms\": [\"歩行困難\", \"腰痛\"], \"negated_symptoms\": [\"冷汗は認めない\"], \"past_history\": [\"逆流性食道炎\", \"鉄欠乏性貧血\"], \"family_history\": [\"うつ病\"], \"medications\": [\"ミロガバリン\", \"リバーロキサバン\", \"フロセミド\"], \"allergies\": [], \"diagnoses\": [\"腰部脊柱管狭窄症\", \"白内障\"], \"suspected_diagnosis\": [\"心不全\"]}",
+   "score_record": {
+    "id": "test_synth-00009-C_structured",
+    "fields_correct": 10,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": true,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": true
+    },
+    "list_tp": 11,
+    "list_fp": 1,
+    "list_fn": 1,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 13,
+    "exact": false
+   }
+  },
+  {
+   "id": "test_synth-00010-C_structured",
+   "source_excerpt": "49歳男性。主訴は鼻汁。\n\nバイタルサイン測定時に、患者より鼻汁が出ると訴えあり。診察室にて身体所見を確認したところ、浮腫は認めない。呼吸困難なし。\n\n既往歴として、てんかん、腰部脊柱管狭窄症の診断歴がある。現在、メトホルミンを内服中。\n\n本日実施された検査結果および臨床所見に基づき、逆流性食道炎の疑い、大腸ポリープの可能性が示唆されている。\n\n患者は落ち着いており、説明に対し首肯していた。経過観察を指示された。",
+   "gold": {
+    "age": 49,
+    "sex": "男性",
+    "chief_complaint": "鼻汁",
+    "symptoms": [
+     "鼻汁"
+    ],
+    "negated_symptoms": [
+     "浮腫",
+     "呼吸困難"
+    ],
+    "past_history": [
+     "てんかん",
+     "腰部脊柱管狭窄症"
+    ],
+    "family_history": [],
+    "medications": [
+     "メトホルミン"
+    ],
+    "allergies": [],
+    "diagnoses": [],
+    "suspected_diagnosis": [
+     "逆流性食道炎",
+     "大腸ポリープ"
+    ]
+   },
+   "output": "{\"age\": 49, \"sex\": \"男性\", \"chief_complaint\": \"鼻汁\", \"symptoms\": [\"鼻汁が出る\"], \"negated_symptoms\": [\"浮腫は認めない\", \"呼吸困難なし\"], \"past_history\": [\"てんかん\", \"腰部脊柱管狭窄症\"], \"family_history\": [], \"medications\": [\"メトホルミン\"], \"allergies\": [], \"diagnoses\": [], \"suspected_diagnosis\": [\"逆流性食道炎の疑い\", \"大腸ポリープの可能性\"]}",
+   "score_record": {
+    "id": "test_synth-00010-C_structured",
+    "fields_correct": 8,
+    "field_correct": {
+     "age": true,
+     "sex": true,
+     "chief_complaint": true,
+     "symptoms": false,
+     "negated_symptoms": false,
+     "past_history": true,
+     "family_history": true,
+     "medications": true,
+     "allergies": true,
+     "diagnoses": true,
+     "suspected_diagnosis": false
+    },
+    "list_tp": 3,
+    "list_fp": 5,
+    "list_fn": 5,
+    "missing_fields": [],
+    "unsupported_values": [],
+    "n_predicted_values": 9,
+    "exact": false
+   }
+  }
+ ],
+ "E4_gpt41/test_xgen/B_doctype": [
+  {
+   "id": "test_xgen-00002-B_doctype",
+   "source_excerpt": "62歳、男性。\n主訴は吐血である。\n症状として、吐血、のどの痛み、発熱、咳嗽を認める。\n既往歴として、乳癌を有する。\n家族歴として、祖母に胃潰瘍を認める。\n現在使用中の内服薬として、エルデカルシトール、プレガバリン、アトルバスタチンを認める。\nアレルギーは特になし。\n今回の検査・画像所見の結果、痛風との所見を得る。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00002-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00018-B_doctype",
+   "source_excerpt": "87歳の男性が、冷汗と肩こりを主訴に来院した。現在、冷汗と肩こりが認められる。寝汗は認めない。過去に虫垂炎、てんかん、心不全の診断がある。妹に気管支喘息、祖父に慢性胃炎がある。現在、レボフロキサシン、クラリスロマイシン、ファモチジンを内服中。小麦に対するアレルギーがある。インフルエンザの疑いと慢性閉塞性肺疾患の可能性がある。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00018-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00033-B_doctype",
+   "source_excerpt": "患者は56歳の女性で、主訴として悪寒を訴えている。入院当初より悪寒を認める。身体診察の結果、頸部痛を訴える。食欲不振も認める。\n\n既往歴として子宮筋腫を認める。家族歴は、叔父が鉄欠乏性貧血、兄がてんかんである。現在、モンテルカストを内服中である。ヨードに対するアレルギー歴を認める。\n\n現在の診察所見として、大腸ポリープと白内障の所見を認める。膀胱炎の疑いあり。血圧120/80mmHg、脈拍72回/分、体温36.5度、酸素飽和度98% Room Air。以上の通り。",
+   "gold": {
+    "label": "看護記録"
+   },
+   "output": "{\"label\": \"入院時記録\"}",
+   "score_record": {
+    "id": "test_xgen-00033-B_doctype",
+    "gold": "看護記録",
+    "pred": "入院時記録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00040-B_doctype",
+   "source_excerpt": "69歳女性。主訴は鼻出血。\n現在、鼻出血、耳鳴り、悪寒を認める。発熱、口渇は認めない。\n過去にインフルエンザと診断されたことがある。姉に心房細動がある。\n現在、グリメピリド、ビソプロロールを内服中。小麦、エビに対するアレルギーあり。\n今回の所見として胃潰瘍、鉄欠乏性貧血と診断している。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00040-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  },
+  {
+   "id": "test_xgen-00049-B_doctype",
+   "source_excerpt": "42歳の男性が不安感を訴えて来院した。主訴の他に肩こりを認める。\n\n身体所見および検査の結果、急性膵炎と乳癌の所見を認める。全身倦怠感は否定された。小麦に対するアレルギーがある。妹は急性上気道炎を経験している。",
+   "gold": {
+    "label": "検査・画像所見報告書"
+   },
+   "output": "{\"label\": \"外来診療録\"}",
+   "score_record": {
+    "id": "test_xgen-00049-B_doctype",
+    "gold": "検査・画像所見報告書",
+    "pred": "外来診療録",
+    "correct": false
+   }
+  }
+ ],
+ "E4_gpt41/test_ext/ext_mrner_disease": [
+  {
+   "id": "ext_mrner_disease-000",
+   "source_excerpt": "肝動脈には走行異常が２５から４５％と高頻度に認められる。\n今回我々は、腹腔動脈から通常分枝した総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常を有する胃癌患者を経験したので報告する。\n症例は７６歳男性。\n既往に開腹胆摘、上行結腸早期癌ＥＭＲがある。\n胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）　にて胃全摘、脾摘、Ｄ２郭清、Ｒｏｕｘ－Ｙ再建を施行した。\nこの時に総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを",
+   "gold": {
+    "entities": [
+     "Ｎ．Ｏ．８ａリンパ節",
+     "胃癌",
+     "走行異常"
+    ]
+   },
+   "output": "{\"entities\": [\"総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常\", \"胃体上部小彎の胃癌（５型、Ｔ３、Ｎ１、Ｐ０、Ｈ０、ＣＹ０、Ｍ０、Ｓｔａｇｅ　ⅡＢ）\", \"総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを確認した\", \"造影ＣＴ検査において同様の所見が確認された\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-000",
+    "tp": 0,
+    "fp": 4,
+    "fn": 3,
+    "per_key": {
+     "entities": {
+      "tp": 0,
+      "fp": 4,
+      "fn": 3,
+      "fp_values": [
+       "総肝動脈が、門脈の背側尾側を走行し、門脈右側から腹側へと出現する走行異常",
+       "総肝動脈が門脈の背側、尾側を走行して肝臓へと向かうことを確認した",
+       "胃体上部小彎の胃癌(5型、T3、N1、P0、H0、CY0、M0、StageIIB)",
+       "造影CT検査において同様の所見が確認された"
+      ],
+      "fn_values": [
+       "N.O.8aリンパ節",
+       "胃癌",
+       "走行異常"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-001",
+   "source_excerpt": "症例は６０歳女性。\n昭和６３年頃より高血圧症にて加療中。\n平成１年７月頃より下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着出現し，平成２年１月初診。\n臨床症状及び前腕伸側皮膚生検組織像より汎発性強皮症と診断。\n血液検査では血沈亢進。\n抗核抗体×３２０の他は異常なし。\n左頸部に超大豆大リンパ節腫脹を認めたが，消化管，肝，腎，肺の精査では，特に異常は認められなかった。\nステロイド剤外用，Ｖｉｔ．Ｅ内服で手指の腫脹は軽減したが，６月末より発熱，嚥下障害を認めるようになり，７月２日心",
+   "gold": {
+    "entities": [
+     "両側腋窩リンパ節",
+     "発熱，嚥下障害",
+     "汎発性強皮症",
+     "下腿浮腫，手指腫脹，皮膚硬化，びまん性色素沈着",
+     "高血圧症",
+     "腫脹",
+     "心嚢液",
+     "リンパ節腫脹",
+     "血沈亢進",
+     "腺癌の転移像"
+    ]
+   },
+   "output": "{\"entities\": [\"高血圧症\", \"下腿浮腫\", \"手指腫脹\", \"皮膚硬化\", \"びまん性色素沈着\", \"血沈亢進\", \"抗核抗体×３２０\", \"左頸部に超大豆大リンパ節腫脹\", \"手指の腫脹は軽減\", \"発熱\", \"嚥下障害\", \"心外膜炎疑い\", \"心嚢液穿刺（６００ml）\", \"両側腋窩リンパ節を触知\", \"心嚢液は次第に血性になった\", \"腺癌の転移像を認めた\", \"症状は次第に増悪\", \"縦隔の異所性甲状腺組織\", \"唾液腺組織の悪性腫瘍が最も疑われた\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-001",
+    "tp": 2,
+    "fp": 17,
+    "fn": 8,
+    "per_key": {
+     "entities": {
+      "tp": 2,
+      "fp": 17,
+      "fn": 8,
+      "fp_values": [
+       "びまん性色素沈着",
+       "下腿浮腫",
+       "両側腋窩リンパ節を触知",
+       "唾液腺組織の悪性腫瘍が最も疑われた",
+       "嚥下障害",
+       "左頸部に超大豆大リンパ節腫脹",
+       "心嚢液は次第に血性になった",
+       "心嚢液穿刺(600ml)",
+       "心外膜炎疑い",
+       "手指の腫脹は軽減",
+       "手指腫脹",
+       "抗核抗体×320",
+       "症状は次第に増悪",
+       "発熱",
+       "皮膚硬化",
+       "縦隔の異所性甲状腺組織",
+       "腺癌の転移像を認めた"
+      ],
+      "fn_values": [
+       "リンパ節腫脹",
+       "下腿浮腫,手指腫脹,皮膚硬化,びまん性色素沈着",
+       "両側腋窩リンパ節",
+       "心嚢液",
+       "汎発性強皮症",
+       "発熱,嚥下障害",
+       "腫脹",
+       "腺癌の転移像"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-002",
+   "source_excerpt": "【はじめに】我々は若年女性の小腸異常血管に伴う消化管出血に対してＩＶＲを施行後，小開腹下での小腸部分切除術を施行した症例を経験したので報告する。\n【症例】２７歳女性．\n既往歴はなし．\n２０１２年１２月激しい腹痛と下血を認め，当院救急外来に搬送された．\n腹部造影ＣＴで小腸出血と診断．\n来院時出血性ショック状態であり，濃厚赤血球８単位を輸血した．\n出血源検索ならびに止血コントロール目的に緊急でＩＶＲを施行．\n破綻血管ならびに周囲空腸（約１０ｃｍ）の領域を含め，マイクロコイルとシア",
+   "gold": {
+    "entities": [
+     "破綻血管",
+     "小腸出血",
+     "腹痛",
+     "異常血管",
+     "消化管出血",
+     "出血性ショック状態",
+     "下血",
+     "小腸異常血管"
+    ]
+   },
+   "output": "{\"entities\": [\"激しい腹痛\", \"下血\", \"小腸出血\", \"出血性ショック状態\", \"破綻血管\", \"小腸のわずかな異常血管\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-002",
+    "tp": 4,
+    "fp": 2,
+    "fn": 4,
+    "per_key": {
+     "entities": {
+      "tp": 4,
+      "fp": 2,
+      "fn": 4,
+      "fp_values": [
+       "小腸のわずかな異常血管",
+       "激しい腹痛"
+      ],
+      "fn_values": [
+       "小腸異常血管",
+       "消化管出血",
+       "異常血管",
+       "腹痛"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-003",
+   "source_excerpt": "【目的】２０１９年初めにＣ型非代償性肝硬変に対し本邦で初めてソホスブビル／ベルパスタビル（ＳＯＦ／ＶＥＬ）が使用可能となり，更に多くの症例にウイルス排除の機会が得られる一方で，肝硬変合併症を多く有することから，治療中の有害事象の発現にも今まで以上の注意が必要となるものと考えられる．\nそこで今回，当院におけるＳＯＦ／ＶＥＬを導入した症例に対する治療効果と安全性を検証することを目的とした，\n【方法】当院におけるＣ型非代償性肝硬変患者に対してＳＯＦ／ＶＥＬを導入した６例の臨床背景と",
+   "gold": {
+    "entities": [
+     "食道静脈瘤",
+     "肝癌",
+     "肝不全",
+     "心不全",
+     "死亡",
+     "Ｃ型非代償性肝硬変",
+     "有害事象",
+     "洞停止",
+     "体液貯留傾向",
+     "脳症",
+     "Ｉ度房室ブロック",
+     "蜂窩織炎による敗血症",
+     "肝性脳症",
+     "慢性腎不全",
+     "腹水",
+     "心房細動"
+    ]
+   },
+   "output": "{\"entities\": [\"肝硬変合併症を多く有する\", \"Ｃ型非代償性肝硬変\", \"肝癌治療歴は４例\", \"導入前に食道静脈瘤が認められたのは２例\", \"２例で脳症の既往があり\", \"５例で投与前に腹水が認められた\", \"３例に重篤な有害事象の発現を認めた\", \"食道静脈瘤を指摘されていた\", \"食道静脈瘤の破裂を来たした\", \"ＨＣＶ　ＲＮＡは投与開始後３週で陰性化に至ったが，中止後６週で再燃した\", \"Ｉ度房室ブロックを認めていた\", \"蜂窩織炎による敗血症を発症した\", \"ｅＧＦＲ２９．０と低下\", \"洞停止が出現した\", \"慢性腎不全を有していた\", \"ＩＶ度の肝性脳症を発症した\", \"体液貯留傾向となり\", \"心房細動を発症し心不全となった\", \"ｅＧＦＲの低下がみられ６週目にｅＧＦＲ１９．３と低下した\", \"肝不全が進行し，中止１６日後に死亡した\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-003",
+    "tp": 1,
+    "fp": 19,
+    "fn": 15,
+    "per_key": {
+     "entities": {
+      "tp": 1,
+      "fp": 19,
+      "fn": 15,
+      "fp_values": [
+       "2例で脳症の既往があり",
+       "3例に重篤な有害事象の発現を認めた",
+       "5例で投与前に腹水が認められた",
+       "HCVRNAは投与開始後3週で陰性化に至ったが,中止後6週で再燃した",
+       "IV度の肝性脳症を発症した",
+       "I度房室ブロックを認めていた",
+       "eGFR29.0と低下",
+       "eGFRの低下がみられ6週目にeGFR19.3と低下した",
+       "体液貯留傾向となり",
+       "導入前に食道静脈瘤が認められたのは2例",
+       "心房細動を発症し心不全となった",
+       "慢性腎不全を有していた",
+       "洞停止が出現した",
+       "肝不全が進行し,中止16日後に死亡した",
+       "肝癌治療歴は4例",
+       "肝硬変合併症を多く有する",
+       "蜂窩織炎による敗血症を発症した",
+       "食道静脈瘤の破裂を来たした",
+       "食道静脈瘤を指摘されていた"
+      ],
+      "fn_values": [
+       "I度房室ブロック",
+       "体液貯留傾向",
+       "心不全",
+       "心房細動",
+       "慢性腎不全",
+       "有害事象",
+       "死亡",
+       "洞停止",
+       "肝不全",
+       "肝性脳症",
+       "肝癌",
+       "脳症",
+       "腹水",
+       "蜂窩織炎による敗血症",
+       "食道静脈瘤"
+      ]
+     }
+    },
+    "exact": false
+   }
+  },
+  {
+   "id": "ext_mrner_disease-004",
+   "source_excerpt": "Ｂｅｖａｃｉｚｕｍａｂの有害事象として血管新生抑制による創傷治癒遅延が報告されているが、今回、ｂｅｖａｃｉｚｕｍａｂ投与中に緊急手術として腸管切除および吻合を行い、縫合不全等の合併症なく良好に経過した１例を経験したので、若干の文献的考察を加えて報告する。\n症例は６８歳男性。\n２０１１年１１月、多発肝・肺転移を伴う上行結腸癌に対し結腸右半切除術およびＤ２郭清を施行した。\n術後診断は、ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，ｔｕｂ２，ｐＳＩ，Ｎ３，Ｈ３，Ｐ０，Ｍ１（ＬＭ３），ｆＳ",
+   "gold": {
+    "entities": [
+     "肛門周囲膿瘍",
+     "小腸拡張と壁の造影不良、ｃｌｏｓｅｄ　ｌｏｏｐ",
+     "絞扼",
+     "イレウス",
+     "腹痛と嘔吐",
+     "多発肝・肺転移を伴う上行結腸癌",
+     "壊死",
+     "絞扼性イレウス"
+    ]
+   },
+   "output": "{\"entities\": [\"多発肝・肺転移\", \"上行結腸癌\", \"腹痛\", \"嘔吐\", \"イレウス\", \"限局性の小腸拡張\", \"壁の造影不良\", \"closed loop\", \"絞扼性イレウス\", \"索状物による絞扼\", \"約６０ｃｍにわたり回腸が壊死\", \"壊死腸管\", \"肛門周囲膿瘍\"]}",
+   "score_record": {
+    "id": "ext_mrner_disease-004",
+    "tp": 3,
+    "fp": 10,
+    "fn": 5,
+    "per_key": {
+     "entities": {
+      "tp": 3,
+      "fp": 10,
+      "fn": 5,
+      "fp_values": [
+       "closedloop",
+       "上行結腸癌",
+       "嘔吐",
+       "壁の造影不良",
+       "壊死腸管",
+       "多発肝・肺転移",
+       "約60cmにわたり回腸が壊死",
+       "索状物による絞扼",
+       "腹痛",
+       "限局性の小腸拡張"
+      ],
+      "fn_values": [
+       "壊死",
+       "多発肝・肺転移を伴う上行結腸癌",
+       "小腸拡張と壁の造影不良、closedloop",
+       "絞扼",
+       "腹痛と嘔吐"
+      ]
+     }
+    },
+    "exact": false
+   }
+  }
+ ],
+ "E4_gpt41/test_ext/ext_crade": [
+  {
+   "id": "ext_crade-012",
+   "source_excerpt": "狭窄所見」がADE（有害事象）である可能性は？\n「症例：６６歳女性\n現病歴：胃癌にて胃全摘術（Ｄ２）＋両側卵巣腫瘍（ｄｅｒｍｏｉｄ　ｃｙｓｔ）摘出術を受けた。\n病理結果は５５ｘ５０ｍｍ，Ｔｙｐｅ３低分化腺癌，ｓｉ（ｐａｎｃ．被膜），ｌｙ２，ｖ２，ｎ２（１２／７６），ｓｔａｇｅ３ｂ．術中の腹水細胞診はＣｌａｓｓ１であった。\n［術前ＣＥＡ（３．５ｎｇ／ｍｌ），ＣＡ１９－９（６Ｕ／ｍｌ以下）］術後の画像検査では再発所見を認めなかったが、腫瘍マーカー（ＣＥＡ）が緩徐に上昇傾向であった",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"A\"}",
+   "score_record": {
+    "id": "ext_crade-012",
+    "gold": "B",
+    "pred": "A",
+    "strict_pred": "A",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-013",
+   "source_excerpt": "ＩＬ－２レセプター値高値」がADE（有害事象）である可能性は？\n「症例：４８歳女性，\n主訴：多発性皮膚腫瘍，\n家族歴：母；悪性リンパ腫，長男：自閉症。\n現病歴：昭和４０年頃発症。昭和５９年頃より腫瘍期。\n順天堂医院にてＰＵＶＡ療法，ＡＣＮＵローション外用，ＩＦＮ－α局注，コバルト照射等を受けていた。\nその後電子線照射目的で当院に転院。\n昭和６３年よりＶＥＰＡ療法，電子線照射，ＩＦＮ一α全身投与等で加療。\n経過中，ＡＴＬ抗体価の上昇が認められた為，ＨＴＬＶ－１　ｐｒｏｖｉｒａｌ",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"A\"}",
+   "score_record": {
+    "id": "ext_crade-013",
+    "gold": "B",
+    "pred": "A",
+    "strict_pred": "A",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-014",
+   "source_excerpt": "絞扼性イレウス」がADE（有害事象）である可能性は？\n「Ｂｅｖａｃｉｚｕｍａｂの有害事象として血管新生抑制による創傷治癒遅延が報告されているが、今回、ｂｅｖａｃｉｚｕｍａｂ投与中に緊急手術として腸管切除および吻合を行い、縫合不全等の合併症なく良好に経過した１例を経験したので、若干の文献的考察を加えて報告する。\n症例は６８歳男性。\n２０１１年１１月、多発肝・肺転移を伴う上行結腸癌に対し結腸右半切除術およびＤ２郭清を施行した。\n術後診断は、ＣＫ（Ａ），Ｔｙｐｅ２，５５×４０ｍｍ，",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"A\"}",
+   "score_record": {
+    "id": "ext_crade-014",
+    "gold": "B",
+    "pred": "A",
+    "strict_pred": "A",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-016",
+   "source_excerpt": "発熱」がADE（有害事象）である可能性は？\n「【背景】　Ｈｅｌｉｃｏｂａｃｔｅｒ　ｃｉｎａｅｄｉ　（Ｈ．ｃｉｎａｅｄｉ）は１９８０年代に発見されたグラム陰性らせん状桿菌である．\n腸肝在位菌の一種であり，何らかの基礎疾患や化学療法により免疫機能が低下した患者の腸管や肝臓血液から本菌の分離報告がある．\n今回，非代償性肝硬変に合併したＨ．ｃｉｎａｅｄｉ菌血症および蜂窩織炎の一例を経験したので報告する．\n【症例】６１歳，Ｃ型非代償性肝硬変の男性．\n難治性肝性腹水に対して腹水コントロー",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"A\"}",
+   "score_record": {
+    "id": "ext_crade-016",
+    "gold": "B",
+    "pred": "A",
+    "strict_pred": "A",
+    "correct": false,
+    "strict_correct": false
+   }
+  },
+  {
+   "id": "ext_crade-017",
+   "source_excerpt": "右胸水」がADE（有害事象）である可能性は？\n「肺軸捻転症は肺切除後の合併症の一つであるが、食道切除後にも極めて稀だが発生している。\n今回、食道癌術後に右中葉軸捻転をきたした症例を経験したので報告する。\n症例は、６８歳、男性。\n胸部食道癌、　ｃＴ２ＮＯＭＯ　ｓｔａｇｅｌＩ、　術前化学療法（ＦＰ２コース）後に右開胸食道亜全摘、２領域郭清、後縦隔経路・頸部吻合による胃管再建を施行された。\n手術時間は、１０時間２分、出血量３０５ｍｌ、胸部操作は４時間３９分であった。\n術後９日目に発",
+   "gold": {
+    "answer": "B",
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ]
+   },
+   "output": "{\"answer\": \"C\"}",
+   "score_record": {
+    "id": "ext_crade-017",
+    "gold": "B",
+    "pred": "C",
+    "strict_pred": "C",
+    "correct": false,
+    "strict_correct": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,663 @@
+{
+  "near_dup_dropped_test_synth": [],
+  "near_dup_dropped_test_xgen": [],
+  "medtxt_CR_removed_for_overlap": [
+    {
+      "doc_id": "MedTxt-CR-JP0217-100",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-102",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-103",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-104",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-107",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-108",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-110",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-29",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-30",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-31",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-32",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-33",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-37",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-38",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-44",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-67",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-72",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-83",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0217-97",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0218-11",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0218-12",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0218-9",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0245-4",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0245-7",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0291-1",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0292-2",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0478-1",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0493-4",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0496-1",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0496-3",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0498-1",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP0498-2",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-127",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-129",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-149",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-160",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-162",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-165",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-166",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-172",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-182",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-191",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-193",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-194",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-195",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-68",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-72",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-77",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1220-84",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-32",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-33",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-40",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-44",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-45",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-54",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-55",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-59",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-67",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1221-70",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1260-2",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1263",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1264",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1267",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1269",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1270",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1271",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1275",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1290-1",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1294",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-11",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-111",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-117",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-118",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-122",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-131",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-134",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-15",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-16",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-17",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-19",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-2",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-20",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-22",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-33",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-40",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-41",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-44",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-5",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-63",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-68",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-71",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-72",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-74",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-77",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-78",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-79",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-80",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-82",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-84",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-85",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-86",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-90",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-93",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1553-95",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1730-1",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1730-4",
+      "max_containment": 1.0
+    },
+    {
+      "doc_id": "MedTxt-CR-JP1735",
+      "max_containment": 1.0
+    }
+  ],
+  "medtxt_RR_removed_for_overlap": [
+    {
+      "doc_id": "MedTxt-RR-72",
+      "max_containment": 0.229
+    },
+    {
+      "doc_id": "MedTxt-RR-73",
+      "max_containment": 0.22
+    },
+    {
+      "doc_id": "MedTxt-RR-74",
+      "max_containment": 0.504
+    },
+    {
+      "doc_id": "MedTxt-RR-75",
+      "max_containment": 0.387
+    },
+    {
+      "doc_id": "MedTxt-RR-76",
+      "max_containment": 0.266
+    },
+    {
+      "doc_id": "MedTxt-RR-77",
+      "max_containment": 0.275
+    },
+    {
+      "doc_id": "MedTxt-RR-78",
+      "max_containment": 0.28
+    },
+    {
+      "doc_id": "MedTxt-RR-79",
+      "max_containment": 0.319
+    },
+    {
+      "doc_id": "MedTxt-RR-81",
+      "max_containment": 0.51
+    },
+    {
+      "doc_id": "MedTxt-RR-82",
+      "max_containment": 0.289
+    },
+    {
+      "doc_id": "MedTxt-RR-83",
+      "max_containment": 0.401
+    },
+    {
+      "doc_id": "MedTxt-RR-85",
+      "max_containment": 0.245
+    },
+    {
+      "doc_id": "MedTxt-RR-86",
+      "max_containment": 0.21
+    },
+    {
+      "doc_id": "MedTxt-RR-87",
+      "max_containment": 0.624
+    },
+    {
+      "doc_id": "MedTxt-RR-88",
+      "max_containment": 0.394
+    },
+    {
+      "doc_id": "MedTxt-RR-89",
+      "max_containment": 0.346
+    },
+    {
+      "doc_id": "MedTxt-RR-90",
+      "max_containment": 0.236
+    },
+    {
+      "doc_id": "MedTxt-RR-91",
+      "max_containment": 0.242
+    },
+    {
+      "doc_id": "MedTxt-RR-92",
+      "max_containment": 0.342
+    },
+    {
+      "doc_id": "MedTxt-RR-93",
+      "max_containment": 0.708
+    },
+    {
+      "doc_id": "MedTxt-RR-94",
+      "max_containment": 0.248
+    },
+    {
+      "doc_id": "MedTxt-RR-95",
+      "max_containment": 0.271
+    },
+    {
+      "doc_id": "MedTxt-RR-96",
+      "max_containment": 0.275
+    },
+    {
+      "doc_id": "MedTxt-RR-97",
+      "max_containment": 0.358
+    },
+    {
+      "doc_id": "MedTxt-RR-98",
+      "max_containment": 0.222
+    },
+    {
+      "doc_id": "MedTxt-RR-100",
+      "max_containment": 0.253
+    },
+    {
+      "doc_id": "MedTxt-RR-101",
+      "max_containment": 0.281
+    },
+    {
+      "doc_id": "MedTxt-RR-102",
+      "max_containment": 0.511
+    },
+    {
+      "doc_id": "MedTxt-RR-103",
+      "max_containment": 0.223
+    },
+    {
+      "doc_id": "MedTxt-RR-104",
+      "max_containment": 0.217
+    },
+    {
+      "doc_id": "MedTxt-RR-105",
+      "max_containment": 0.323
+    },
+    {
+      "doc_id": "MedTxt-RR-106",
+      "max_containment": 0.342
+    },
+    {
+      "doc_id": "MedTxt-RR-107",
+      "max_containment": 0.335
+    },
+    {
+      "doc_id": "MedTxt-RR-108",
+      "max_containment": 0.428
+    },
+    {
+      "doc_id": "MedTxt-RR-109",
+      "max_containment": 0.329
+    },
+    {
+      "doc_id": "MedTxt-RR-110",
+      "max_containment": 0.5
+    },
+    {
+      "doc_id": "MedTxt-RR-111",
+      "max_containment": 0.246
+    },
+    {
+      "doc_id": "MedTxt-RR-112",
+      "max_containment": 0.43
+    },
+    {
+      "doc_id": "MedTxt-RR-113",
+      "max_containment": 0.444
+    },
+    {
+      "doc_id": "MedTxt-RR-114",
+      "max_containment": 0.222
+    },
+    {
+      "doc_id": "MedTxt-RR-115",
+      "max_containment": 0.309
+    },
+    {
+      "doc_id": "MedTxt-RR-117",
+      "max_containment": 0.405
+    },
+    {
+      "doc_id": "MedTxt-RR-118",
+      "max_containment": 0.48
+    },
+    {
+      "doc_id": "MedTxt-RR-120",
+      "max_containment": 0.325
+    },
+    {
+      "doc_id": "MedTxt-RR-121",
+      "max_containment": 0.249
+    },
+    {
+      "doc_id": "MedTxt-RR-122",
+      "max_containment": 0.225
+    },
+    {
+      "doc_id": "MedTxt-RR-123",
+      "max_containment": 0.356
+    },
+    {
+      "doc_id": "MedTxt-RR-124",
+      "max_containment": 0.434
+    },
+    {
+      "doc_id": "MedTxt-RR-125",
+      "max_containment": 0.218
+    },
+    {
+      "doc_id": "MedTxt-RR-126",
+      "max_containment": 0.225
+    },
+    {
+      "doc_id": "MedTxt-RR-128",
+      "max_containment": 0.275
+    },
+    {
+      "doc_id": "MedTxt-RR-129",
+      "max_containment": 0.409
+    },
+    {
+      "doc_id": "MedTxt-RR-130",
+      "max_containment": 0.308
+    },
+    {
+      "doc_id": "MedTxt-RR-131",
+      "max_containment": 0.319
+    },
+    {
+      "doc_id": "MedTxt-RR-132",
+      "max_containment": 0.239
+    },
+    {
+      "doc_id": "MedTxt-RR-133",
+      "max_containment": 0.438
+    }
+  ],
+  "medtxt_rr_training_file": "excluded entirely (same cases as JMED-LLM radiology items)",
+  "train_eval_id_overlap": [],
+  "train_eval_prompt_overlap": 0
+}

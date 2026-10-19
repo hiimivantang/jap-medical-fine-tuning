@@ -1,0 +1,21 @@
+{
+  "split": "train",
+  "generator": "qwen3.8-27b",
+  "n_specs": 1800,
+  "n_accepted": 1609,
+  "acceptance_rate": 0.8939,
+  "elapsed_s": 2794.6,
+  "final_attempt_rejection_reasons": {
+    "extra": 57,
+    "suspected_unhedged": 54,
+    "negation": 42,
+    "doctype_title": 37,
+    "label_echo": 31,
+    "age_missing": 28,
+    "dx_as_past_history": 28,
+    "sex_missing": 24,
+    "missing": 23,
+    "length": 2,
+    "confirmed_hedged": 1
+  }
+}

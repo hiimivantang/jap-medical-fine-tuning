@@ -1,0 +1,25 @@
+{
+  "adapter_dir": "/home/ivantang-dgxspark/repos/jap-medical-fine-tuning/experiments/01_finetuning/results/adapters/qwen3-8b-jmed-lora",
+  "r": 16,
+  "lora_alpha": 32,
+  "target_modules": [
+    "k_proj",
+    "o_proj",
+    "q_proj",
+    "v_proj"
+  ],
+  "base_model": "Qwen/Qwen3-8B",
+  "checks": {
+    "peft_type_is_lora": true,
+    "rank_in_fireworks_range": true,
+    "rank_within_vllm_max_lora_rank": true,
+    "targets_allowed": true,
+    "no_modules_to_save": true,
+    "bias_none": true,
+    "no_dora": true,
+    "no_rslora": true,
+    "default_init": true,
+    "weights_safetensors": true
+  },
+  "compatible": true
+}

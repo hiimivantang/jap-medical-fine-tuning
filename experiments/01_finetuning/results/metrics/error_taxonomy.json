@@ -1,0 +1,516 @@
+{
+ "E1_qwen3_8b": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 223,
+    "counts": {
+     "missed": 57,
+     "unscripted_finding": 49,
+     "wrong_field": 27,
+     "span_boundary": 10,
+     "unsupported": 2,
+     "negation_error": 2
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 223,
+    "counts": {
+     "span_boundary": 164,
+     "missed": 76,
+     "unscripted_finding": 49,
+     "wrong_field": 39,
+     "unsupported": 3,
+     "negation_error": 2,
+     "format_schema": 1
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 215,
+    "counts": {
+     "unscripted_finding": 57,
+     "wrong_field": 40,
+     "missed": 37,
+     "span_boundary": 13,
+     "unsupported": 5,
+     "negation_error": 1
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 215,
+    "counts": {
+     "span_boundary": 79,
+     "unscripted_finding": 78,
+     "missed": 56,
+     "wrong_field": 44,
+     "unsupported": 8
+    }
+   }
+  },
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 923,
+     "span_boundary": 330,
+     "missed": 162,
+     "unsupported": 15
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 481,
+     "span_boundary": 80,
+     "missed": 52,
+     "unsupported": 13,
+     "format_invalid_json": 1,
+     "missed_due_to_format": 1
+    }
+   }
+  }
+ },
+ "E2_swallow_8b": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 223,
+    "counts": {
+     "unscripted_finding": 169,
+     "missed_due_to_format": 137,
+     "missed": 35,
+     "unsupported": 32,
+     "format_schema": 30,
+     "wrong_field": 18,
+     "span_boundary": 14,
+     "negation_error": 2
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 223,
+    "counts": {
+     "span_boundary": 197,
+     "missed": 110,
+     "unscripted_finding": 67,
+     "wrong_field": 41,
+     "missed_due_to_format": 19,
+     "format_schema": 14,
+     "unsupported": 11,
+     "negation_error": 5,
+     "format_invalid_json": 1
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 215,
+    "counts": {
+     "missed_due_to_format": 137,
+     "unscripted_finding": 122,
+     "missed": 36,
+     "format_schema": 27,
+     "wrong_field": 24,
+     "unsupported": 21,
+     "span_boundary": 14,
+     "negation_error": 4,
+     "format_invalid_json": 1
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 215,
+    "counts": {
+     "span_boundary": 99,
+     "unscripted_finding": 79,
+     "missed": 77,
+     "wrong_field": 45,
+     "format_schema": 18,
+     "unsupported": 14,
+     "negation_error": 6,
+     "missed_due_to_format": 3
+    }
+   }
+  },
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 997,
+     "span_boundary": 453,
+     "missed": 139,
+     "unsupported": 71
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 680,
+     "span_boundary": 70,
+     "unsupported": 56,
+     "missed": 47,
+     "missed_due_to_format": 34,
+     "format_invalid_json": 11
+    }
+   }
+  }
+ },
+ "E2t_swallow_8b_think": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 223,
+    "counts": {
+     "missed_due_to_format": 1161,
+     "format_invalid_json": 164,
+     "unscripted_finding": 13,
+     "span_boundary": 4,
+     "wrong_field": 2,
+     "missed": 1
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 223,
+    "counts": {
+     "missed_due_to_format": 1841,
+     "format_invalid_json": 163,
+     "format_schema": 17,
+     "span_boundary": 12,
+     "unscripted_finding": 9,
+     "wrong_field": 3,
+     "missed": 3,
+     "negation_error": 1
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 215,
+    "counts": {
+     "missed_due_to_format": 1079,
+     "format_invalid_json": 155,
+     "unscripted_finding": 17,
+     "wrong_field": 5,
+     "span_boundary": 4,
+     "missed": 3,
+     "unsupported": 2
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 215,
+    "counts": {
+     "missed_due_to_format": 1676,
+     "format_invalid_json": 155,
+     "span_boundary": 18,
+     "unscripted_finding": 17,
+     "format_schema": 11,
+     "wrong_field": 11,
+     "missed": 10,
+     "unsupported": 2
+    }
+   }
+  },
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "missed_due_to_format": 535,
+     "unscripted_finding": 185,
+     "span_boundary": 168,
+     "format_invalid_json": 60,
+     "missed": 55,
+     "unsupported": 5
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "missed_due_to_format": 121,
+     "format_invalid_json": 45,
+     "missed": 31,
+     "span_boundary": 30,
+     "unscripted_finding": 23,
+     "unsupported": 3
+    }
+   }
+  }
+ },
+ "E3_qwen3_8b_lora": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 223,
+    "counts": {
+     "missed": 4,
+     "unscripted_finding": 3,
+     "span_boundary": 1,
+     "wrong_field": 1
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 223,
+    "counts": {
+     "missed": 8,
+     "wrong_field": 8,
+     "unscripted_finding": 3,
+     "span_boundary": 2
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 215,
+    "counts": {
+     "unscripted_finding": 14,
+     "wrong_field": 7,
+     "missed": 6,
+     "span_boundary": 3
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 215,
+    "counts": {
+     "unscripted_finding": 28,
+     "wrong_field": 21,
+     "missed": 17,
+     "span_boundary": 5
+    }
+   }
+  },
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 244,
+     "missed": 173,
+     "missed_due_to_format": 135,
+     "span_boundary": 133,
+     "format_invalid_json": 15,
+     "unsupported": 4
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 520,
+     "missed": 62,
+     "missed_due_to_format": 53,
+     "span_boundary": 37,
+     "format_invalid_json": 22,
+     "unsupported": 7
+    }
+   }
+  }
+ },
+ "E4_gpt41": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 223,
+    "counts": {
+     "unscripted_finding": 90,
+     "span_boundary": 15,
+     "wrong_field": 2,
+     "missed": 2
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 223,
+    "counts": {
+     "span_boundary": 236,
+     "unscripted_finding": 67,
+     "wrong_field": 14,
+     "missed": 13,
+     "unsupported": 1
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 215,
+    "counts": {
+     "unscripted_finding": 88,
+     "missed": 13,
+     "span_boundary": 11,
+     "wrong_field": 8,
+     "unsupported": 1
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 215,
+    "counts": {
+     "span_boundary": 121,
+     "unscripted_finding": 87,
+     "wrong_field": 29,
+     "missed": 29,
+     "unsupported": 2
+    }
+   }
+  },
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "span_boundary": 499,
+     "unscripted_finding": 292,
+     "missed": 218,
+     "unsupported": 3
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 139,
+     "span_boundary": 96,
+     "missed": 37
+    }
+   }
+  }
+ },
+ "E4b_gpt54mini": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 223,
+    "counts": {
+     "unscripted_finding": 111,
+     "span_boundary": 13,
+     "missed": 5,
+     "wrong_field": 3
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 223,
+    "counts": {
+     "span_boundary": 124,
+     "unscripted_finding": 63,
+     "missed": 19,
+     "wrong_field": 18
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "n_items": 215,
+    "counts": {
+     "unscripted_finding": 94,
+     "missed": 20,
+     "wrong_field": 8,
+     "span_boundary": 6,
+     "unsupported": 3
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "n_items": 215,
+    "counts": {
+     "unscripted_finding": 88,
+     "span_boundary": 56,
+     "missed": 43,
+     "wrong_field": 39,
+     "unsupported": 3
+    }
+   }
+  },
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "span_boundary": 428,
+     "unscripted_finding": 229,
+     "missed": 225,
+     "unsupported": 4
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 110,
+     "span_boundary": 81,
+     "missed": 51
+    }
+   }
+  }
+ },
+ "E1r_qwen3_8b_reppen": {
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 845,
+     "span_boundary": 323,
+     "missed": 163,
+     "unsupported": 39
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 374,
+     "span_boundary": 76,
+     "missed": 62,
+     "unsupported": 26
+    }
+   }
+  }
+ },
+ "E3r_qwen3_8b_lora_reppen": {
+  "test_ext": {
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "n_items": 100,
+    "counts": {
+     "missed": 270,
+     "unscripted_finding": 205,
+     "span_boundary": 127,
+     "unsupported": 13,
+     "missed_due_to_format": 9,
+     "format_invalid_json": 1
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "n_items": 100,
+    "counts": {
+     "unscripted_finding": 508,
+     "missed": 102,
+     "span_boundary": 41,
+     "missed_due_to_format": 10,
+     "unsupported": 8,
+     "format_invalid_json": 6
+    }
+   }
+  }
+ }
+}

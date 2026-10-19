@@ -1,0 +1,39 @@
+{
+ "condition": "E2_swallow_8b",
+ "model": "qwen3-swallow-8b",
+ "split": "test_synth",
+ "warmup_discarded": 3,
+ "single_stream": {
+  "n": 30,
+  "n_errors": 0,
+  "wall_s": 185.502,
+  "latency_s": {
+   "p50": 4.563000000000001,
+   "p90": 10.182170000000003,
+   "p95": 13.96223499999999,
+   "mean": 6.183363333333332
+  },
+  "output_tokens_mean": 87.36666666666666,
+  "prompt_tokens_mean": 470.06666666666666,
+  "requests_per_s": 0.16172297947988026,
+  "output_tokens_per_s": 14.129197640558873,
+  "input_tokens_per_s": 76.02058188750905
+ },
+ "batched": {
+  "n": 150,
+  "n_errors": 0,
+  "wall_s": 60.895,
+  "latency_s": {
+   "p50": 4.900550000000001,
+   "p90": 12.714869999999998,
+   "p95": 14.064534999999983,
+   "mean": 6.954225333333333
+  },
+  "output_tokens_mean": 80.4,
+  "prompt_tokens_mean": 485.62666666666667,
+  "requests_per_s": 2.463241819035728,
+  "output_tokens_per_s": 198.04464225047255,
+  "input_tokens_per_s": 1196.2159137722572,
+  "concurrency": 32
+ }
+}

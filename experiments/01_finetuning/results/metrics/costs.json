@@ -1,0 +1,78 @@
+{
+ "price_snapshot": "2026-10-19",
+ "rows": {
+  "E1_qwen3_8b": {
+   "model": "qwen3-8b",
+   "prompt_tokens_mean": 485.62666666666667,
+   "output_tokens_mean": 68.46666666666667,
+   "single_stream_p50_s": 4.3265,
+   "single_stream_p95_s": 10.374614999999999,
+   "batched_requests_per_hour": 14829.621402483748,
+   "batched_output_tokens_per_s": 282.0374292657557,
+   "batched_concurrency": 32,
+   "break_even_usd_per_hour_vs_E4": 24.075791482789683,
+   "fireworks_required_requests_per_hour_to_match_E4": {
+    "H100": 4927.645735122616,
+    "H200": 4927.645735122616,
+    "B200": 8007.424319574252,
+    "B300": 9239.335753354906
+   }
+  },
+  "E2_swallow_8b": {
+   "model": "qwen3-swallow-8b",
+   "prompt_tokens_mean": 485.62666666666667,
+   "output_tokens_mean": 80.4,
+   "single_stream_p50_s": 4.563000000000001,
+   "single_stream_p95_s": 13.96223499999999,
+   "batched_requests_per_hour": 8867.670548528622,
+   "batched_output_tokens_per_s": 198.04464225047255,
+   "batched_concurrency": 32,
+   "break_even_usd_per_hour_vs_E4": 14.39660401773256,
+   "fireworks_required_requests_per_hour_to_match_E4": {
+    "H100": 4927.645735122616,
+    "H200": 4927.645735122616,
+    "B200": 8007.424319574252,
+    "B300": 9239.335753354906
+   }
+  },
+  "E3_qwen3_8b_lora": {
+   "model": "jmed-lora",
+   "prompt_tokens_mean": 485.62666666666667,
+   "output_tokens_mean": 66.56666666666666,
+   "single_stream_p50_s": 4.506349999999999,
+   "single_stream_p95_s": 10.536755,
+   "batched_requests_per_hour": 14262.440172954131,
+   "batched_output_tokens_per_s": 263.7230835684204,
+   "batched_concurrency": 32,
+   "break_even_usd_per_hour_vs_E4": 23.154976537856545,
+   "fireworks_required_requests_per_hour_to_match_E4": {
+    "H100": 4927.645735122616,
+    "H200": 4927.645735122616,
+    "B200": 8007.424319574252,
+    "B300": 9239.335753354906
+   }
+  },
+  "E4_gpt41": {
+   "model": "gpt-4.1-2025-04-14",
+   "prompt_tokens_mean": 510.49333333333334,
+   "output_tokens_mean": 75.31333333333333,
+   "single_stream_p50_s": 1.062,
+   "single_stream_p95_s": 1.450745,
+   "batched_requests_per_hour": 54180.53049732007,
+   "batched_output_tokens_per_s": 1133.476764867083,
+   "batched_concurrency": 16,
+   "usd_per_1k_requests": 1.6234933333333332
+  },
+  "E4b_gpt54mini": {
+   "model": "gpt-5.4-mini-2026-03-17",
+   "prompt_tokens_mean": 509.49333333333334,
+   "output_tokens_mean": 163.80666666666667,
+   "single_stream_p50_s": 1.45635,
+   "single_stream_p95_s": 2.0356449999999993,
+   "batched_requests_per_hour": 34120.69701082998,
+   "batched_output_tokens_per_s": 1552.5549004687102,
+   "batched_concurrency": 16,
+   "usd_per_1k_requests": 1.11925
+  }
+ }
+}

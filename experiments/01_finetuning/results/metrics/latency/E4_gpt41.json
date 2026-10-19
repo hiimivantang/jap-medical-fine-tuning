@@ -1,0 +1,39 @@
+{
+ "condition": "E4_gpt41",
+ "model": "gpt-4.1-2025-04-14",
+ "split": "test_synth",
+ "warmup_discarded": 3,
+ "single_stream": {
+  "n": 30,
+  "n_errors": 0,
+  "wall_s": 28.814,
+  "latency_s": {
+   "p50": 1.062,
+   "p90": 1.2725800000000003,
+   "p95": 1.450745,
+   "mean": 0.9603933333333333
+  },
+  "output_tokens_mean": 81.16666666666667,
+  "prompt_tokens_mean": 495.3333333333333,
+  "requests_per_s": 1.0411607481123135,
+  "output_tokens_per_s": 84.50754738844945,
+  "input_tokens_per_s": 515.7216238982993
+ },
+ "batched": {
+  "n": 150,
+  "n_errors": 0,
+  "wall_s": 9.967,
+  "latency_s": {
+   "p50": 1.0664500000000001,
+   "p90": 1.3719599999999998,
+   "p95": 1.4184749999999997,
+   "mean": 0.9820626666666665
+  },
+  "output_tokens_mean": 75.31333333333333,
+  "prompt_tokens_mean": 510.49333333333334,
+  "requests_per_s": 15.050147360366685,
+  "output_tokens_per_s": 1133.476764867083,
+  "input_tokens_per_s": 7682.9998931514565,
+  "concurrency": 16
+ }
+}

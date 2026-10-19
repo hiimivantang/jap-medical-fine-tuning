@@ -1,0 +1,39 @@
+{
+ "condition": "E3_qwen3_8b_lora",
+ "model": "jmed-lora",
+ "split": "test_synth",
+ "warmup_discarded": 3,
+ "single_stream": {
+  "n": 30,
+  "n_errors": 0,
+  "wall_s": 159.334,
+  "latency_s": {
+   "p50": 4.506349999999999,
+   "p90": 10.14452,
+   "p95": 10.536755,
+   "mean": 5.311039999999999
+  },
+  "output_tokens_mean": 68.26666666666667,
+  "prompt_tokens_mean": 470.06666666666666,
+  "requests_per_s": 0.18828405938538073,
+  "output_tokens_per_s": 12.853525120708657,
+  "input_tokens_per_s": 88.50606018175463
+ },
+ "batched": {
+  "n": 150,
+  "n_errors": 0,
+  "wall_s": 37.862,
+  "latency_s": {
+   "p50": 5.59495,
+   "p90": 12.90676,
+   "p95": 13.454125,
+   "mean": 6.446022666666667
+  },
+  "output_tokens_mean": 66.56666666666666,
+  "prompt_tokens_mean": 485.62666666666667,
+  "requests_per_s": 3.961788936931703,
+  "output_tokens_per_s": 263.7230835684204,
+  "input_tokens_per_s": 1923.9503554790201,
+  "concurrency": 32
+ }
+}

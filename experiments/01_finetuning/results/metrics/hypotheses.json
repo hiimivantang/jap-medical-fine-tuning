@@ -1,0 +1,370 @@
+{
+ "H1": {
+  "rule": "E3-E1 > 0 with Holm-adjusted p < 0.05 (within test_synth's 3 primary endpoints) on >= 2 of 3 AND every such endpoint has the same (positive) direction on test_xgen",
+  "all_endpoints_present": true,
+  "complete_predictions": true,
+  "significant_test_synth": [
+   "A_entities",
+   "B_doctype",
+   "C_structured"
+  ],
+  "same_direction_test_xgen": true,
+  "supported": true,
+  "external_transfer": {
+   "ext_mrner_disease": {
+    "diff": 0.20763451907024527,
+    "ci95": [
+     0.15131078831258982,
+     0.2660768770929718
+    ],
+    "p_bootstrap": 0.0,
+    "n_paired": 100,
+    "incomplete": false,
+    "p_holm": 0.0
+   },
+   "ext_mrner_medicine": {
+    "diff": -0.033759345228107474,
+    "ci95": [
+     -0.09639572626661216,
+     0.029953785882486695
+    ],
+    "p_bootstrap": 0.2952,
+    "n_paired": 100,
+    "incomplete": false,
+    "p_holm": 0.2952
+   },
+   "ext_crade": {
+    "diff": -0.08000000000000002,
+    "ci95": [
+     -0.17999999999999994,
+     0.010000000000000009
+    ],
+    "p_bootstrap": 0.1146,
+    "n_paired": 100,
+    "incomplete": false,
+    "mcnemar": {
+     "b": 8,
+     "c": 16,
+     "p_value": 0.15158963203430176
+    },
+    "p_holm": 0.2292
+   },
+   "ext_rrtnm": {
+    "diff": -0.08000000000000007,
+    "ci95": [
+     -0.16000000000000003,
+     0.0
+    ],
+    "p_bootstrap": 0.0512,
+    "n_paired": 100,
+    "incomplete": false,
+    "mcnemar": {
+     "b": 4,
+     "c": 12,
+     "p_value": 0.076812744140625
+    },
+    "p_holm": 0.15360000000000001
+   }
+  },
+  "evidence": {
+   "test_synth": {
+    "A_entities": {
+     "diff": 0.04575766255191627,
+     "ci95": [
+      0.03576219492052746,
+      0.056638021571503355
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 223,
+     "incomplete": false,
+     "p_holm": 0.0
+    },
+    "B_doctype": {
+     "diff": 0.36643672023931717,
+     "ci95": [
+      0.31443286679292054,
+      0.4244595132307228
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 223,
+     "incomplete": false,
+     "mcnemar": {
+      "b": 85,
+      "c": 1,
+      "p_value": 2.248897290378544e-24
+     },
+     "p_holm": 0.0
+    },
+    "C_structured": {
+     "diff": 0.08724011414594368,
+     "ci95": [
+      0.07541785568691406,
+      0.09906237260497353
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 223,
+     "incomplete": false,
+     "p_holm": 0.0
+    }
+   },
+   "test_xgen": {
+    "A_entities": {
+     "diff": 0.042425358757953724,
+     "ci95": [
+      0.032070592859680384,
+      0.053453299020356504
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 215,
+     "incomplete": false,
+     "p_holm": 0.0
+    },
+    "B_doctype": {
+     "diff": 0.4546832153757818,
+     "ci95": [
+      0.37208518894272324,
+      0.5331339229215357
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 215,
+     "incomplete": false,
+     "mcnemar": {
+      "b": 128,
+      "c": 3,
+      "p_value": 2.7535367420836674e-34
+     },
+     "p_holm": 0.0
+    },
+    "C_structured": {
+     "diff": 0.06384778012684988,
+     "ci95": [
+      0.053699788583509545,
+      0.07441860465116279
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 215,
+     "incomplete": false,
+     "p_holm": 0.0
+    }
+   }
+  }
+ },
+ "H2": {
+  "rule": "E3-E2 > 0 with Holm-adjusted p < 0.05 on >= 2 of 3 primary endpoints, test_synth and test_xgen pooled per task (paired bootstrap over the concatenated items)",
+  "all_endpoints_present": true,
+  "complete_predictions": true,
+  "pooled": {
+   "A_entities": {
+    "diff": 0.11918298467247379,
+    "ci95": [
+     0.10535999057045752,
+     0.13406934562439435
+    ],
+    "p_bootstrap": 0.0,
+    "n": 438,
+    "incomplete": false,
+    "p_holm": 0.0
+   },
+   "B_doctype": {
+    "diff": 0.6268706449518178,
+    "ci95": [
+     0.58306736538561,
+     0.6735653885079482
+    ],
+    "p_bootstrap": 0.0,
+    "n": 438,
+    "incomplete": false,
+    "p_holm": 0.0
+   },
+   "C_structured": {
+    "diff": 0.0979659609796597,
+    "ci95": [
+     0.08862598588625992,
+     0.10792860107928604
+    ],
+    "p_bootstrap": 0.0,
+    "n": 438,
+    "incomplete": false,
+    "p_holm": 0.0
+   }
+  },
+  "significant_pooled": [
+   "A_entities",
+   "B_doctype",
+   "C_structured"
+  ],
+  "supported": true,
+  "per_split_evidence": {
+   "test_synth": {
+    "A_entities": {
+     "diff": 0.12692193346302882,
+     "ci95": [
+      0.10723325674492988,
+      0.14823898392732754
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 223,
+     "incomplete": false,
+     "p_holm": 0.0
+    },
+    "B_doctype": {
+     "diff": 0.5841842348896087,
+     "ci95": [
+      0.5261085361737778,
+      0.6496092640521121
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 223,
+     "incomplete": false,
+     "mcnemar": {
+      "b": 129,
+      "c": 1,
+      "p_value": 1.924871999471496e-37
+     },
+     "p_holm": 0.0
+    },
+    "C_structured": {
+     "diff": 0.11781492050550346,
+     "ci95": [
+      0.10354667753770896,
+      0.13289849164288625
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 223,
+     "incomplete": false,
+     "p_holm": 0.0
+    }
+   },
+   "test_xgen": {
+    "A_entities": {
+     "diff": 0.11106178017437984,
+     "ci95": [
+      0.0918011378279361,
+      0.13204100178007253
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 215,
+     "incomplete": false,
+     "p_holm": 0.0
+    },
+    "B_doctype": {
+     "diff": 0.5763827503918967,
+     "ci95": [
+      0.4920025746403887,
+      0.658733359591905
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 215,
+     "incomplete": false,
+     "mcnemar": {
+      "b": 152,
+      "c": 0,
+      "p_value": 3.503246160812043e-46
+     },
+     "p_holm": 0.0
+    },
+    "C_structured": {
+     "diff": 0.07737843551797041,
+     "ci95": [
+      0.06596194503171249,
+      0.08879492600422834
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 215,
+     "incomplete": false,
+     "p_holm": 0.0
+    }
+   },
+   "test_ext": {
+    "ext_crade": {
+     "diff": 0.12,
+     "ci95": [
+      0.02999999999999997,
+      0.21000000000000002
+     ],
+     "p_bootstrap": 0.0138,
+     "n_paired": 100,
+     "incomplete": false,
+     "mcnemar": {
+      "b": 18,
+      "c": 6,
+      "p_value": 0.022655844688415527
+     },
+     "p_holm": 0.0414
+    },
+    "ext_mrner_disease": {
+     "diff": 0.3020294534810031,
+     "ci95": [
+      0.24628807552479692,
+      0.35960672525971693
+     ],
+     "p_bootstrap": 0.0,
+     "n_paired": 100,
+     "incomplete": false,
+     "p_holm": 0.0
+    },
+    "ext_mrner_medicine": {
+     "diff": 0.04348370927318296,
+     "ci95": [
+      -0.018403061194433665,
+      0.11192870987391074
+     ],
+     "p_bootstrap": 0.1654,
+     "n_paired": 100,
+     "incomplete": false,
+     "p_holm": 0.3308
+    },
+    "ext_rrtnm": {
+     "diff": 0.009999999999999898,
+     "ci95": [
+      -0.050000000000000044,
+      0.07999999999999996
+     ],
+     "p_bootstrap": 0.8754,
+     "n_paired": 100,
+     "incomplete": false,
+     "mcnemar": {
+      "b": 6,
+      "c": 5,
+      "p_value": 1.0
+     },
+     "p_holm": 0.8754
+    }
+   }
+  }
+ },
+ "H3": {
+  "rule": "for EACH of ['gen_jcqa', 'gen_jnli', 'gen_jmmlu_med'], lower 95% CI bound of (E3-E1) > -0.02 (non-inferiority, 2 pp)",
+  "all_tasks_present": true,
+  "per_task": {
+   "gen_jcqa": {
+    "diff": -0.0062611806797853164,
+    "ci95": [
+     -0.01610017889087656,
+     0.003577817531305816
+    ],
+    "non_inferior": true,
+    "complete": true
+   },
+   "gen_jnli": {
+    "diff": 0.011961722488038284,
+    "ci95": [
+     0.0035885167464114742,
+     0.020334928229665095
+    ],
+    "non_inferior": true,
+    "complete": true
+   },
+   "gen_jmmlu_med": {
+    "diff": 0.05999999999999994,
+    "ci95": [
+     0.020000000000000018,
+     0.10999999999999999
+    ],
+    "non_inferior": true,
+    "complete": true
+   }
+  },
+  "supported": true
+ }
+}

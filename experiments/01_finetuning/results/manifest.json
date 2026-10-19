@@ -1,0 +1,506 @@
+{
+ "experiment": "01_finetuning",
+ "generated_utc": "2026-10-19T15:23:22+00:00",
+ "hardware": {
+  "platform": "Linux-6.17.0-1029-nvidia-aarch64-with-glibc2.39",
+  "machine": "aarch64",
+  "gpu": "NVIDIA GB10, 580.173.02",
+  "system": "NVIDIA DGX Spark (GB10 Grace Blackwell, 128 GB unified memory)"
+ },
+ "software": {
+  "python": "3.13.15",
+  "main_venv": {
+   "jmedft": "0.1.0",
+   "torch": "2.14.1+cu130",
+   "transformers": "5.20.1",
+   "peft": "0.21.2",
+   "accelerate": "1.15.0",
+   "datasets": "5.1.0",
+   "scikit-learn": "1.9.1",
+   "numpy": "2.5.4",
+   "pandas": "3.0.6",
+   "matplotlib": "3.11.2",
+   "openai": "3.35.1"
+  },
+  "training_venv": {
+   "llamafactory": "0.9.5",
+   "torch": "2.11.0+cu130",
+   "transformers": "5.6.0",
+   "peft": "0.18.1",
+   "trl": "0.24.0",
+   "accelerate": "1.11.0",
+   "datasets": "4.0.0"
+  },
+  "inference_container": "vllm/vllm-openai:v0.31.0"
+ },
+ "models": {
+  "qwen3": {
+   "hf_id": "Qwen/Qwen3-8B",
+   "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+   "served_name": "qwen3-8b"
+  },
+  "swallow": {
+   "hf_id": "tokyotech-llm/Qwen3-Swallow-8B-RL-v0.2",
+   "revision": "9218f4843b6f93369a0b0999d8f58d61487ea71c",
+   "served_name": "qwen3-swallow-8b"
+  },
+  "swallow_med": {
+   "hf_id": "tokyotech-llm/Medical-Qwen3-Swallow-8B",
+   "revision": "f9a3d4dc38270d39196a8c5b5e14f56088fd0876",
+   "served_name": "medical-qwen3-swallow-8b"
+  }
+ },
+ "openai_models": {
+  "E4_gpt41": "gpt-4.1-2025-04-14",
+  "E4b_gpt54mini": "gpt-5.4-mini-2026-03-17"
+ },
+ "generators": {
+  "qwen": {
+   "name": "qwen3.8-27b",
+   "hf_id": "Qwen/Qwen3.8-27B-FP8",
+   "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+   "license": "apache-2.0",
+   "base_url": "http://127.0.0.1:8200/v1",
+   "temperature": 0.8,
+   "top_p": 0.95,
+   "max_tokens": 1200,
+   "concurrency": 64
+  },
+  "nemotron": {
+   "name": "nemotron-3.5-lightning",
+   "hf_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4",
+   "revision": "6dbbd757ea75a8ece6e0702872e3ae53f9987728",
+   "license": "openmdw-1.1",
+   "base_url": "http://127.0.0.1:8300/v1",
+   "temperature": 0.8,
+   "top_p": 0.95,
+   "max_tokens": 1200,
+   "concurrency": 64
+  }
+ },
+ "conditions": {
+  "E1_qwen3_8b": {
+   "provider": "vllm",
+   "server": "qwen3",
+   "served_model": "qwen3-8b",
+   "description": "Untuned Qwen3-8B (thinking disabled)",
+   "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "enable_thinking": false
+   }
+  },
+  "E2_swallow_8b": {
+   "provider": "vllm",
+   "server": "swallow",
+   "served_model": "qwen3-swallow-8b",
+   "description": "Qwen3-Swallow-8B-RL-v0.2 (Japanese CPT+SFT+RL), thinking disabled — identical decoding to E1/E3",
+   "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "enable_thinking": false
+   }
+  },
+  "E2t_swallow_8b_think": {
+   "provider": "vllm",
+   "server": "swallow",
+   "served_model": "qwen3-swallow-8b",
+   "description": "Qwen3-Swallow-8B-RL-v0.2 with native reasoning (sensitivity analysis)",
+   "decoding": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "max_tokens": 4096,
+    "seed": 0,
+    "enable_thinking": true
+   }
+  },
+  "E2m_medical_swallow_8b": {
+   "provider": "vllm",
+   "server": "swallow_med",
+   "served_model": "medical-qwen3-swallow-8b",
+   "description": "Medical-Qwen3-Swallow-8B (off-the-shelf Japanese medical model), thinking disabled",
+   "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "enable_thinking": false
+   }
+  },
+  "E3_qwen3_8b_lora": {
+   "provider": "vllm",
+   "server": "qwen3",
+   "served_model": "jmed-lora",
+   "description": "Qwen3-8B + Japanese medical LoRA (this experiment), thinking disabled",
+   "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "enable_thinking": false
+   }
+  },
+  "E4_gpt41": {
+   "provider": "openai",
+   "served_model": "gpt-4.1-2025-04-14",
+   "description": "OpenAI GPT-4.1 (dated snapshot), temperature 0 — external quality reference",
+   "decoding": {
+    "temperature": 0.0,
+    "max_completion_tokens": 1024,
+    "seed": 0
+   }
+  },
+  "E4b_gpt54mini": {
+   "provider": "openai",
+   "served_model": "gpt-5.4-mini-2026-03-17",
+   "description": "OpenAI GPT-5.4-mini (dated snapshot), reasoning effort low — cost-efficient reference",
+   "decoding": {
+    "reasoning_effort": "low",
+    "max_completion_tokens": 4096
+   }
+  },
+  "E1r_qwen3_8b_reppen": {
+   "provider": "vllm",
+   "server": "qwen3",
+   "served_model": "qwen3-8b",
+   "description": "E1 with repetition_penalty 1.1 (post-hoc sensitivity, test_ext only)",
+   "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "enable_thinking": false,
+    "repetition_penalty": 1.1
+   }
+  },
+  "E3r_qwen3_8b_lora_reppen": {
+   "provider": "vllm",
+   "server": "qwen3",
+   "served_model": "jmed-lora",
+   "description": "E3 with repetition_penalty 1.1 (post-hoc sensitivity, test_ext only)",
+   "decoding": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "seed": 0,
+    "enable_thinking": false,
+    "repetition_penalty": 1.1
+   }
+  }
+ },
+ "conditions_executed": [
+  "E1_qwen3_8b",
+  "E1r_qwen3_8b_reppen",
+  "E2_swallow_8b",
+  "E2t_swallow_8b_think",
+  "E3_qwen3_8b_lora",
+  "E3r_qwen3_8b_lora_reppen",
+  "E4_gpt41",
+  "E4b_gpt54mini"
+ ],
+ "seeds": {
+  "data": 20261019,
+  "training": 42,
+  "decoding": 0,
+  "bootstrap": 0
+ },
+ "training_config": {
+  "run_name": "qwen3-8b-jmed-lora",
+  "seed": 42,
+  "llamafactory": {
+   "model_name_or_path": "Qwen/Qwen3-8B",
+   "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+   "trust_remote_code": false,
+   "stage": "sft",
+   "do_train": true,
+   "finetuning_type": "lora",
+   "lora_rank": 16,
+   "lora_alpha": 32,
+   "lora_dropout": 0.05,
+   "lora_target": "q_proj,k_proj,v_proj,o_proj",
+   "dataset_dir": "data/processed/sft",
+   "dataset": "jmed_train",
+   "eval_dataset": "jmed_val",
+   "template": "qwen3",
+   "enable_thinking": false,
+   "cutoff_len": 2048,
+   "overwrite_cache": true,
+   "preprocessing_num_workers": 8,
+   "dataloader_num_workers": 2,
+   "output_dir": "experiments/01_finetuning/results/training/qwen3-8b-jmed-lora",
+   "logging_steps": 5,
+   "save_steps": 100,
+   "save_total_limit": 3,
+   "plot_loss": true,
+   "overwrite_output_dir": true,
+   "report_to": "tensorboard",
+   "per_device_train_batch_size": 4,
+   "gradient_accumulation_steps": 4,
+   "learning_rate": 0.0001,
+   "num_train_epochs": 2.0,
+   "lr_scheduler_type": "cosine",
+   "warmup_ratio": 0.03,
+   "weight_decay": 0.0,
+   "max_grad_norm": 1.0,
+   "bf16": true,
+   "gradient_checkpointing": true,
+   "ddp_timeout": 180000000,
+   "per_device_eval_batch_size": 4,
+   "eval_strategy": "steps",
+   "eval_steps": 100,
+   "load_best_model_at_end": true,
+   "metric_for_best_model": "eval_loss",
+   "greater_is_better": false
+  },
+  "smoke": {
+   "max_samples": 200,
+   "max_steps": 30,
+   "eval_steps": 15,
+   "save_steps": 15,
+   "output_dir": "experiments/01_finetuning/results/training/smoke"
+  },
+  "export_adapter_dir": "experiments/01_finetuning/results/adapters/qwen3-8b-jmed-lora",
+  "compatibility": {
+   "rank_min": 4,
+   "rank_max": 64,
+   "vllm_max_lora_rank": 16,
+   "allowed_target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ]
+  }
+ },
+ "data_config": {
+  "seed": 20261019,
+  "term_inventory": "experiments/01_finetuning/configs/term_inventory.yaml",
+  "heldout_term_fraction": 0.25,
+  "generators": {
+   "qwen": {
+    "name": "qwen3.8-27b",
+    "hf_id": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "license": "apache-2.0",
+    "base_url": "http://127.0.0.1:8200/v1",
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "max_tokens": 1200,
+    "concurrency": 64
+   },
+   "nemotron": {
+    "name": "nemotron-3.5-lightning",
+    "hf_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4",
+    "revision": "6dbbd757ea75a8ece6e0702872e3ae53f9987728",
+    "license": "openmdw-1.1",
+    "base_url": "http://127.0.0.1:8300/v1",
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "max_tokens": 1200,
+    "concurrency": 64
+   }
+  },
+  "synthetic": {
+   "train": {
+    "generator": "qwen",
+    "n_specs": 1800,
+    "term_pool": "train"
+   },
+   "val": {
+    "generator": "qwen",
+    "n_specs": 180,
+    "term_pool": "train"
+   },
+   "test_synth": {
+    "generator": "qwen",
+    "n_specs": 300,
+    "term_pool": "mixed"
+   },
+   "test_xgen": {
+    "generator": "nemotron",
+    "n_specs": 1000,
+    "term_pool": "mixed",
+    "retries": 5
+   },
+   "mixed_heldout_prob": 0.5
+  },
+  "spec_sampling": {
+   "age_range": [
+    18,
+    92
+   ],
+   "p_age_missing": 0.08,
+   "p_sex_missing": 0.08,
+   "n_symptoms": [
+    1,
+    4
+   ],
+   "n_negated_symptoms": [
+    0,
+    2
+   ],
+   "n_past_history": [
+    0,
+    3
+   ],
+   "n_family_history": [
+    0,
+    2
+   ],
+   "n_medications": [
+    0,
+    4
+   ],
+   "n_allergies": [
+    0,
+    2
+   ],
+   "n_diagnoses": [
+    0,
+    2
+   ],
+   "n_suspected": [
+    0,
+    2
+   ],
+   "p_chief_complaint": 0.85
+  },
+  "validation": {
+   "min_chars": 80,
+   "max_chars": 1400,
+   "negation_window": 20,
+   "negation_cues": [
+    "なし",
+    "認めない",
+    "認めず",
+    "みられない",
+    "見られない",
+    "否定",
+    "ない",
+    "訴えない",
+    "無し",
+    "（－）",
+    "(-)"
+   ],
+   "near_dup_jaccard": 0.6
+  },
+  "real_sources": {
+   "jmed_llm_containment_threshold": 0.2,
+   "medtxt_cr_ja": "data/raw/real_mednlp/extracted/MedTxt-CR-JA-training-pub.xml",
+   "medtxt_rr_ja_test": "data/raw/real_mednlp/extracted/MedTxt-RR-JA-test-answer-pub.xml",
+   "jmed_llm_dir": "data/raw/jmed_llm"
+  },
+  "external_eval": {
+   "jmed_llm_dir": "data/raw/jmed_llm",
+   "jglue_dir": "data/raw/jglue"
+  },
+  "output_dir": "data/processed"
+ },
+ "dataset_versions": {
+  "JMED-LLM": {
+   "repo": "sociocom/JMED-LLM",
+   "commit": "3774a34e4a26a7b8a7851f421ecad91a04c2f59b"
+  },
+  "JGLUE": {
+   "repo": "yahoojapan/JGLUE",
+   "commit": "6f071c09316baae89c3d083a90985b4b1cb9968c",
+   "version": "v1.3"
+  },
+  "Real-MedNLP (MedTxt)": {
+   "download_id": "4864",
+   "license": "CC BY 4.0"
+  },
+  "raw_sha256sums": 551
+ },
+ "processed_data_sha256": {
+  "eval/test_ext/ext_crade.jsonl": "04e8c6a9409d044b14500139b709fd8289bb4852626df87bab54a95a20225a4b",
+  "eval/test_ext/ext_mrner_disease.jsonl": "314917ee6bae4fde3adb522e0af64c934467235c6bcc88d5ca53f20bebc29b88",
+  "eval/test_ext/ext_mrner_medicine.jsonl": "2874fbf748a2602d133d2b4bfc6410a483c7ce75e15299a5c9fa10402e9de928",
+  "eval/test_ext/ext_rrtnm.jsonl": "bb102fd18a8d3e3bef8e363a6de0ea6334594f96d98c4b3ae998356ee4a18b5e",
+  "eval/test_general/gen_jcqa.jsonl": "d6f8390639e1227e97cfb90cfe0935c355e78cd40a55726716015407883dc416",
+  "eval/test_general/gen_jmmlu_med.jsonl": "a166eb92882a3250dc245647644d331b4a8cf9ac69dc8a7024c5bdfc0c326455",
+  "eval/test_general/gen_jnli.jsonl": "8ce22c4f4518275d1244dd81c7ba8baacc48b6d8d28e4bd6da04d684f06fcffe",
+  "eval/test_synth/A_entities.jsonl": "873dffecf86c01af91793d4b7d8f999ac41ad0201d4654b7e8aa6b0816e15f66",
+  "eval/test_synth/B_doctype.jsonl": "593621d8e118af11380de6459897d70f3137bde1afc690b92929f0ce6f2683bf",
+  "eval/test_synth/C_structured.jsonl": "71a561bf6d1f2f17c042725e1f771f0b6b3593f0458ce3e122259ab21a7a83bc",
+  "eval/test_xgen/A_entities.jsonl": "c3ff6a0f8d2677bb3d01ecb0dd2ca293d324e9a53845f85fed8e8e87d6bf5dd3",
+  "eval/test_xgen/B_doctype.jsonl": "dd808f23b68e44c3ebbe55d4ff0c0989ddec38839ff7fdeb53cd2e56b67ce5a4",
+  "eval/test_xgen/C_structured.jsonl": "ff033acbbe9f4f9a2530cce8aee682fe0f63cc9280007ec780e1c0631afee7a7",
+  "eval/val/A_entities.jsonl": "aa65d46832ede038374bf6b77e7f49ab0569ff9a981ba81266fb833b26ee2e59",
+  "eval/val/B_doctype.jsonl": "924bebc7e0bd11c31ec1bc6572934b8a49c08865af54be28ad66820411f38650",
+  "eval/val/C_structured.jsonl": "cd72f26e6846f413e99bacc43eb6ac3f7e8cdd8605eecd36f0ea05fc1ad718a6",
+  "sft/train.jsonl": "71f55c70030ef0f66c90e70468e907b7f97008795f04ad84809ecedb5ddb2135",
+  "sft/val.jsonl": "23fd3c3540c692a5a30ac89802403adb8fc353ad0f96ec4892a1004e8697dd52"
+ },
+ "split_stats": {
+  "seed": 20261019,
+  "sft": {
+   "train": 4151,
+   "val": 405,
+   "train_by_task": {
+    "A_entities": 1367,
+    "C_structured": 1367,
+    "B_doctype": 1367,
+    "ext_mrner_disease": 47,
+    "ext_mrner_medicine": 3
+   },
+   "train_by_source": {
+    "synthetic:qwen3.8-27b": 4101,
+    "MedTxt-CR-JA": 43,
+    "MedTxt-RR-JA": 7
+   }
+  },
+  "eval": {
+   "val": {
+    "A_entities": 135,
+    "B_doctype": 135,
+    "C_structured": 135
+   },
+   "test_synth": {
+    "A_entities": 223,
+    "B_doctype": 223,
+    "C_structured": 223
+   },
+   "test_xgen": {
+    "A_entities": 215,
+    "B_doctype": 215,
+    "C_structured": 215
+   },
+   "test_ext": {
+    "ext_mrner_disease": 100,
+    "ext_mrner_medicine": 100,
+    "ext_crade": 100,
+    "ext_rrtnm": 100
+   },
+   "test_general": {
+    "gen_jcqa": 1118,
+    "gen_jnli": 2508,
+    "gen_jmmlu_med": 100
+   }
+  },
+  "near_dup_dropped": {
+   "test_synth": 0,
+   "test_xgen": 0
+  },
+  "medtxt_removed_for_overlap": {
+   "CR": 107,
+   "RR": 56
+  },
+  "train_eval_prompt_overlap": 0
+ },
+ "adapter": {
+  "path": "experiments/01_finetuning/results/adapters/qwen3-8b-jmed-lora",
+  "sha256": {
+   "adapter_config.json": "cef1d01c2e719d75f0db45bea94bb43f132ec276622bfefe722791a72268edb5",
+   "adapter_model.safetensors": "9a031e04d792aea31b1fca1e538f1658db15fc20e0cb92a5206be6de0cfa5fbc"
+  }
+ }
+}
