@@ -1,0 +1,94 @@
+# Experimental conditions (models + decoding). All local conditions share identical prompts, decoding and
+# parsing; they differ only in weights. Served with experiments/01_finetuning/scripts/serve_vllm.sh.
+vllm_image: vllm/vllm-openai:v0.31.0
+
+servers:
+  qwen3:  # E1 and E3 share one server: same base weights, LoRA hot-loaded (`--enable-lora`)
+    container: jmedft-qwen3
+    port: 8100
+    hf_id: Qwen/Qwen3-8B
+    revision: b968826d9c46dd6066d109eabc6255188de91218
+    served_name: qwen3-8b
+    gpu_util: 0.40
+    extra_args: ["--enable-lora", "--max-lora-rank", "16", "--max-loras", "2",
+                 "--lora-modules", "jmed-lora=/adapters/qwen3-8b-jmed-lora"]
+  swallow:
+    container: jmedft-swallow
+    port: 8101
+    hf_id: tokyotech-llm/Qwen3-Swallow-8B-RL-v0.2
+    revision: 9218f4843b6f93369a0b0999d8f58d61487ea71c
+    served_name: qwen3-swallow-8b
+    gpu_util: 0.40
+    extra_args: []
+  swallow_med:
+    container: jmedft-swallow-med
+    port: 8102
+    hf_id: tokyotech-llm/Medical-Qwen3-Swallow-8B
+    revision: f9a3d4dc38270d39196a8c5b5e14f56088fd0876
+    served_name: medical-qwen3-swallow-8b
+    gpu_util: 0.40
+    extra_args: []
+
+# Shared decoding for every local no-think condition (greedy; seed fixed).
+no_think_decoding: &no_think
+  temperature: 0.0
+  top_p: 1.0
+  max_tokens: 1024
+  seed: 0
+  enable_thinking: false
+
+# Native reasoning decoding (Swallow's recommended sampling; greedy is discouraged for reasoning models).
+think_decoding: &think
+  temperature: 0.6
+  top_p: 0.95
+  top_k: 20
+  max_tokens: 4096
+  seed: 0
+  enable_thinking: true
+
+conditions:
+  E1_qwen3_8b:
+    provider: vllm
+    server: qwen3
+    served_model: qwen3-8b
+    description: Untuned Qwen3-8B (thinking disabled)
+    decoding: *no_think
+  E2_swallow_8b:
+    provider: vllm
+    server: swallow
+    served_model: qwen3-swallow-8b
+    description: Qwen3-Swallow-8B-RL-v0.2 (Japanese CPT+SFT+RL), thinking disabled — identical decoding to E1/E3
+    decoding: *no_think
+  E2t_swallow_8b_think:
+    provider: vllm
+    server: swallow
+    served_model: qwen3-swallow-8b
+    description: Qwen3-Swallow-8B-RL-v0.2 with native reasoning (sensitivity analysis)
+    decoding: *think
+  E2m_medical_swallow_8b:
+    provider: vllm
+    server: swallow_med
+    served_model: medical-qwen3-swallow-8b
+    description: Medical-Qwen3-Swallow-8B (off-the-shelf Japanese medical model), thinking disabled
+    decoding: *no_think
+  E3_qwen3_8b_lora:
+    provider: vllm
+    server: qwen3
+    served_model: jmed-lora
+    description: Qwen3-8B + Japanese medical LoRA (this experiment), thinking disabled
+    decoding: *no_think
+  E4_gpt41:
+    provider: openai
+    served_model: gpt-4.1-2025-04-14
+    description: OpenAI GPT-4.1 (dated snapshot), temperature 0 — external quality reference
+    decoding:
+      temperature: 0.0
+      max_completion_tokens: 1024
+      seed: 0
+  E4b_gpt54mini:
+    provider: openai
+    served_model: gpt-5.4-mini-2026-03-17
+    description: OpenAI GPT-5.4-mini (dated snapshot), reasoning effort low — cost-efficient reference
+    decoding:
+      reasoning_effort: low
+      max_completion_tokens: 4096

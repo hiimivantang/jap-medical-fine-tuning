@@ -1,0 +1,78 @@
+# LoRA SFT of Qwen3-8B with LLaMA-Factory 0.9.5 (rendered to a LLaMA-Factory YAML by `jmedft train`).
+# Keys under `llamafactory:` are passed through verbatim; paths are resolved relative to the repo root.
+run_name: qwen3-8b-jmed-lora
+seed: 42
+
+llamafactory:
+  ### model
+  model_name_or_path: Qwen/Qwen3-8B
+  model_revision: b968826d9c46dd6066d109eabc6255188de91218
+  trust_remote_code: false
+
+  ### method
+  stage: sft
+  do_train: true
+  finetuning_type: lora
+  lora_rank: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  lora_target: q_proj,k_proj,v_proj,o_proj
+
+  ### dataset (registered by `jmedft train` in data/processed/sft/dataset_info.json)
+  dataset_dir: data/processed/sft
+  dataset: jmed_train
+  eval_dataset: jmed_val
+  template: qwen3
+  enable_thinking: false
+  cutoff_len: 4096
+  overwrite_cache: true
+  preprocessing_num_workers: 8
+  dataloader_num_workers: 2
+
+  ### output
+  output_dir: experiments/01_finetuning/results/training/qwen3-8b-jmed-lora
+  logging_steps: 5
+  save_steps: 100
+  save_total_limit: 3
+  plot_loss: true
+  overwrite_output_dir: true
+  report_to: tensorboard
+
+  ### train
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 1.0e-4
+  num_train_epochs: 2.0
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  bf16: true
+  gradient_checkpointing: true
+  ddp_timeout: 180000000
+
+  ### eval
+  per_device_eval_batch_size: 4
+  eval_strategy: steps
+  eval_steps: 100
+  load_best_model_at_end: true
+  metric_for_best_model: eval_loss
+  greater_is_better: false
+
+# Smoke-test overrides (`jmedft train --smoke`): tiny run to validate the pipeline end to end.
+smoke:
+  max_samples: 200
+  max_steps: 30
+  eval_steps: 15
+  save_steps: 15
+  output_dir: experiments/01_finetuning/results/training/smoke
+
+# Where the selected adapter is exported for serving (mounted into vLLM as /adapters/<name>).
+export_adapter_dir: experiments/01_finetuning/results/adapters/qwen3-8b-jmed-lora
+
+# Fireworks AI / vLLM LoRA compatibility constraints (checked by `jmedft adapter-check`).
+compatibility:
+  rank_min: 4
+  rank_max: 64
+  vllm_max_lora_rank: 16
+  allowed_target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]

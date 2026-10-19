@@ -1,0 +1,24 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Logs / runtime state
+.logs/
+.omc/
+*.log
+
+# Large artifacts: raw third-party data is re-downloadable via scripts; model weights live in the HF cache.
+data/raw/
+experiments/01_finetuning/results/**/checkpoint-*/
+experiments/01_finetuning/results/**/runs/
+.venv-llamafactory/
+**/.omc/
