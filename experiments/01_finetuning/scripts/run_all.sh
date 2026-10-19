@@ -36,15 +36,19 @@ if has infer; then
   $J infer --condition E3_qwen3_8b_lora
   $J latency --condition E1_qwen3_8b
   $J latency --condition E3_qwen3_8b_lora
+  # Post-hoc sensitivity (not pre-registered): repetition penalty on the external set, both arms.
+  $J infer --condition E1r_qwen3_8b_reppen --splits test_ext
+  $J infer --condition E3r_qwen3_8b_lora_reppen --splits test_ext
   $J serve --server qwen3 --stop
   $J serve --server swallow
   $J infer --condition E2_swallow_8b
   $J latency --condition E2_swallow_8b
   $J infer --condition E2t_swallow_8b_think --splits test_synth test_xgen test_ext --sample 60
   $J serve --server swallow --stop
-  $J serve --server swallow_med
-  $J infer --condition E2m_medical_swallow_8b
-  $J serve --server swallow_med --stop
+  # Optional E2m arm (Medical-Qwen3-Swallow-8B) was NOT run in Experiment 01; uncomment to add it.
+  # $J serve --server swallow_med
+  # $J infer --condition E2m_medical_swallow_8b
+  # $J serve --server swallow_med --stop
   $J infer --condition E4_gpt41 --concurrency 16
   $J latency --condition E4_gpt41 --concurrency 16
   $J infer --condition E4b_gpt54mini --concurrency 8 --splits test_synth test_xgen test_ext

@@ -268,6 +268,9 @@ docker stop jmedft-xgen
 .venv/bin/jmedft infer --condition E3_qwen3_8b_lora
 .venv/bin/jmedft latency --condition E1_qwen3_8b
 .venv/bin/jmedft latency --condition E3_qwen3_8b_lora
+# post-hoc sensitivity (not pre-registered): repetition penalty on the external set
+.venv/bin/jmedft infer --condition E1r_qwen3_8b_reppen --splits test_ext
+.venv/bin/jmedft infer --condition E3r_qwen3_8b_lora_reppen --splits test_ext
 .venv/bin/jmedft serve --server qwen3 --stop
 .venv/bin/jmedft serve --server swallow
 .venv/bin/jmedft infer --condition E2_swallow_8b
