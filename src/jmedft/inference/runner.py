@@ -33,8 +33,9 @@ def _request_kwargs(cond: dict[str, Any], messages: list[dict[str, str]]) -> dic
     kw.update(temperature=dec["temperature"], top_p=dec.get("top_p", 1.0), max_tokens=dec["max_tokens"],
               seed=dec.get("seed", 0))
     extra: dict[str, Any] = {"chat_template_kwargs": {"enable_thinking": bool(dec.get("enable_thinking", False))}}
-    if dec.get("top_k") is not None:
-        extra["top_k"] = dec["top_k"]
+    for k in ("top_k", "repetition_penalty"):
+        if dec.get(k) is not None:
+            extra[k] = dec[k]
     kw["extra_body"] = extra
     return kw
 

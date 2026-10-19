@@ -92,3 +92,19 @@ conditions:
     decoding:
       reasoning_effort: low
       max_completion_tokens: 4096
+
+  # --- Post-hoc sensitivity analysis (NOT pre-registered; does not enter any hypothesis decision) ---
+  # E3 produced runaway repetition on 9% of external real-text items; these rerun test_ext with a mild
+  # repetition penalty for BOTH the base and the adapter, to separate decoding artifacts from learned behaviour.
+  E1r_qwen3_8b_reppen:
+    provider: vllm
+    server: qwen3
+    served_model: qwen3-8b
+    description: E1 with repetition_penalty 1.1 (post-hoc sensitivity, test_ext only)
+    decoding: {temperature: 0.0, top_p: 1.0, max_tokens: 1024, seed: 0, enable_thinking: false, repetition_penalty: 1.1}
+  E3r_qwen3_8b_lora_reppen:
+    provider: vllm
+    server: qwen3
+    served_model: jmed-lora
+    description: E3 with repetition_penalty 1.1 (post-hoc sensitivity, test_ext only)
+    decoding: {temperature: 0.0, top_p: 1.0, max_tokens: 1024, seed: 0, enable_thinking: false, repetition_penalty: 1.1}
