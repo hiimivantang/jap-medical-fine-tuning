@@ -78,7 +78,7 @@ def comparison_table(comps: dict[str, Any], contrast: str, splits: list[str]) ->
             mc = v.get("mcnemar", {}).get("p_value")
             lines.append(f"| {split} | {charts.TASK_LABELS.get(task, task)} | {100 * v['diff']:+.1f} | "
                          f"[{100 * v['ci95'][0]:+.1f}, {100 * v['ci95'][1]:+.1f}] | {v['p_bootstrap']:.4f} | "
-                         f"{v['p_holm']:.4f} | {('%.4f' % mc) if mc is not None else '–'} |")
+                         f"{v['p_holm']:.4f} | {(f'{mc:.4f}') if mc is not None else '–'} |")
     return "\n".join(lines)
 
 
@@ -196,6 +196,8 @@ def build_manifest() -> dict[str, Any]:
         "openai_models": {c: v["served_model"] for c, v in conds["conditions"].items() if v["provider"] == "openai"},
         "generators": data_cfg["generators"],
         "conditions": conds["conditions"],
+        "conditions_executed": sorted(d.name for d in (RESULTS / "predictions").iterdir() if d.is_dir())
+        if (RESULTS / "predictions").exists() else [],
         "seeds": {"data": data_cfg["seed"], "training": train_cfg["seed"], "decoding": 0, "bootstrap": 0},
         "training_config": train_cfg,
         "data_config": data_cfg,

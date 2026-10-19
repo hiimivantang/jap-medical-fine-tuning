@@ -294,9 +294,8 @@ def validate_note(text: str, spec: NoteSpec, all_terms: set[str], vcfg: dict[str
         if cc_texts or "主訴" in text:
             errs.append("cc_stated_but_unspecified")
     else:
-        if not cc_texts:
-            if "主訴" not in text:
-                errs.append("cc_missing")
+        if not cc_texts and "主訴" not in text:
+            errs.append("cc_missing")
         others = [normalize_text(s) for s in spec.symptoms if s != spec.chief_complaint]
         for cc in cc_texts:
             ncc = normalize_text(cc)

@@ -15,9 +15,9 @@ needs_raw = pytest.mark.skipif(not (RAW / "jmed_llm/mrner_disease.csv").exists()
 
 
 def _raw_record(spec_id: str, text: str, accepted: bool = True) -> dict:
-    spec = dict(spec_id=spec_id, doc_type="紹介状", age=70, sex="女性", chief_complaint="頭痛", symptoms=["頭痛"],
-                negated_symptoms=[], past_history=["高血圧症"], family_history=[], medications=["アムロジピン"],
-                allergies=[], diagnoses=[], suspected_diagnosis=[], unseen_terms=[])
+    spec = {"spec_id": spec_id, "doc_type": "紹介状", "age": 70, "sex": "女性", "chief_complaint": "頭痛", "symptoms": ["頭痛"],
+                "negated_symptoms": [], "past_history": ["高血圧症"], "family_history": [], "medications": ["アムロジピン"],
+                "allergies": [], "diagnoses": [], "suspected_diagnosis": [], "unseen_terms": []}
     return {"spec": spec, "text": text if accepted else None, "accepted": accepted, "generator": "g",
             "generator_revision": "r", "attempts": []}
 

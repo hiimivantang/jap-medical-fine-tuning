@@ -109,8 +109,7 @@ async def run_items(cond: dict[str, Any], items: list[dict[str, Any]], out_path:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     order = [it["id"] for it in items] + sorted(set(by_id) - {it["id"] for it in items})
     with open(out_path, "w", encoding="utf-8") as f:
-        for i in order:
-            f.write(json.dumps(by_id[i], ensure_ascii=False) + "\n")
+        f.writelines(json.dumps(by_id[i], ensure_ascii=False) + "\n" for i in order)
     errors = sum(1 for it in items if by_id.get(it["id"], {}).get("error"))
     return {"n_items": len(items), "n_new": len(todo), "n_errors": errors, "wall_s": round(wall, 2),
             "concurrency": concurrency}

@@ -22,6 +22,8 @@ CONDITION_STYLE: dict[str, dict[str, str]] = {
     "E3_qwen3_8b_lora": {"label": "E3 Qwen3-8B + LoRA", "color": "#D55E00"},
     "E4_gpt41": {"label": "E4 GPT-4.1", "color": "#CC79A7"},
     "E4b_gpt54mini": {"label": "E4b GPT-5.4-mini", "color": "#E69F00"},
+    "E1r_qwen3_8b_reppen": {"label": "E1 + rep. penalty (post-hoc)", "color": "#666666"},
+    "E3r_qwen3_8b_lora_reppen": {"label": "E3 + rep. penalty (post-hoc)", "color": "#A33F00"},
 }
 
 TASK_LABELS = {

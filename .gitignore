@@ -22,3 +22,10 @@ experiments/01_finetuning/results/**/checkpoint-*/
 experiments/01_finetuning/results/**/runs/
 .venv-llamafactory/
 **/.omc/
+
+# Training run directories: keep logs/state/config, not weights or tokenizer copies (the selected adapter is
+# exported to results/adapters/; base weights live in the HF cache).
+experiments/01_finetuning/results/training/**/*.safetensors
+experiments/01_finetuning/results/training/**/tokenizer*.json
+experiments/01_finetuning/results/training/**/chat_template.jinja
+experiments/01_finetuning/results/training/**/training_args.bin

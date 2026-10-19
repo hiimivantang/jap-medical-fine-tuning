@@ -20,9 +20,9 @@ VCFG = CFG["validation"]
 
 
 def _spec(**kw) -> NoteSpec:
-    base = dict(spec_id="t", doc_type="外来診療録", age=67, sex="男性", chief_complaint=None, symptoms=[],
-                negated_symptoms=[], past_history=[], family_history=[], medications=[], allergies=[],
-                diagnoses=[], suspected_diagnosis=[])
+    base = {"spec_id": "t", "doc_type": "外来診療録", "age": 67, "sex": "男性", "chief_complaint": None, "symptoms": [],
+                "negated_symptoms": [], "past_history": [], "family_history": [], "medications": [], "allergies": [],
+                "diagnoses": [], "suspected_diagnosis": []}
     base.update(kw)
     return NoteSpec(**base)
 
