@@ -40,3 +40,18 @@ def test_h3_requires_all_general_tasks():
     assert hypotheses({K1: {"test_general": all_three}})["H3"]["supported"] is True
     one_bad = dict(all_three, gen_jnli=_c(-0.02, 0.01, lo=-0.03, hi=-0.01))
     assert hypotheses({K1: {"test_general": one_bad}})["H3"]["supported"] is False
+
+
+def test_subsampled_condition_pairs_on_shared_items_only():
+    import numpy as np
+
+    from jmedft.evaluation import run
+
+    full = {"subsampled": False, "n_missing_predictions": 0,
+            "items": [{"id": f"i{k}", "correct": k % 2 == 0, "strict_correct": k % 2 == 0} for k in range(10)]}
+    sub = {"subsampled": True, "n_missing_predictions": 0,
+           "items": [{"id": f"i{k}", "correct": True, "strict_correct": True} for k in (0, 1, 2, 3)]}
+    row = run._paired("gen_jcqa", sub, full)
+    assert row["n_paired"] == 4 and row["incomplete"] is False
+    # Shared items i0..i3: subsample all correct (1.0); full run correct on i0, i2 (0.5) → diff +0.5.
+    assert np.isclose(row["diff"], 0.5)

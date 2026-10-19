@@ -9,7 +9,7 @@ servers:
     hf_id: Qwen/Qwen3-8B
     revision: b968826d9c46dd6066d109eabc6255188de91218
     served_name: qwen3-8b
-    gpu_util: 0.40
+    gpu_util: 0.35
     extra_args: ["--enable-lora", "--max-lora-rank", "16", "--max-loras", "2",
                  "--lora-modules", "jmed-lora=/adapters/qwen3-8b-jmed-lora"]
   swallow:
@@ -18,7 +18,7 @@ servers:
     hf_id: tokyotech-llm/Qwen3-Swallow-8B-RL-v0.2
     revision: 9218f4843b6f93369a0b0999d8f58d61487ea71c
     served_name: qwen3-swallow-8b
-    gpu_util: 0.40
+    gpu_util: 0.35
     extra_args: []
   swallow_med:
     container: jmedft-swallow-med
@@ -26,7 +26,7 @@ servers:
     hf_id: tokyotech-llm/Medical-Qwen3-Swallow-8B
     revision: f9a3d4dc38270d39196a8c5b5e14f56088fd0876
     served_name: medical-qwen3-swallow-8b
-    gpu_util: 0.40
+    gpu_util: 0.35
     extra_args: []
 
 # Shared decoding for every local no-think condition (greedy; seed fixed).

@@ -81,6 +81,11 @@ def _cmd_infer(args: argparse.Namespace) -> None:
             if args.tasks and task not in args.tasks:
                 continue
             items = read_jsonl(path)
+            if args.sample:
+                import random
+
+                items = sorted(random.Random(f"{split}:{task}").sample(items, min(args.sample, len(items))),
+                               key=lambda it: it["id"])
             if args.limit:
                 items = items[: args.limit]
             out = RESULTS / f"predictions/{args.condition}/{split}/{task}.jsonl"
@@ -161,6 +166,7 @@ def main(argv: list[str] | None = None) -> None:
     i.add_argument("--tasks", nargs="*", default=None)
     i.add_argument("--concurrency", type=int, default=32)
     i.add_argument("--limit", type=int, default=None)
+    i.add_argument("--sample", type=int, default=None, help="seeded random subset of N items per task")
     i.set_defaults(func=_cmd_infer)
 
     lt = sub.add_parser("latency", help="single-stream and batched latency/throughput profile")

@@ -199,4 +199,13 @@ All amendments below were made before any model was evaluated on any test split.
    Note: with n=100, JMMLU-Med non-inferiority at a 2 pp margin is nearly unattainable (the reviewer showed
    a lower bound of −0.03 with only two discordant items); H3 is therefore reported per task, with this
    power limitation stated.
+7. **2026-10-19 — Host crash and E2t subsample.** The DGX Spark rebooted unexpectedly at ~17:55 during the E2
+   latency profile (journal ends without panic/OOM/Xid/thermal entries; memory was 46% used; cause unknown).
+   All completed artefacts were verified intact afterwards: git fsck clean, processed-data SHA-256 sums match,
+   all 62 prediction files parse and are complete, adapter SHA-256 unchanged. The E2 latency profile was
+   re-run. To limit GPU time-under-load, E2t (Swallow with native reasoning, ~1,000 tokens/item measured on
+   4 items) is run on a seeded random subsample of 60 items per task (test_synth, test_xgen, test_ext;
+   `jmedft infer --sample 60`), and compared with other conditions on the shared items only. E2t enters no
+   hypothesis decision. vLLM `gpu_memory_utilization` lowered from 0.40 to 0.35 (memory headroom only; no
+   effect on outputs).
 

@@ -38,12 +38,22 @@ def _available_conditions() -> list[str]:
     return sorted(p.name for p in PRED_DIR.iterdir() if p.is_dir()) if PRED_DIR.exists() else []
 
 
+# Conditions deliberately run on a seeded subsample (`jmedft infer --sample N`); they are scored only on the
+# items they ran, and paired comparisons use the shared items. Every other condition must cover all items:
+# a missing prediction is scored as a failure and flags the comparison incomplete.
+SUBSAMPLED_CONDITIONS = {"E2t_swallow_8b_think"}
+
+
 def _load(split: str, task: str, cond: str) -> tuple[list[dict], list[dict]] | None:
     items_p = EVAL_DIR / split / f"{task}.jsonl"
     pred_p = PRED_DIR / cond / split / f"{task}.jsonl"
     if not items_p.exists() or not pred_p.exists():
         return None
-    return read_jsonl(items_p), read_jsonl(pred_p)
+    items, preds = read_jsonl(items_p), read_jsonl(pred_p)
+    if cond in SUBSAMPLED_CONDITIONS:
+        ran = {p["id"] for p in preds}
+        items = [it for it in items if it["id"] in ran]
+    return items, preds
 
 
 def _ci(task: str, result: dict[str, Any]) -> tuple[float, float, float]:
@@ -61,6 +71,7 @@ def score_condition(cond: str) -> dict[str, dict[str, dict[str, Any]]]:
                 continue
             items, preds = loaded
             res = metrics.score_task(task, items, preds)
+            res["subsampled"] = cond in SUBSAMPLED_CONDITIONS
             point, lo, hi = _ci(task, res)
             res["primary_metric"] = metrics.primary_metric(task)
             res["primary"] = {"value": point, "ci95": [lo, hi]}
@@ -68,16 +79,29 @@ def score_condition(cond: str) -> dict[str, dict[str, dict[str, Any]]]:
     return out
 
 
+def _subset(data: dict[str, Any], keep: set[str]) -> dict[str, Any]:
+    idx = np.array([i for i, x in enumerate(data["ids"]) if x in keep], dtype=int)
+    out: dict[str, Any] = {"ids": [data["ids"][i] for i in idx]}
+    for k, v in data.items():
+        if k != "ids":
+            out[k] = v[idx] if isinstance(v, np.ndarray) else v
+    return out
+
+
 def _paired(task: str, res_a: dict[str, Any], res_b: dict[str, Any]) -> dict[str, Any]:
     da, db = metrics.bootstrap_data(task, res_a), metrics.bootstrap_data(task, res_b)
+    if res_a.get("subsampled") or res_b.get("subsampled"):
+        shared = set(da["ids"]) & set(db["ids"])
+        da, db = _subset(da, shared), _subset(db, shared)
     da, db = stats.align_by_id(da, db)
     diff, lo, hi, p = stats.paired_bootstrap_diff(da, db, metrics.statistic_fn(task), n_resamples=10000, seed=0)
-    row: dict[str, Any] = {"diff": diff, "ci95": [lo, hi], "p_bootstrap": p,
+    row: dict[str, Any] = {"diff": diff, "ci95": [lo, hi], "p_bootstrap": p, "n_paired": len(da["ids"]),
                            "incomplete": (res_a["n_missing_predictions"] + res_b["n_missing_predictions"]) > 0}
     if TASK_FAMILY[task] in ("mc", "classification"):
-        ca = [bool(x) for x in metrics.correctness(task, res_a)]
-        cb = [bool(x) for x in metrics.correctness(task, res_b)]
-        row["mcnemar"] = stats.mcnemar_exact(ca, cb)
+        # Key correctness by item id and use exactly the aligned ids of the bootstrap (no reliance on file order).
+        ca = dict(zip((it["id"] for it in res_a["items"]), metrics.correctness(task, res_a)))
+        cb = dict(zip((it["id"] for it in res_b["items"]), metrics.correctness(task, res_b)))
+        row["mcnemar"] = stats.mcnemar_exact([bool(ca[i]) for i in da["ids"]], [bool(cb[i]) for i in da["ids"]])
     return row
 
 
