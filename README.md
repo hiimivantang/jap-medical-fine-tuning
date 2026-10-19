@@ -10,6 +10,159 @@ tasks match or beat (a) the untuned model, (b) a Japanese-specialised model of t
 - Machine-readable results: `experiments/01_finetuning/results/metrics/` · manifest:
   `experiments/01_finetuning/results/manifest.json`
 
+## Tasks
+
+Three tasks are run on fictional Japanese clinical notes, each note being used for all three. Every model receives
+the same note, prompt, decoding settings and scoring code. Prompts are defined once in
+[`src/jmedft/tasks.py`](src/jmedft/tasks.py). All tasks share this system prompt:
+
+> あなたは日本語の医療文書を扱う情報抽出アシスタントです。指示に従い、文書に書かれている内容だけを根拠に回答してください。診断や治療の推奨は行わないでください。
+
+It says: answer only from what the document says, and give no diagnosis or treatment advice. Every instruction
+ends with 「出力はJSONオブジェクトのみとし、説明文やコードブロック記号は付けないでください。」 (JSON object only, no
+explanation, no code fences).
+
+Why JSON: answers are scored by code against fixed gold labels, with no LLM judge. A structured answer is also how a
+customer would consume the output (EHR fields, a database, a downstream system), so format reliability is itself
+measured. Strings are compared after NFKC normalisation and whitespace removal, so full-width and half-width
+characters match (「２０㎎」 = 「20mg」).
+
+### Task A: medical entity extraction
+
+List the symptoms, diseases and medications that apply to the patient now, copied verbatim from the note. The
+instruction excludes:
+
+- negated symptoms (「〜なし」「〜は認めない」, "none / not observed");
+- suspected diagnoses (「〜の疑い」「〜の可能性」, "suspected / possible");
+- diseases of family members;
+- dosages.
+
+Past history counts as a disease.
+
+| | |
+|---|---|
+| Output | `{"symptoms": [...], "diseases": [...], "medications": [...]}` |
+| Primary metric | entity-level micro F1; an item is correct only if it exactly matches a gold item |
+| Also reported | precision, recall, per-type F1, exact match per note, JSON validity, schema validity, lenient (span-overlap) F1 |
+
+Example `test_synth-00139` (outpatient record, SOAP format), with the trap annotations added here:
+
+```
+79歳、女性。主訴は腹部膨満感。腹部膨満感、鼻汁、多尿、記憶障害を主訴とする。
+意識障害は認めない。不安感は認めない。      ← negated: exclude
+既往歴に乳癌あり。                          ← past history: counts as a disease
+家族歴は兄が帯状疱疹。                      ← brother's disease: exclude
+A: 痛風                                     ← current diagnosis: counts
+   脂質異常症の可能性                        ← only "possible": exclude
+```
+
+| | `diseases` (symptoms and medications identical for all) |
+|---|---|
+| Gold | `["乳癌", "痛風"]` |
+| Qwen3-8B (base) | `["乳癌"]`: misses the diagnosis in the assessment (A) section |
+| Qwen3-8B + LoRA | `["乳癌", "痛風"]`: exact |
+| GPT-4.1 | `["乳癌", "痛風"]`: exact |
+
+### Task B: document type classification
+
+Choose which of six clinical document types the note is:
+
+| Label | Meaning |
+|---|---|
+| 外来診療録 | outpatient record (SOAP) |
+| 入院時記録 | admission record |
+| 退院時サマリー | discharge summary |
+| 紹介状 | referral letter |
+| 看護記録 | nursing record |
+| 検査・画像所見報告書 | test / imaging report |
+
+The note generator was forbidden to write the type's name or a title such as 診療情報提供書, so the type must be
+inferred from structure and wording.
+
+| | |
+|---|---|
+| Output | `{"label": "<one of the six>"}` |
+| Primary metric | macro F1 over the six classes |
+| Also reported | accuracy, per-class precision/recall, confusion matrix (with an INVALID column for unusable answers) |
+
+Example `test_synth-00037` (gold 紹介状, referral letter):
+
+```
+68歳 女性 / 主訴：動悸 / 現病歴および経過 … 受診された。…
+本症の診断としては、大腸ポリープの疑い … を考慮している。
+ご高診のほどよろしくお願い申し上げます。     ← closing courtesy line typical of a referral letter
+```
+
+The base model answered 外来診療録 (wrong); the LoRA model and GPT-4.1 answered 紹介状.
+
+A caution, example `test_synth-00004` (gold 看護記録): the note reads like a physician's summary apart from
+「バイタルサインは安定」. The base model and GPT-4.1 both answered 外来診療録; the LoRA model answered 看護記録,
+because it learned how this note generator writes "nursing records". Part of the task B gain is therefore the
+generator's house style: on notes written by a different model the LoRA's macro F1 falls from 0.99 to 0.79 (see the
+report).
+
+### Task C: structured information extraction
+
+Fill an 11-field record, putting every disease into the correct slot:
+
+| Field | Content |
+|---|---|
+| `age` | integer, or null |
+| `sex` | 男性 / 女性, or null |
+| `chief_complaint` | exact text, or null |
+| `symptoms` | present symptoms |
+| `negated_symptoms` | explicitly denied symptoms |
+| `past_history` | past illnesses |
+| `family_history` | family members' diseases (without the relation) |
+| `medications` | drug names (without dose) |
+| `allergies` | allergens |
+| `diagnoses` | current confirmed diagnoses |
+| `suspected_diagnosis` | diagnoses stated only as suspected or possible |
+
+| | |
+|---|---|
+| Primary metric | field accuracy: each of the 11 fields scored separately; a list field is right only on an exact set match, a scalar only on an exact value match |
+| Also reported | exact match (all 11 fields right), list-value P/R/F1, missing fields, unsupported values (predicted text that does not appear in the note, i.e. hallucination), schema compliance |
+
+Example `test_synth-00006` (test / imaging report):
+
+```
+67歳 男性 / 主訴：記憶障害 / 既往歴：慢性腎臓病、腰部脊柱管狭窄症 / 家族歴：父 急性心筋梗塞
+内服薬：ファモチジン、アレンドロン酸、クエン酸第一鉄 / アレルギー歴：ペニシリン、NSAIDs
+検査所見  脳MRI：海馬萎縮を伴う大脳萎縮所見を認める。
+印象  記憶障害 / 肩こりは認めない
+```
+
+| Field | Gold | Qwen3-8B (base) | GPT-4.1 | Qwen3-8B + LoRA |
+|---|---|---|---|---|
+| `negated_symptoms` | `["肩こり"]` | `["肩こりは認めない"]` (whole phrase) | `["肩こりは認めない"]` | `["肩こり"]` |
+| `diagnoses` | `[]` | `["記憶障害"]` (symptom promoted to a diagnosis) | `["記憶障害"]` | `[]` |
+
+The other nine fields were correct for all three models.
+
+### How the notes and test sets are built
+
+- **How notes are made:** each synthetic note starts from a sampled specification (age, sex, symptoms,
+  negated symptoms, history, diagnoses, …). The gold labels are that specification, not a reading of the
+  generated text. A deterministic validator then rejects any note whose text does not support every label
+  (see [`docs/DATA_QUALITY.md`](docs/DATA_QUALITY.md)).
+- **Held-out vocabulary:** a quarter of the term inventory appears only in test notes, so the tests contain
+  medical terms never seen in training.
+
+| Test set | Size | Purpose |
+|---|---|---|
+| `test_synth` | 223 notes × 3 tasks | held-out notes from the training-data generator (Qwen3.8-27B) |
+| `test_xgen` | 215 notes × 3 tasks | notes from a different model (Nemotron), to check that gains are not the generator's style |
+| `test_ext` | 4 × 100 | human-annotated real case and radiology reports (JMED-LLM, CC BY 4.0): disease NER, medication NER, adverse-drug-event certainty, TNM staging |
+| `test_general` | 1,118 + 2,508 + 100 | general Japanese (JCommonsenseQA, JNLI) and medical knowledge (JMMLU-Med), to check for regressions |
+
+External and general items keep their benchmark's own question wording, with the JSON instruction appended. For
+example, CRADE asks 「以下の症例報告において、「膿萢，結痂，ビラン状局面」がADE（有害事象）である可能性は？」 (in
+this case report, how likely is this finding to be an adverse drug event?) with options A 無関係 / B 可能性は低い /
+C おそらくADE / D 確実にADE (unrelated / unlikely / probable / certain), and the answer format
+`{"answer": "<記号>"}`. JMED-LLM labels short spans such as 「胃癌」 while models often return whole clauses, so strict
+F1 on its NER tasks is low for every model, and a lenient F1 is reported alongside.
+
 ## Layout
 
 ```
