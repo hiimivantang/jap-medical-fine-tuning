@@ -174,3 +174,9 @@ All amendments below were made before any model was evaluated on any test split.
 4. **2026-10-19 — E2t (Swallow with reasoning) is run on the medical test sets only** (test_synth, test_xgen,
    test_ext), not on the 3,726 test_general items, because thinking-mode decoding of up to 4,096 tokens per
    item is ~20× more expensive and H3 concerns E3 vs E1 only.
+5. **2026-10-19 — Secondary lenient entity F1.** A 5-item smoke test of the inference pipeline (GPT-4.1 on
+   MRNER-disease, used only to verify plumbing) showed models extracting clause-length spans where JMED-LLM
+   gold uses short spans, so strict F1 largely measures span-boundary convention. A secondary *lenient* F1
+   (one-to-one matching where one normalised string contains the other) is reported alongside the
+   pre-registered strict F1, which remains the primary endpoint. No hypothesis decision uses lenient F1.
+
