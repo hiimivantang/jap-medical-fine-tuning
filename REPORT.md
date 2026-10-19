@@ -17,8 +17,11 @@ into the best model in this comparison **on the Japanese medical tasks it was tr
 | C — structured extraction, field accuracy | 0.906 | **0.993** | 0.902 | 0.940 |
 
 The gains hold on notes written by a different model family (Nemotron), and on the one external real-text task
-whose annotation convention was represented in training (JMED-LLM MRNER-disease: 0.265 → 0.473, GPT-4.1 0.110).
-On external tasks that were **not** trained (adverse-event certainty, TNM staging, medication values) the adapter
+whose annotation convention was represented in training (JMED-LLM MRNER-disease strict F1 0.265 → 0.473; lenient F1
+0.544 → 0.645). It beats GPT-4.1 there only under the strict, span-convention-sensitive metric (0.110); under lenient
+matching GPT-4.1 (0.707) and GPT-5.4-mini (0.727) remain ahead.
+On external tasks that were untrained (adverse-event certainty, TNM staging) or nearly so (medication values: 3
+training items) the adapter
 did not help and is 3–8 points below the base model (not statistically significant) and 10–28 points below the
 OpenAI references. General Japanese ability was preserved (non-inferior within 2 points).
 
@@ -153,18 +156,20 @@ Concrete examples (`README.md` → *Tasks* has the full notes):
   learning the generator's style — the gain shrinks from 0.988 (same generator) to 0.789 (Nemotron notes).
 - *Swallow without reasoning* emits fragmented JSON on ~13% of Task A outputs
   (`{"symptoms":[…]},{"diseases":[…]},{"medications":[…]}}`), losing 137 entities to formatting alone; with
-  reasoning on, its scores rise substantially at ~30× the output tokens (978 vs 30 per request).
+  reasoning on, its scores rise substantially at ~10× the output tokens (978 vs 95 per request on the same 600 items).
 
 ## 4. Results — external human-annotated benchmark (JMED-LLM)
 
-| | E1 | E2 | E2t* | **E3** | E3r (rep. pen.)† | E4 GPT-4.1 | E4b |
-|---|---|---|---|---|---|---|---|
-| MRNER-disease, strict F1 | 0.265 | 0.171 | 0.119 | **0.473** | 0.518 | 0.110 | 0.193 |
-| MRNER-medicine, strict F1 | 0.249 | 0.171 | 0.502 | 0.215 | 0.215 | 0.389 | 0.422 |
-| CRADE (ADE certainty, 4-way) acc. | 0.500 | 0.300 | 0.567 | 0.420 | 0.420 | 0.520 | 0.550 |
-| RRTNM (TNM staging) acc. | 0.770 | 0.680 | 0.800 | 0.690 | 0.690 | 0.910 | 0.970 |
+| | E1 | E1r† | E2 | E2t* | **E3** | E3r† | E4 GPT-4.1 | E4b |
+|---|---|---|---|---|---|---|---|---|
+| MRNER-disease, strict F1 (primary) | 0.265 | 0.277 | 0.171 | 0.119 | **0.473** | 0.518 | 0.110 | 0.193 |
+| MRNER-disease, lenient F1 (secondary) | 0.544 | 0.557 | 0.534 | – | 0.645 | 0.681 | 0.707 | **0.727** |
+| MRNER-medicine, strict F1 (primary) | 0.249 | 0.267 | 0.171 | 0.502 | 0.215 | 0.215 | 0.389 | **0.422** |
+| MRNER-medicine, lenient F1 (secondary) | 0.419 | 0.449 | 0.293 | – | 0.296 | 0.305 | 0.708 | **0.712** |
+| CRADE (ADE certainty, 4-way) acc. | 0.500 | 0.500 | 0.300 | 0.567 | 0.420 | 0.420 | 0.520 | 0.550 |
+| RRTNM (TNM staging) acc. | 0.770 | 0.770 | 0.680 | 0.800 | 0.690 | 0.690 | 0.910 | **0.970** |
 
-\* 60-item subsample. † post-hoc, not pre-registered.
+\* 60-item subsample (lenient F1 not computed for it). † post-hoc `repetition_penalty 1.1`, not pre-registered.
 
 E3 − E1: MRNER-disease +20.8 [+15.1, +26.6] (p_Holm < 0.001); MRNER-medicine −3.4 [−9.6, +3.0]; CRADE −8.0
 [−18.0, +1.0]; RRTNM −8.0 [−16.0, 0.0] (none of the three significant). Interpretation:
@@ -172,12 +177,14 @@ E3 − E1: MRNER-disease +20.8 [+15.1, +26.6] (p_Holm < 0.001); MRNER-medicine �
 - **MRNER-disease** is the only external task whose labelling convention appears in training (47 MedTxt case
   reports, JMED-LLM-disjoint). The gain is mostly *less over-extraction*: "extra finding" errors fall from 923 to 244.
   Under strict matching every model is low because the human gold uses short spans (e.g. 「胃癌」) where models return
-  clauses; lenient F1 (secondary) is ~0.70 for GPT-4.1.
+  clauses. E3's strict-F1 lead over GPT-4.1 (0.473 vs 0.110) is largely that span convention: under lenient matching
+  E3 improves on its base (0.544 → 0.645) but GPT-4.1 (0.707) and GPT-5.4-mini (0.727) stay ahead.
 - **Runaway repetition** is the clearest regression: E3 hit the 1,024-token limit on 37/400 external items (E1: 1),
   repeating a drug or finding name, on long real reports that are out of distribution relative to the ~200-character
   synthetic notes. A standard `repetition_penalty 1.1` cut this to 7/400 and lifted MRNER-disease to 0.518, but did
-  not recover MRNER-medicine (0.215) — that task's "drug values" question had only 3 training items.
-- **CRADE / RRTNM** were never trained. E3 shifts CRADE predictions toward "certainly ADE" and almost never answers
+  not recover MRNER-medicine (0.215) — that task's "drug values" question had only 3 training items. The penalty also
+  helps the base model slightly (E1r), so on MRNER-medicine the penalised base (0.267) stays ahead of E3r (0.215).
+- **CRADE / RRTNM** had no training data at all. E3 shifts CRADE predictions toward "certainly ADE" and almost never answers
   "unlikely" (2 vs 25 gold): fine-tuning on a binary stated-vs-suspected convention mis-calibrated a 4-level judgment.
 - **The OpenAI references remain clearly stronger on untrained medical reasoning** (RRTNM 0.91–0.97 vs 0.69–0.77).
 
@@ -190,6 +197,9 @@ E3 − E1: MRNER-disease +20.8 [+15.1, +26.6] (p_Holm < 0.001); MRNER-medicine �
 | JMMLU-Med (100) | 0.650 | 0.710 | 0.710 | 0.880 | +6.0 [+2.0, +11.0] | yes |
 
 The JMMLU-Med difference is 6 discordant questions (6–0); read it as "no degradation", not as a knowledge gain.
+Power note: with n = 100 the JMMLU-Med non-inferiority test is fragile — its lower bound (+2.0) rests on those 6
+questions; even a 1–1 split of discordant questions gives a 95% CI of [−3.0, +3.0] and would fail the −2-point
+margin (checked with the same paired bootstrap).
 These public benchmarks may be in the pre-training data of every model (contamination inflates absolute scores);
 paired differences between E1 and E3, which share the base weights, are unaffected.
 
@@ -200,13 +210,14 @@ idle GPU; OpenAI numbers from the public API on the same items.
 
 | | Single-stream p50 / p95 (s) | Mean output tokens | Batched throughput |
 |---|---|---|---|
-| E1 Qwen3-8B (Spark) | 4.33 / 10.38 | 68 | 14,830 req/h (c=32) · 282 output tok/s |
+| E1 Qwen3-8B (Spark) | 4.33 / 10.37 | 68 | 14,830 req/h (c=32) · 282 output tok/s |
 | E3 Qwen3-8B + LoRA (Spark) | 4.51 / 10.54 | 67 | 14,260 req/h (c=32) · 264 output tok/s |
 | E2 Swallow (Spark) | 4.56 / 13.96 | 80 | 8,870 req/h (c=32) |
 | E4 GPT-4.1 (API) | 1.06 / 1.45 | 75 | — (API scales out) |
 | E4b GPT-5.4-mini (API) | 1.46 / 2.04 | 164 (incl. reasoning) | — |
 
-- **Latency:** a single Spark decodes bf16 Qwen3-8B at ~14 tokens/s per stream (memory-bandwidth bound), so per-request
+- **Latency:** a single Spark decodes bf16 Qwen3-8B at ~13 tokens/s per stream (13.4 E1, 12.9 E3; memory-bandwidth
+  bound), so per-request
   latency is ~4× GPT-4.1's. The LoRA adds ~4% latency.
 - **Cost:** GPT-4.1 costs **$1.62 per 1,000 requests** for this workload (list price, 2026-10-19:
   $2.00 / $8.00 per 1M input/output tokens); GPT-5.4-mini $1.12. At the measured 14,260 req/h, a fully utilised Spark

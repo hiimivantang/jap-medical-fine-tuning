@@ -199,6 +199,12 @@ def build_manifest() -> dict[str, Any]:
         "conditions_executed": sorted(d.name for d in (RESULTS / "predictions").iterdir() if d.is_dir())
         if (RESULTS / "predictions").exists() else [],
         "seeds": {"data": data_cfg["seed"], "training": train_cfg["seed"], "decoding": 0, "bootstrap": 0},
+        "evaluation_config": {"bootstrap_resamples": 10000, "ci": "95% percentile", "paired": "same resampled indices",
+                              "accuracy_test": "exact McNemar", "multiplicity": "Holm within each hypothesis family",
+                              "alpha": 0.05, "h3_noninferiority_margin": 0.02,
+                              "primary_metrics": {"entities": "strict micro-F1", "classification": "macro-F1",
+                                                  "structured": "field accuracy", "mc": "accuracy (lenient parse)"},
+                              "scoring_contract": "docs/INTERFACES.md", "decision_rules": "docs/PREREGISTRATION.md s6"},
         "training_config": train_cfg,
         "data_config": data_cfg,
         "dataset_versions": {

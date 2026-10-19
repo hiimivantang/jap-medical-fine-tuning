@@ -6,8 +6,11 @@ The Apache License covers the code in this repository only. Third-party data, mo
 artefacts listed below are distributed or used under their own terms.
 
 -------------------------------------------------------------------------------------------------
-Third-party datasets (not redistributed in this repository; fetched by
-experiments/01_finetuning/scripts/fetch_external_data.sh)
+Third-party datasets (the datasets themselves are not redistributed in this repository; they are fetched by
+experiments/01_finetuning/scripts/fetch_external_data.sh. The committed results contain model outputs, scores
+and, in experiments/01_finetuning/results/metrics/error_examples.json, short excerpts of up to 240 characters
+from JMED-LLM case/radiology reports (CC BY 4.0, attributed below) for error analysis; no JGLUE or JMMLU text
+is included)
 -------------------------------------------------------------------------------------------------
 
 JMED-LLM (sociocom, NAIST), commit 3774a34e4a26a7b8a7851f421ecad91a04c2f59b

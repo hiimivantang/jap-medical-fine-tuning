@@ -157,7 +157,10 @@ confusion matrices, error analysis, REPORT.md, CUSTOMER_SUMMARY.md, README.md, m
 
 ## Amendments
 
-All amendments below were made before any model was evaluated on any test split.
+Timing (corrected 2026-10-20 after verification): amendments 1–4 were made before any model was evaluated; 5
+after a 5-item GPT-4.1 plumbing smoke test; 6 after the E2/E4/E4b reference runs had been scored but before any
+E1 or E3 prediction existed (the conditions every hypothesis depends on); 7 after E1/E3 were scored (it concerns
+a host crash and the optional E2t arm, and changes no hypothesis rule).
 
 1. **2026-10-19 — Task C gains a `diagnoses` field (11 fields).** Confirmed current diagnoses needed their own
    field; otherwise they would be forced into `suspected_diagnosis` or dropped. Decided while writing the
@@ -208,4 +211,11 @@ All amendments below were made before any model was evaluated on any test split.
    `jmedft infer --sample 60`), and compared with other conditions on the shared items only. E2t enters no
    hypothesis decision. vLLM `gpu_memory_utilization` lowered from 0.40 to 0.35 (memory headroom only; no
    effect on outputs).
+8. **2026-10-20 — Undeclared deviations found by final verification (disclosed, no rule changes).**
+   (a) RR-TNM training data listed in §4.2 was not used (decided with the leakage analysis, see docs/DATASETS.md:
+   RR-TNM cases overlap the JMED-LLM RRTNM items, so RRTNM stays a pure transfer test). (b) §4.4 says "≥ 0.5
+   containment" for removing JMED-LLM documents from training; the stricter 0.2 from data.yaml was used.
+   (c) `cutoff_len` 4096 → 2048 (longest training example 1,041 tokens; no example truncated). (d) The training
+   smoke test ran 30 steps, not 50. (e) H3 power: JMMLU-Med (n=100) non-inferiority rests on 6 discordant questions
+   (6–0 in E3's favour); the report states this.
 

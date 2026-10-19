@@ -33,13 +33,14 @@ hardware you control.*
 | Records with all 11 fields correct | 35% | **94%** | 36% |
 
 The improvement held on documents written in a different style (by a different AI model), and on real,
-human-annotated Japanese case reports for disease-finding extraction (F1 0.27 → 0.47; GPT-4.1 0.11). It held
+human-annotated Japanese case reports for disease-finding extraction (F1 0.27 → 0.47 under the benchmark's strict
+scoring; under a more lenient scoring of span boundaries GPT-4.1 is still ahead, 0.71 vs 0.65). It held
 against the Japanese-specialised model too: Japanese language tuning alone did not deliver it — task tuning did.
 General Japanese ability was unchanged.
 
 ## What it does not show
 
-- **It is a specialist, not a generalist.** On real medical tasks it was *not* trained for (adverse-drug-event
+- **It is a specialist, not a generalist.** On real medical tasks it was not, or barely, trained for (adverse-drug-event
   certainty, cancer staging, medication dosages) the fine-tuned model did no better than the untuned one, and
   OpenAI models were clearly better (e.g. staging 0.91–0.97 vs 0.69). On general Japanese reasoning benchmarks GPT-4.1
   remains well ahead.
@@ -64,7 +65,8 @@ deployed or measured).
 ## Recommendation
 
 The hypothesis holds **for well-defined, repeatable extraction and classification tasks**: a fine-tuned 8B model
-can beat GPT-4.1 on them at lower marginal cost. Before production we recommend a second, short experiment on
+can beat GPT-4.1 on them, and is cheaper per document whenever the self-hosted system costs less than about
+$23/hour all-in at full load (an estimate from measured throughput, not a measured bill). Before production we recommend a second, short experiment on
 **your own data** (≈ 200 de-identified real documents or physician questions as a test set), on tasks that map to
 your products (e.g. MedGen question understanding and cited answers from given sources), with optimised serving
 (FP8, hosted LoRA) to measure production latency and cost. Keep OpenAI models for open-ended medical reasoning.

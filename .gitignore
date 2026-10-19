@@ -29,3 +29,12 @@ experiments/01_finetuning/results/training/**/*.safetensors
 experiments/01_finetuning/results/training/**/tokenizer*.json
 experiments/01_finetuning/results/training/**/chat_template.jinja
 experiments/01_finetuning/results/training/**/training_args.bin
+
+# Processed/synthetic data: contain third-party licensed text (JGLUE, JMMLU-Med CC BY-SA; JMED-LLM CC BY) and
+# test gold labels. Not redistributed; regenerate via the pipeline and verify with data/processed/SHA256SUMS
+# (checksums are also in results/manifest.json).
+data/processed/*
+data/synthetic/
+!data/processed/SHA256SUMS
+!data/processed/split_stats.json
+!data/processed/leakage_report.json
