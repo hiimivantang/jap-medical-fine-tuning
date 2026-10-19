@@ -16,6 +16,7 @@ if has synth; then
   bash $S/serve_nemotron_generator.sh
   $J data synth --splits test_xgen
   docker stop jmedft-xgen
+  $J data revalidate --splits train val test_synth test_xgen
 fi
 
 if has build; then
@@ -39,14 +40,15 @@ if has infer; then
   $J serve --server swallow
   $J infer --condition E2_swallow_8b
   $J latency --condition E2_swallow_8b
-  $J infer --condition E2t_swallow_8b_think --splits test_synth test_xgen test_ext
+  $J infer --condition E2t_swallow_8b_think --splits test_synth test_xgen test_ext --sample 60
   $J serve --server swallow --stop
   $J serve --server swallow_med
   $J infer --condition E2m_medical_swallow_8b
   $J serve --server swallow_med --stop
   $J infer --condition E4_gpt41 --concurrency 16
   $J latency --condition E4_gpt41 --concurrency 16
-  $J infer --condition E4b_gpt54mini --concurrency 16 --splits test_synth test_xgen test_ext
+  $J infer --condition E4b_gpt54mini --concurrency 8 --splits test_synth test_xgen test_ext
+  $J latency --condition E4b_gpt54mini --concurrency 16
 fi
 
 if has evaluate; then

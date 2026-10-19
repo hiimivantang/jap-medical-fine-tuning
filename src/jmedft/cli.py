@@ -1,6 +1,7 @@
 """`jmedft` command-line interface.
 
   jmedft data synth    --splits train val test_synth test_xgen   generate synthetic notes (needs generator server)
+  jmedft data revalidate --splits ...                            re-apply the current validator to generated notes
   jmedft data build                                              assemble train/val/test files
   jmedft data validate                                           integrity + leakage checks on built data
   jmedft serve   --server qwen3|swallow|swallow_med [--stop]     start/stop a vLLM container
@@ -41,6 +42,11 @@ def _cmd_data(args: argparse.Namespace) -> None:
         from jmedft.datasets.build import build
 
         print(json.dumps(build(cfg), ensure_ascii=False, indent=2))
+    elif args.action == "revalidate":
+        from jmedft.datasets.revalidate import revalidate_file
+
+        for split in args.splits:
+            print(json.dumps(revalidate_file(REPO_ROOT / f"data/synthetic/{split}.raw.jsonl", cfg), ensure_ascii=False))
     elif args.action == "validate":
         from jmedft.datasets.validate import validate_all
 
@@ -148,7 +154,7 @@ def main(argv: list[str] | None = None) -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     d = sub.add_parser("data", help="dataset preparation and validation")
-    d.add_argument("action", choices=["synth", "build", "validate"])
+    d.add_argument("action", choices=["synth", "revalidate", "build", "validate"])
     d.add_argument("--config", default=str(CFG_DIR / "data.yaml"))
     d.add_argument("--splits", nargs="+", default=["test_synth", "val", "train", "test_xgen"])
     d.add_argument("--retries", type=int, default=2)
