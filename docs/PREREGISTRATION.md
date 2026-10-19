@@ -179,4 +179,24 @@ All amendments below were made before any model was evaluated on any test split.
    gold uses short spans, so strict F1 largely measures span-boundary convention. A secondary *lenient* F1
    (one-to-one matching where one normalised string contains the other) is reported alongside the
    pre-registered strict F1, which remains the primary endpoint. No hypothesis decision uses lenient F1.
+6. **2026-10-19 — Independent code review fixes (before any E1/E3 prediction existed).** An independent
+   reviewer found, and we fixed:
+   (a) *Chief-complaint label noise* (~25% of notes stated a 主訴 the spec did not set, or listed several
+   symptoms): two validator rules added; all splits re-validated from the original generation records.
+   Final notes: train 1,367 / val 135 / test_synth 223 / test_xgen 215. The full training run in progress
+   (step 370/600) was stopped and preserved as `results/training/qwen3-8b-jmed-lora-v0-ccnoise-aborted`;
+   E3 is trained from scratch on the corrected data. E2/E4/E4b predictions remain valid (kept notes and
+   prompts are unchanged; verified by prompt-token counts) and are scored on the reduced sets.
+   (b) Decision logic now matches this document: significance uses Holm-adjusted p within each family;
+   H1 cannot pass when test_xgen or a task is missing; H2 pools test_synth + test_xgen per task (paired
+   bootstrap over concatenated items) as written in §6; H3 requires all three general tasks; any comparison
+   with missing predictions is marked incomplete and blocks the decision.
+   (c) MC parsing: with valid JSON only the `answer` field counts; prose fallback prefers an explicitly cued
+   letter, ignores option ranges ("A〜D"), else takes the last lone letter. Doc-type free-text fallback only
+   when no JSON was produced.
+   (d) Reporting additions: whole-output JSON validity rate; lenient entity F1 uses maximum bipartite
+   matching with a 2-character minimum. Runner stores a request fingerprint and never drops rows.
+   Note: with n=100, JMMLU-Med non-inferiority at a 2 pp margin is nearly unattainable (the reviewer showed
+   a lower bound of −0.03 with only two discordant items); H3 is therefore reported per task, with this
+   power limitation stated.
 

@@ -1,0 +1,59 @@
+[project]
+name = "jmedft"
+version = "0.1.0"
+description = "Japanese medical-domain LoRA fine-tuning experiment: data, training, inference, evaluation and reporting"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "torch>=2.13.0",
+    "transformers>=5.0",
+    "peft>=0.17",
+    "accelerate>=1.10",
+    "datasets>=3.0",
+    "safetensors",
+    "tensorboard>=2.20",
+    "pyyaml>=6.0",
+    "pydantic>=2.8",
+    "jsonschema>=4.23",
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+    "matplotlib>=3.9",
+    "openai>=1.60",
+    "python-dotenv>=1.0",
+    "huggingface_hub>=0.34",
+    "tqdm",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "ruff>=0.6"]
+
+[project.scripts]
+jmedft = "jmedft.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/jmedft"]
+
+[tool.uv]
+environments = ["sys_platform == 'linux' and platform_machine == 'aarch64'"]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+src = ["src"]

@@ -1,0 +1,8 @@
+# Training environment (installed into .venv-llamafactory by scripts/setup_llamafactory.sh).
+# torch/torchvision/torchaudio are installed first from the cu130 index; keep them pinned here so the
+# resolver cannot swap them for CPU wheels from PyPI.
+torch==2.11.0
+torchvision==0.26.0
+torchaudio==2.11.0
+llamafactory==0.9.5
+tensorboard>=2.20

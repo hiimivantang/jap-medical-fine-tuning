@@ -1,0 +1,17 @@
+# Price snapshot used by the cost model (USD). Retrieved 2026-10-19; re-check before quoting to a customer.
+retrieved: "2026-10-19"
+openai:
+  source: https://developers.openai.com/api/docs/pricing  # "Standard pricing" table, per 1M tokens
+  gpt-4.1-2025-04-14: {input_per_mtok: 2.00, cached_input_per_mtok: 0.50, output_per_mtok: 8.00}
+  gpt-5.4-mini-2026-03-17: {input_per_mtok: 0.75, cached_input_per_mtok: 0.075, output_per_mtok: 4.50}
+fireworks:
+  source: https://fireworks.ai/pricing  # on-demand GPU pricing, billed per second
+  note: >-
+    Uploaded LoRA adapters for qwen3-8b can only be served on on-demand (dedicated) deployments
+    (serverless not supported for this base). Fine-tuned models are served at base-model price.
+  on_demand_gpu_per_hour: {H100: 8.00, H200: 8.00, B200: 13.00, B300: 15.00}
+local_dgx_spark:
+  note: >-
+    Hardware capex/power are customer-specific; the report gives measured throughput (tokens/s) and lets the
+    reader plug in their own amortised $/hour. Example amortisation is illustrative only.
+  illustrative_hourly_cost_usd: null
