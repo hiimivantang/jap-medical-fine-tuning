@@ -10,11 +10,14 @@ which concerns a crash and an optional arm).
 A rank-16 LoRA adapter (15.3 M trainable parameters, 61 MB) trained for 2.6 h on one DGX Spark turned Qwen3-8B
 into the best model in this comparison **on the Japanese medical tasks it was trained for**:
 
-| Synthetic held-out test (223 notes) | Qwen3-8B | + LoRA (E3) | GPT-4.1 | GPT-5.4-mini |
-|---|---|---|---|---|
-| A — entity extraction, micro-F1 | 0.951 | **0.997** | 0.962 | 0.956 |
-| B — document type, macro-F1 | 0.622 | **0.988** | 0.711 | 0.766 |
-| C — structured extraction, field accuracy | 0.906 | **0.993** | 0.902 | 0.940 |
+| Synthetic held-out test (223 notes) | Qwen3-8B | + LoRA (E3) | GPT-4.1 | GPT-5.4-mini | GPT-6.1-sol† |
+|---|---|---|---|---|---|
+| A — entity extraction, micro-F1 | 0.951 | **0.997** | 0.962 | 0.956 | 0.949 |
+| B — document type, macro-F1 | 0.622 | **0.988** | 0.711 | 0.766 | 0.761 |
+| C — structured extraction, field accuracy | 0.906 | **0.993** | 0.902 | 0.940 | 0.974 |
+
+† GPT-6.1-sol was run on 2026-10-30 as a post-hoc addendum (see the addendum section at the end): not
+pre-registered, added after all other results were known.
 
 The gains hold on notes written by a different model family (Nemotron), and on the one external real-text task
 whose annotation convention was represented in training (JMED-LLM MRNER-disease strict F1 0.265 → 0.473; lenient F1
@@ -107,14 +110,16 @@ uploaded to Fireworks (Qwen3-8B adapters require an hourly-billed dedicated depl
 Primary metric with 95% percentile-bootstrap CI (10,000 resamples). E2t is on a 60-item subsample and is therefore
 not directly comparable to the full-set columns.
 
-| | E1 Qwen3-8B | E2 Swallow | E2t Swallow-think* | **E3 LoRA** | E4 GPT-4.1 | E4b GPT-5.4-mini |
-|---|---|---|---|---|---|---|
-| test_synth A | 0.951 | 0.870 | 0.966 | **0.997** | 0.962 | 0.956 |
-| test_synth B | 0.622 | 0.404 | 0.733 | **0.988** | 0.711 | 0.766 |
-| test_synth C | 0.906 | 0.876 | 0.961 | **0.993** | 0.902 | 0.940 |
-| test_xgen A | 0.947 | 0.878 | 0.962 | **0.989** | 0.958 | 0.956 |
-| test_xgen B | 0.335 | 0.213 | 0.458 | **0.789** | 0.556 | 0.579 |
-| test_xgen C | 0.909 | 0.895 | 0.920 | **0.973** | 0.910 | 0.923 |
+| | E1 Qwen3-8B | E2 Swallow | E2t Swallow-think* | **E3 LoRA** | E4 GPT-4.1 | E4b GPT-5.4-mini | E5 GPT-6.1-sol† |
+|---|---|---|---|---|---|---|---|
+| test_synth A | 0.951 | 0.870 | 0.966 | **0.997** | 0.962 | 0.956 | 0.949 |
+| test_synth B | 0.622 | 0.404 | 0.733 | **0.988** | 0.711 | 0.766 | 0.761 |
+| test_synth C | 0.906 | 0.876 | 0.961 | **0.993** | 0.902 | 0.940 | 0.974 |
+| test_xgen A | 0.947 | 0.878 | 0.962 | **0.989** | 0.958 | 0.956 | 0.938 |
+| test_xgen B | 0.335 | 0.213 | 0.458 | **0.789** | 0.556 | 0.579 | 0.594 |
+| test_xgen C | 0.909 | 0.895 | 0.920 | **0.973** | 0.910 | 0.923 | 0.939 |
+
+† E5 (addendum 2026-10-30, post hoc): see the addendum section at the end of this report.
 
 Paired differences (percentage points, 95% CI, Holm-adjusted p within each family):
 
@@ -279,3 +284,37 @@ Every number in this report is in `experiments/01_finetuning/results/metrics/` (
 `hypotheses.json`, `efficiency.json`, `costs.json`, `error_taxonomy.json`, `latency/*.json`), and the run is described
 by `experiments/01_finetuning/results/manifest.json` (model revisions, dataset versions and checksums, seeds,
 training and evaluation configuration, software versions).
+
+
+## Post-hoc addendum (2026-10-30) — GPT-6.1 reference (E5_gpt61sol)
+
+Added on the user's request **after all results above were known**, so it is not part of any pre-registered
+hypothesis; it is descriptive. Model `gpt-6.1-sol`, reasoning effort low, `max_completion_tokens` 4096 — the
+same decoding family as E4b. Same prompts, same deterministic scoring. 1,714 requests (both synthetic test
+sets and all four JMED-LLM tasks), 0 errors, $3.20 at list prices. Results:
+`results/metrics/scores_e5_addendum.json` (scores) and `comparisons_e5_addendum.json` (paired contrasts,
+the same clustered bootstrap as elsewhere). Every original result file was left byte-for-byte unchanged
+(verified by checksum before and after).
+
+**Synthetic tests: the LoRA beats GPT-6.1-sol on every task, more clearly than it beats GPT-4.1.**
+E3 − E5, Holm-adjusted p < 0.001 everywhere: test_synth A +0.048, B +0.227, C +0.020; test_xgen A +0.052,
+B +0.196, C +0.034. GPT-6.1-sol is a better classifier and structurer than GPT-4.1 (B 0.761 vs 0.711;
+C 0.974 vs 0.902) but slightly worse at strict span extraction (A 0.949 vs 0.962).
+
+**External real documents (JMED-LLM, 100 items per task): the same mixed picture as for GPT-4.1.**
+
+| test_ext | E3 LoRA | E4 GPT-4.1 | E4b GPT-5.4-mini | E5 GPT-6.1-sol |
+|---|---|---|---|---|
+| MRNER-disease strict F1 | **0.473** | 0.110 | 0.193 | 0.392 |
+| MRNER-disease lenient F1 | 0.645 | 0.707 | 0.727 | **0.779** |
+| MRNER-medicine strict F1 | 0.215 | 0.389 | 0.422 | **0.665** |
+| CRADE accuracy | 0.420 | 0.520 | 0.550 | **0.630** |
+| RRTNM accuracy (untrained) | 0.690 | 0.910 | 0.970 | **0.960** |
+
+E3 − E5: disease strict +0.081 (p = 0.004); medicine −0.45, CRADE −0.21, RRTNM −0.27 (all p ≤ 0.002,
+E5 ahead). The LoRA keeps its edge on the one task whose annotation convention it was trained on; on the
+other three GPT-6.1-sol is clearly better, as GPT-4.1 was. GPT-6.1-sol is also clearly better than GPT-4.1
+on the external set overall.
+
+Secondary: Task C notes with all 11 fields correct — E3 94%, E5 74%, E4 36%. Task A notes fully correct —
+E3 97%, E5 60%.

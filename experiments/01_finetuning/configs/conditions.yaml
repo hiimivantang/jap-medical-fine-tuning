@@ -108,3 +108,14 @@ conditions:
     served_model: jmed-lora
     description: E3 with repetition_penalty 1.1 (post-hoc sensitivity, test_ext only)
     decoding: {temperature: 0.0, top_p: 1.0, max_tokens: 1024, seed: 0, enable_thinking: false, repetition_penalty: 1.1}
+
+  # --- Addendum 2026-10-30 (NOT pre-registered; added after all results were known, on the user's request) ---
+  # GPT-6.1 reference, configured like E4b (reasoning model, effort low). Scored by the same code; contrasts are
+  # descriptive and written to separate *_e5_addendum files, so every original result file is left untouched.
+  E5_gpt61sol:
+    provider: openai
+    served_model: gpt-6.1-sol
+    description: OpenAI gpt-6.1-sol, reasoning effort low — addendum reference (2026-10-30, post hoc)
+    decoding:
+      reasoning_effort: low
+      max_completion_tokens: 4096

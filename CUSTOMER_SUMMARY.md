@@ -16,21 +16,30 @@ hardware you control.*
   medications; **classifying** the document type (referral letter, discharge summary, nursing record, …); and
   **filling an 11-field structured record** (negated symptoms, suspected vs confirmed diagnoses, family history, …).
 - Compared it, on identical inputs and with identical automatic scoring, against the untuned model, a
-  Japanese-specialised model of the same size (Swallow), **GPT-4.1** and **GPT-5.4-mini**.
+  Japanese-specialised model of the same size (Swallow), **GPT-4.1**, **GPT-5.4-mini** and (in a later
+addendum run) **GPT-6.1**.
 - Training data was synthetic (fictional patients, no real patient information) plus a small amount of openly
   licensed real text; all data sources were licence-checked for commercial use. We fixed the success criteria in
   writing before seeing any results.
 
 ## What we found
 
-**On the trained tasks, the fine-tuned 8B model was the most accurate model tested** — including vs GPT-4.1:
+**On the trained tasks, the fine-tuned 8B model was the most accurate model tested** — including vs GPT-4.1,
+and vs GPT-6.1 when we re-ran the comparison with it later:
 
-| Task (held-out test) | Untuned 8B | **Fine-tuned 8B** | GPT-4.1 |
-|---|---|---|---|
-| Entity extraction (F1) | 0.951 | **0.997** | 0.962 |
-| Document type (macro-F1) | 0.622 | **0.988** | 0.711 |
-| Structured record (field accuracy) | 0.906 | **0.993** | 0.902 |
-| Records with all 11 fields correct | 35% | **94%** | 36% |
+| Task (held-out test) | Untuned 8B | **Fine-tuned 8B** | GPT-4.1 | GPT-6.1* |
+|---|---|---|---|---|
+| Entity extraction (F1) | 0.951 | **0.997** | 0.962 | 0.949 |
+| Document type (macro-F1) | 0.622 | **0.988** | 0.711 | 0.761 |
+| Structured record (field accuracy) | 0.906 | **0.993** | 0.902 | 0.974 |
+| Records with all 11 fields correct | 35% | **94%** | 36% | 74% |
+
+\* GPT-6.1 (gpt-6.1-sol) was added on 2026-10-30 as a post-hoc comparison — after the original results were
+known, so it is not part of the pre-registered analysis. The fine-tuned model beats it on every trained task,
+by wider margins than vs GPT-4.1. On real case reports the picture is unchanged: the fine-tuned model leads
+on disease-finding extraction under strict scoring (0.47 vs 0.39), while GPT-6.1 is clearly ahead on the
+other real-document tasks (e.g. medication extraction 0.67 vs 0.22) — the same specialist-vs-generalist
+pattern as with GPT-4.1.
 
 The improvement held on documents written in a different style (by a different AI model), and on real,
 human-annotated Japanese case reports for disease-finding extraction (F1 0.27 → 0.47 under the benchmark's strict

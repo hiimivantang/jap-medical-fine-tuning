@@ -1,0 +1,699 @@
+{
+ "E5_gpt61sol": {
+  "test_synth": {
+   "A_entities": {
+    "task": "A_entities",
+    "family": "entities",
+    "n": 223,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "micro_precision": 0.9048974943052391,
+    "micro_recall": 0.9968632371392723,
+    "micro_f1": 0.9486567164179105,
+    "per_key": {
+     "symptoms": {
+      "precision": 0.8156342182890856,
+      "recall": 0.9910394265232975,
+      "f1": 0.8948220064724919,
+      "support": 558
+     },
+     "diseases": {
+      "precision": 0.9373996789727127,
+      "recall": 1.0,
+      "f1": 0.9676884838442419,
+      "support": 584
+     },
+     "medications": {
+      "precision": 0.9934065934065934,
+      "recall": 1.0,
+      "f1": 0.9966923925027563,
+      "support": 452
+     }
+    },
+    "lenient_precision": 0.9071753986332574,
+    "lenient_recall": 0.9993726474278545,
+    "lenient_f1": 0.951044776119403,
+    "exact_match": 0.5964125560538116,
+    "subsampled": false,
+    "primary_metric": "micro_f1",
+    "primary": {
+     "value": 0.9486567164179105,
+     "ci95": [
+      0.9363247576794116,
+      0.9597415440524775
+     ]
+    }
+   },
+   "B_doctype": {
+    "task": "B_doctype",
+    "family": "classification",
+    "n": 223,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "accuracy": 0.757847533632287,
+    "macro_f1": 0.7611610611610611,
+    "per_class": {
+     "外来診療録": {
+      "precision": 0.41304347826086957,
+      "recall": 1.0,
+      "f1": 0.5846153846153846,
+      "support": 38
+     },
+     "入院時記録": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+     },
+     "退院時サマリー": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 42
+     },
+     "紹介状": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 28
+     },
+     "看護記録": {
+      "precision": 1.0,
+      "recall": 0.4528301886792453,
+      "f1": 0.6233766233766234,
+      "support": 53
+     },
+     "検査・画像所見報告書": {
+      "precision": 1.0,
+      "recall": 0.21875,
+      "f1": 0.358974358974359,
+      "support": 32
+     }
+    },
+    "confusion_matrix": [
+     [
+      38,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      30,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      42,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      28,
+      0,
+      0,
+      0
+     ],
+     [
+      29,
+      0,
+      0,
+      0,
+      24,
+      0,
+      0
+     ],
+     [
+      25,
+      0,
+      0,
+      0,
+      0,
+      7,
+      0
+     ]
+    ],
+    "labels": [
+     "外来診療録",
+     "入院時記録",
+     "退院時サマリー",
+     "紹介状",
+     "看護記録",
+     "検査・画像所見報告書"
+    ],
+    "invalid_rate": 0.0,
+    "subsampled": false,
+    "primary_metric": "macro_f1",
+    "primary": {
+     "value": 0.7611610611610611,
+     "ci95": [
+      0.7120116469885551,
+      0.8069532775711623
+     ]
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "family": "structured",
+    "n": 223,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "field_accuracy": 0.9735018344883816,
+    "per_field_accuracy": {
+     "age": 1.0,
+     "sex": 1.0,
+     "chief_complaint": 0.9551569506726457,
+     "symptoms": 0.8430493273542601,
+     "negated_symptoms": 0.9730941704035875,
+     "past_history": 0.9820627802690582,
+     "family_history": 1.0,
+     "medications": 0.9910313901345291,
+     "allergies": 0.9955156950672646,
+     "diagnoses": 0.9775784753363229,
+     "suspected_diagnosis": 0.9910313901345291
+    },
+    "exact_match": 0.7399103139013453,
+    "list_micro_precision": 0.9657720731232984,
+    "list_micro_recall": 0.995190380761523,
+    "list_micro_f1": 0.9802605606000789,
+    "per_list_field_f1": {
+     "symptoms": 0.9384615384615385,
+     "negated_symptoms": 0.9850107066381156,
+     "past_history": 0.9917808219178083,
+     "family_history": 1.0,
+     "medications": 0.9966923925027563,
+     "allergies": 0.9977924944812362,
+     "diagnoses": 0.9799554565701559,
+     "suspected_diagnosis": 0.9953703703703703
+    },
+    "missing_fields_total": 0,
+    "missing_fields_rate": 0.0,
+    "unsupported_total": 0,
+    "unsupported_rate": 0.0,
+    "subsampled": false,
+    "primary_metric": "field_accuracy",
+    "primary": {
+     "value": 0.9735018344883816,
+     "ci95": [
+      0.9673868732164697,
+      0.9796167957602935
+     ]
+    }
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "task": "A_entities",
+    "family": "entities",
+    "n": 215,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "micro_precision": 0.8947681331747919,
+    "micro_recall": 0.9849476439790575,
+    "micro_f1": 0.9376947040498442,
+    "per_key": {
+     "symptoms": {
+      "precision": 0.8662420382165605,
+      "recall": 0.9731663685152058,
+      "f1": 0.9165964616680707,
+      "support": 559
+     },
+     "diseases": {
+      "precision": 0.8646864686468647,
+      "recall": 0.9849624060150376,
+      "f1": 0.9209138840070299,
+      "support": 532
+     },
+     "medications": {
+      "precision": 0.9754464285714286,
+      "recall": 1.0,
+      "f1": 0.9875706214689266,
+      "support": 437
+     }
+    },
+    "lenient_precision": 0.9007134363852557,
+    "lenient_recall": 0.9914921465968587,
+    "lenient_f1": 0.9439252336448598,
+    "exact_match": 0.4558139534883721,
+    "subsampled": false,
+    "primary_metric": "micro_f1",
+    "primary": {
+     "value": 0.9376947040498442,
+     "ci95": [
+      0.9268893619575156,
+      0.9481198201427747
+     ]
+    }
+   },
+   "B_doctype": {
+    "task": "B_doctype",
+    "family": "classification",
+    "n": 215,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "accuracy": 0.6837209302325581,
+    "macro_f1": 0.5935846324517909,
+    "per_class": {
+     "外来診療録": {
+      "precision": 0.140625,
+      "recall": 1.0,
+      "f1": 0.2465753424657534,
+      "support": 9
+     },
+     "入院時記録": {
+      "precision": 0.6666666666666666,
+      "recall": 0.96,
+      "f1": 0.7868852459016393,
+      "support": 25
+     },
+     "退院時サマリー": {
+      "precision": 0.9583333333333334,
+      "recall": 0.7419354838709677,
+      "f1": 0.8363636363636363,
+      "support": 31
+     },
+     "紹介状": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 83
+     },
+     "看護記録": {
+      "precision": 1.0,
+      "recall": 0.4166666666666667,
+      "f1": 0.5882352941176471,
+      "support": 12
+     },
+     "検査・画像所見報告書": {
+      "precision": 1.0,
+      "recall": 0.05454545454545454,
+      "f1": 0.10344827586206896,
+      "support": 55
+     }
+    },
+    "confusion_matrix": [
+     [
+      9,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      24,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      8,
+      23,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      83,
+      0,
+      0,
+      0
+     ],
+     [
+      2,
+      4,
+      1,
+      0,
+      5,
+      0,
+      0
+     ],
+     [
+      52,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0
+     ]
+    ],
+    "labels": [
+     "外来診療録",
+     "入院時記録",
+     "退院時サマリー",
+     "紹介状",
+     "看護記録",
+     "検査・画像所見報告書"
+    ],
+    "invalid_rate": 0.0,
+    "subsampled": false,
+    "primary_metric": "macro_f1",
+    "primary": {
+     "value": 0.5935846324517909,
+     "ci95": [
+      0.5155523885818262,
+      0.6582112515466535
+     ]
+    }
+   },
+   "C_structured": {
+    "task": "C_structured",
+    "family": "structured",
+    "n": 215,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "field_accuracy": 0.9386892177589852,
+    "per_field_accuracy": {
+     "age": 1.0,
+     "sex": 1.0,
+     "chief_complaint": 0.9023255813953488,
+     "symptoms": 0.7906976744186046,
+     "negated_symptoms": 0.9116279069767442,
+     "past_history": 0.9302325581395349,
+     "family_history": 0.9906976744186047,
+     "medications": 0.958139534883721,
+     "allergies": 0.9953488372093023,
+     "diagnoses": 0.9395348837209302,
+     "suspected_diagnosis": 0.9069767441860465
+    },
+    "exact_match": 0.5534883720930233,
+    "list_micro_precision": 0.9417711281843915,
+    "list_micro_recall": 0.9843617920540998,
+    "list_micro_f1": 0.9625955775986774,
+    "per_list_field_f1": {
+     "symptoms": 0.9320722269991402,
+     "negated_symptoms": 0.9503239740820735,
+     "past_history": 0.9732016925246827,
+     "family_history": 0.9932584269662922,
+     "medications": 0.9864559819413092,
+     "allergies": 0.9978401727861771,
+     "diagnoses": 0.9456521739130435,
+     "suspected_diagnosis": 0.9298245614035088
+    },
+    "missing_fields_total": 0,
+    "missing_fields_rate": 0.0,
+    "unsupported_total": 0,
+    "unsupported_rate": 0.0,
+    "subsampled": false,
+    "primary_metric": "field_accuracy",
+    "primary": {
+     "value": 0.9386892177589852,
+     "ci95": [
+      0.9276955602536998,
+      0.9492600422832981
+     ]
+    }
+   }
+  },
+  "test_ext": {
+   "ext_crade": {
+    "task": "ext_crade",
+    "family": "mc",
+    "n": 100,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "accuracy": 0.63,
+    "strict_accuracy": 0.63,
+    "invalid_rate": 0.0,
+    "macro_f1": 0.6054945054945056,
+    "per_class": {
+     "A": {
+      "precision": 0.575,
+      "recall": 0.92,
+      "f1": 0.7076923076923077,
+      "support": 25
+     },
+     "B": {
+      "precision": 0.5454545454545454,
+      "recall": 0.24,
+      "f1": 0.3333333333333333,
+      "support": 25
+     },
+     "C": {
+      "precision": 0.59375,
+      "recall": 0.76,
+      "f1": 0.6666666666666666,
+      "support": 25
+     },
+     "D": {
+      "precision": 0.8823529411764706,
+      "recall": 0.6,
+      "f1": 0.7142857142857143,
+      "support": 25
+     }
+    },
+    "confusion_matrix": [
+     [
+      23,
+      1,
+      1,
+      0,
+      0
+     ],
+     [
+      16,
+      6,
+      3,
+      0,
+      0
+     ],
+     [
+      0,
+      4,
+      19,
+      2,
+      0
+     ],
+     [
+      1,
+      0,
+      9,
+      15,
+      0
+     ]
+    ],
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D"
+    ],
+    "subsampled": false,
+    "primary_metric": "accuracy",
+    "primary": {
+     "value": 0.63,
+     "ci95": [
+      0.53,
+      0.72
+     ]
+    }
+   },
+   "ext_mrner_disease": {
+    "task": "ext_mrner_disease",
+    "family": "entities",
+    "n": 100,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "micro_precision": 0.3480345158197507,
+    "micro_recall": 0.44814814814814813,
+    "micro_f1": 0.3917970858067998,
+    "per_key": {
+     "entities": {
+      "precision": 0.3480345158197507,
+      "recall": 0.44814814814814813,
+      "f1": 0.3917970858067998,
+      "support": 810
+     }
+    },
+    "lenient_precision": 0.6922339405560882,
+    "lenient_recall": 0.891358024691358,
+    "lenient_f1": 0.7792768483540206,
+    "exact_match": 0.03,
+    "subsampled": false,
+    "primary_metric": "micro_f1",
+    "primary": {
+     "value": 0.3917970858067998,
+     "ci95": [
+      0.3456644257351093,
+      0.4364411891670832
+     ]
+    }
+   },
+   "ext_mrner_medicine": {
+    "task": "ext_mrner_medicine",
+    "family": "entities",
+    "n": 100,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "micro_precision": 0.6185567010309279,
+    "micro_recall": 0.72,
+    "micro_f1": 0.6654343807763401,
+    "per_key": {
+     "entities": {
+      "precision": 0.6185567010309279,
+      "recall": 0.72,
+      "f1": 0.6654343807763401,
+      "support": 250
+     }
+    },
+    "lenient_precision": 0.7525773195876289,
+    "lenient_recall": 0.876,
+    "lenient_f1": 0.8096118299445472,
+    "exact_match": 0.45,
+    "subsampled": false,
+    "primary_metric": "micro_f1",
+    "primary": {
+     "value": 0.6654343807763401,
+     "ci95": [
+      0.603066114412786,
+      0.7309104753114906
+     ]
+    }
+   },
+   "ext_rrtnm": {
+    "task": "ext_rrtnm",
+    "family": "mc",
+    "n": 100,
+    "n_missing_predictions": 0,
+    "json_valid_rate": 1.0,
+    "whole_json_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "accuracy": 0.96,
+    "strict_accuracy": 0.96,
+    "invalid_rate": 0.0,
+    "macro_f1": 0.9676373687119956,
+    "per_class": {
+     "A": {
+      "precision": 1.0,
+      "recall": 0.9142857142857143,
+      "f1": 0.9552238805970149,
+      "support": 35
+     },
+     "B": {
+      "precision": 0.9230769230769231,
+      "recall": 1.0,
+      "f1": 0.96,
+      "support": 36
+     },
+     "C": {
+      "precision": 0.9285714285714286,
+      "recall": 1.0,
+      "f1": 0.9629629629629629,
+      "support": 13
+     },
+     "D": {
+      "precision": 1.0,
+      "recall": 0.9230769230769231,
+      "f1": 0.96,
+      "support": 13
+     },
+     "E": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 3
+     }
+    },
+    "confusion_matrix": [
+     [
+      32,
+      3,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      36,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      13,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      1,
+      12,
+      0,
+      0
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      3,
+      0
+     ]
+    ],
+    "labels": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "subsampled": false,
+    "primary_metric": "accuracy",
+    "primary": {
+     "value": 0.96,
+     "ci95": [
+      0.92,
+      0.99
+     ]
+    }
+   }
+  }
+ }
+}

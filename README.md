@@ -15,15 +15,19 @@ tasks match or beat (a) the untuned model, (b) a Japanese-specialised model of t
 
 Primary metric on held-out data (95% bootstrap CIs and all other metrics in `REPORT.md`):
 
-| | Qwen3-8B | Swallow-8B | **Qwen3-8B + LoRA** | GPT-4.1 |
-|---|---|---|---|---|
-| A entity F1 (synthetic test) | 0.951 | 0.870 | **0.997** | 0.962 |
-| B doc-type macro-F1 (synthetic test) | 0.622 | 0.404 | **0.988** | 0.711 |
-| C field accuracy (synthetic test) | 0.906 | 0.876 | **0.993** | 0.902 |
-| B doc-type macro-F1 (other-generator test) | 0.335 | 0.213 | **0.789** | 0.556 |
-| JMED-LLM MRNER-disease strict F1 (real reports) | 0.265 | 0.171 | **0.473** | 0.110 |
-| JMED-LLM MRNER-disease lenient F1 (span-tolerant) | 0.544 | 0.534 | 0.645 | **0.707** |
-| JMED-LLM RRTNM accuracy (real reports, untrained task) | 0.770 | 0.680 | 0.690 | **0.910** |
+| | Qwen3-8B | Swallow-8B | **Qwen3-8B + LoRA** | GPT-4.1 | GPT-6.1-sol* |
+|---|---|---|---|---|---|
+| A entity F1 (synthetic test) | 0.951 | 0.870 | **0.997** | 0.962 | 0.949 |
+| B doc-type macro-F1 (synthetic test) | 0.622 | 0.404 | **0.988** | 0.711 | 0.761 |
+| C field accuracy (synthetic test) | 0.906 | 0.876 | **0.993** | 0.902 | 0.974 |
+| B doc-type macro-F1 (other-generator test) | 0.335 | 0.213 | **0.789** | 0.556 | 0.594 |
+| JMED-LLM MRNER-disease strict F1 (real reports) | 0.265 | 0.171 | **0.473** | 0.110 | 0.392 |
+| JMED-LLM MRNER-disease lenient F1 (span-tolerant) | 0.544 | 0.534 | 0.645 | 0.707 | **0.779** |
+| JMED-LLM RRTNM accuracy (real reports, untrained task) | 0.770 | 0.680 | 0.690 | 0.910 | **0.960** |
+
+\* GPT-6.1-sol: post-hoc addendum run on 2026-10-30 (not pre-registered; see REPORT.md's addendum section).
+It also beats the LoRA on the other external tasks (MRNER-medicine strict 0.665 vs 0.215; CRADE 0.630 vs
+0.420), as GPT-4.1 did.
 | JCommonsenseQA accuracy (general Japanese) | 0.903 | 0.926 | 0.897 | **0.970** |
 
 H1 (LoRA improves the trained tasks), H2 (beyond Japanese-specialised Swallow) and H3 (no general-Japanese
