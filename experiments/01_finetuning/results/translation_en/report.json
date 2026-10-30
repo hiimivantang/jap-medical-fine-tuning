@@ -1,0 +1,54 @@
+{
+ "model": "gpt-6.1-sol",
+ "effort": "low",
+ "units": 838,
+ "translated": 838,
+ "failed_units": [],
+ "excluded_item_ids": [],
+ "items_per_file": {
+  "test_ext/ext_crade": 100,
+  "test_ext/ext_mrner_disease": 100,
+  "test_ext/ext_mrner_medicine": 100,
+  "test_ext/ext_rrtnm": 100,
+  "test_synth/A_entities": 223,
+  "test_synth/B_doctype": 223,
+  "test_synth/C_structured": 223,
+  "test_xgen/A_entities": 215,
+  "test_xgen/B_doctype": 215,
+  "test_xgen/C_structured": 215
+ },
+ "spend": {
+  "authorized": true,
+  "budgets": {
+   "translation": 15.0,
+   "total": 15.0
+  },
+  "authorization": {
+   "amount_usd": 15,
+   "scope": [
+    "translation"
+   ],
+   "granted_by": "user (Claude Code session, 2026-10-30)",
+   "granted_utc": "2026-10-30T00:00:00Z"
+  },
+  "spent_usd": {
+   "translation": 4.107158,
+   "total": 4.107158
+  },
+  "remaining_usd": {
+   "translation": 10.892842
+  },
+  "open_reservations": 0,
+  "usage_incomplete": false,
+  "counters": {
+   "requests": 838,
+   "refused": 0,
+   "input_tokens": 577854,
+   "cached_input_tokens": 0,
+   "cache_write_tokens": 0,
+   "output_tokens": 295145,
+   "reasoning_tokens": 3636,
+   "unknown_usage": 0
+  }
+ }
+}

@@ -318,3 +318,35 @@ on the external set overall.
 
 Secondary: Task C notes with all 11 fields correct — E3 94%, E5 74%, E4 36%. Task A notes fully correct —
 E3 97%, E5 60%.
+
+## Post-hoc addendum (2026-10-30, part 2) — base model on an English edition of the test sets
+
+The user asked how the **base model alone** performs when the same test content is in English. The Japanese
+evaluation sets were translated to English with gpt-6.1-sol (838 units: both synthetic test sets — each note
+translated once with every gold span mapped to its exact wording in the English text — and all four
+JMED-LLM tasks). Mechanical validation: every English gold span must occur verbatim (case-insensitive) in the
+English text; all 838 passed, no item excluded. $4.11 at list prices. Prompts are literal English translations
+with identical rules and JSON schemas; scoring uses the same code with two English adaptations
+(case-insensitive span matching, closed vocabularies mapped to fixed English terms).
+`data/processed/eval_en/` (not committed; regenerable), results `results/metrics/scores_en_addendum.json`
+and `comparisons_en_addendum.json`; E1en predictions under `results/predictions/E1en_qwen3_8b/`. LoRA
+adapters were NOT trained or tested on English. Post hoc; not part of any pre-registered hypothesis.
+
+| Base Qwen3-8B | Japanese | English | EN − JA (paired, Holm p) |
+|---|---|---|---|
+| test_synth A (strict F1) | 0.951 | 0.938 | −0.013 (0.062, ns) |
+| test_synth B (macro-F1) | 0.622 | 0.563 | −0.059 (0.062, ns) |
+| test_synth C (field accuracy) | 0.906 | 0.879 | −0.027 (< 0.001) |
+| test_xgen A | 0.947 | 0.919 | −0.027 (< 0.001) |
+| test_xgen B | 0.335 | 0.287 | −0.048 (0.031) |
+| test_xgen C | 0.909 | 0.858 | −0.051 (< 0.001) |
+| MRNER-disease (strict F1, real reports) | 0.265 | 0.150 | −0.115 (< 0.001) |
+| MRNER-medicine (real reports) | 0.249 | 0.300 | +0.052 (0.319, ns) |
+| CRADE (real reports) | 0.500 | 0.450 | −0.050 (0.686, ns) |
+| RRTNM (real reports) | 0.800 | 0.770 | +0.030 (0.686, ns) |
+
+Reading: on the synthetic tasks English is slightly but consistently harder for the base model (significant
+on Task C and the cross-generator set). On real reports the picture splits: disease extraction drops sharply
+in English (−0.115) — the reports are Japanese case reports, so English necessarily loses exact clinical
+phrasing — while medication extraction and TNM staging are unchanged. Overall: the base model's Japanese
+advantage on these tasks is real but small, except where the source material itself is Japanese.

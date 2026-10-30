@@ -1,0 +1,140 @@
+{
+ "E1en_qwen3_8b__vs__E1_qwen3_8b": {
+  "test_synth": {
+   "A_entities": {
+    "diff": -0.01310680233444006,
+    "ci95": [
+     -0.02592789537970238,
+     -0.001034989694882153
+    ],
+    "p_bootstrap": 0.031,
+    "n_paired": 223,
+    "incomplete": false,
+    "p_holm": 0.062
+   },
+   "B_doctype": {
+    "diff": -0.058925305123050054,
+    "ci95": [
+     -0.11757316093713344,
+     -0.0013105512662455552
+    ],
+    "p_bootstrap": 0.0442,
+    "n_paired": 223,
+    "incomplete": false,
+    "mcnemar": {
+     "b": 11,
+     "c": 18,
+     "p_value": 0.26493089646101
+    },
+    "p_holm": 0.062
+   },
+   "C_structured": {
+    "diff": -0.027313493681206724,
+    "ci95": [
+     -0.03872808805544237,
+     -0.015491235222176991
+    ],
+    "p_bootstrap": 0.0,
+    "n_paired": 223,
+    "incomplete": false,
+    "p_holm": 0.0
+   }
+  },
+  "test_xgen": {
+   "A_entities": {
+    "diff": -0.02749962963495889,
+    "ci95": [
+     -0.03922500224104718,
+     -0.015946555024166434
+    ],
+    "p_bootstrap": 0.0,
+    "n_paired": 215,
+    "incomplete": false,
+    "p_holm": 0.0
+   },
+   "B_doctype": {
+    "diff": -0.048104905717343605,
+    "ci95": [
+     -0.09158055136979627,
+     -0.004578336206093607
+    ],
+    "p_bootstrap": 0.0308,
+    "n_paired": 215,
+    "incomplete": false,
+    "mcnemar": {
+     "b": 15,
+     "c": 18,
+     "p_value": 0.7283324808813632
+    },
+    "p_holm": 0.0308
+   },
+   "C_structured": {
+    "diff": -0.05116279069767449,
+    "ci95": [
+     -0.061310782241014716,
+     -0.04143763213530649
+    ],
+    "p_bootstrap": 0.0,
+    "n_paired": 215,
+    "incomplete": false,
+    "p_holm": 0.0
+   }
+  },
+  "test_ext": {
+   "ext_crade": {
+    "diff": -0.04999999999999999,
+    "ci95": [
+     -0.14000000000000007,
+     0.040000000000000036
+    ],
+    "p_bootstrap": 0.3428,
+    "n_paired": 100,
+    "incomplete": false,
+    "mcnemar": {
+     "b": 9,
+     "c": 14,
+     "p_value": 0.4048728942871094
+    },
+    "p_holm": 0.6856
+   },
+   "ext_mrner_disease": {
+    "diff": -0.11536883853340657,
+    "ci95": [
+     -0.16225244931326538,
+     -0.07164901087296016
+    ],
+    "p_bootstrap": 0.0,
+    "n_paired": 100,
+    "incomplete": false,
+    "p_holm": 0.0
+   },
+   "ext_mrner_medicine": {
+    "diff": 0.05173432806201905,
+    "ci95": [
+     -0.011389156163694285,
+     0.11438360899750881
+    ],
+    "p_bootstrap": 0.1064,
+    "n_paired": 100,
+    "incomplete": false,
+    "p_holm": 0.3192
+   },
+   "ext_rrtnm": {
+    "diff": 0.030000000000000027,
+    "ci95": [
+     -0.040000000000000036,
+     0.09999999999999998
+    ],
+    "p_bootstrap": 0.5026,
+    "n_paired": 100,
+    "incomplete": false,
+    "mcnemar": {
+     "b": 8,
+     "c": 5,
+     "p_value": 0.5810546875
+    },
+    "p_holm": 0.6856
+   }
+  }
+ }
+}
